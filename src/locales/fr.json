@@ -1,0 +1,182 @@
+{
+  "title": "Clément Desableau \n Ingénierie Informatique",
+
+  "coordinates": {
+    "name": "Clément Desableau",
+    "age": "{age} ans",
+    "nationality": "nationalité française",
+    "address": {
+      "street": "{number} {street}",
+      "city": "{postalCode} {city}",
+      "country": "{country}",
+      "full": "@:coordinates.address.street \n @:coordinates.address.city"
+    },
+    "phone": "{national}",
+    "linkedin": {
+      "name": "Clément Desableau",
+      "link": "https://www.linkedin.com/in/cl%C3%A9ment-desableau-92a411170/"
+    },
+    "github": {
+      "name": "clemdee",
+      "link": "https://github.com/clemdee"
+    }
+  },
+
+
+  "objective": {
+    "title": "Objective",
+    "content": "Ingénieur en informatique. J'adore apprendre. J'adore créer. À la recherche d'un travail en ingénierie logiciel."
+  },
+
+  "hobbies": {
+      "title": "Centres d'intérêt",
+      "content": "Violoncelliste à l'orchestre d'Orsay, bassiste dans un groupe de funk, composition musicale par ordinateur.\n\nProgrammation dans mon temps libre sur divers projets personnels : webapps javascript, extensions navigateur, ou encore ce CV 👀."
+  },
+
+  "languages": {
+    "title": "Langues",
+    "items": {
+      "fr": "Français",
+      "en": "Anglais",
+      "es": "Espagnol"
+    },
+    "levels": {
+      "motherTongue": "langue maternelle",
+      "fluent": "courant",
+      "intermediary": "intermédiaire"
+    }
+  },
+
+  "locations": {
+    "items": {
+      "primarySchool": {
+        "name": "École Primaire Ferdinand Buisson",
+        "location": "Montmorency, France"
+      },
+      "juniorHighschool": {
+        "name": "Collège Pierre de Ronsard",
+        "location": "Montmorency, France"
+      },
+      "highschool": {
+        "name": "Lycée Jean-Jacques Rousseau",
+        "location": "Montmorency, France"
+      },
+      "eisti": {
+        "name": "EISTI (École Internationnale des Sciences du Traitement de l'Information)",
+        "location": "Cergy, France"
+      },
+      "ets": {
+        "name": "ÉTS (École Technologic Supérieur)",
+        "location": "Montréal, Canada"
+      }
+    }
+  },
+
+  "education": {
+    "title": "Formation",
+    "items": {
+      "primarySchool": {
+        "title": "École Primaire",
+        "description": ""
+      },
+      "juniorHighschool": {
+        "title": "Collège",
+        "description": ""
+      },
+      "highschool": {
+        "title": "Lycée",
+        "description": "Baccalauréat Scientifique mention Très Bien, section Européenne"
+      },
+      "prepa": {
+        "title": "Cycle Préparatoire Intégré",
+        "description": "Prépa Intégrée, Équivalence L2 Mathématiques / Informatique"
+      },
+      "engineering": {
+        "title": "Cycle Ingénieur - Génie Informatique",
+        "description": "Troisième année cycle ingénieur Informatique. Spécialisation Cyber Security pour la dernière année"
+      },
+      "engineeringETS": {
+        "title": "Cycle Ingénieur",
+        "description": "Semestre à l'étranger"
+      }
+    }
+  },
+
+  "experience": {
+    "title": "Expérience",
+    "items": {
+      "eisti-TIPE": {
+        "title": "Réalisation d'une Intelligence Artificielle pour le jeu de plateau Quoridor",
+        "description": "Prise en main du logiciel Unity et du langage C#"
+      },
+      "eisti-turtle": {
+        "title": "Générateur de L-Systèmes en python",
+        "description": "Utilisation de la librairie python turtle, afin de générer des systèmes Lindenmayer à partir de fichiers de configuration. Il supporte les grammaires paramétriques, contextuelles, et stochastiques."
+      },
+      "eisti-bezier": {
+        "title": "Editeur de courbes de Bézier en python",
+        "description": "Utilisation de la librairie python tkinter, afin de créer une interface graphique permettant à l'utilisateur de dessiner des courbes de Bézier. Le programme supporte également d'autres courbes comme les splines, les b-splines et les nurbs."
+      },
+      "eisti-oh-hell": {
+        "title": "Implémentation du jeu de cartes de l'ascenseur",
+        "description": "Utilisation du langage de programmation Ocaml afin d'implémenter une version TUI du jeu de l'ascenseur"
+      },
+      "eisti-TSP": {
+        "title": "Approche du TSP (Traveling Salesman Problem)",
+        "description": "Implémentation de l'algorithme de Little, en langage Ocaml"
+      },
+      "eisti-LabVIEW": {
+        "title": "Création d'un synthétiseur avec LabVIEW",
+        "description": "Création d'un synthétiseur triple oscillateurs, à l'aide du langage de programmation visuelle LabVIEW. Il comporte également des effets tels que du délai, de la réverb, ou encore de la ring modulation."
+      },
+      "eisti-footbet": {
+        "title": "Développement d'un site de pari pour la coupe du monde de football 2018",
+        "description": "Projet sélectionné par l'école et hébergé sur ses serveurs durant l'évènement"
+      },
+      "eisti-vdsa": {
+        "title": "Développement d'un tableau de bord pour une entreprise",
+        "description": "Projet d'école en langage web répondant aux besoins réels de l'entreprise VDSA"
+      },
+      "eistikathon-1": {
+        "title": "Équipe gagnante de l'EISTIKATHON, hackathon organisé par CAPFI et l'EISTI",
+        "description": "Développement pendant 24h d'une application d'accessibilité pour personnes à situation de handicap"
+      },
+      "eisti-internship-ing1": {
+        "title": "Premier stage de programmation à XWikiSAS",
+        "description": "Developpement sur le logiciel Open Source CryptPad: rajout de nouvelles fonctionnalités, fixer les bugs existants, amélioreration de l'ergonomie"
+      },
+      "eistikathon-2": {
+        "title": "Participation à la seconde édition de l'EISTIKATHON, hackathon organisé par CAPFI et l'EISTI",
+        "description": "Development pendant 24h d'un application de report d'incidents, permettant de suivre l'avancement de l'intervention"
+      },
+      "eisti-internship-ing2": {
+        "title": "Second stage de programmation à XWikiSAS",
+        "description": "Implémentation d'un composant d'aggrégation et de présentation de donneés en temps réel sur le logiciel Open Source XWiki"
+      },
+      "eisti-alternance": {
+        "title": "Contrat de professionalisation à XWikiSAS",
+        "description": "Poursuite du développement du composant d'aggrégation de données en temps réél du stage précédent. Aussi, si besoin, aide à la customisation du produit selon la demande des clients."
+      },
+      "google-hash-code-2021": {
+        "title": "Participation au hackathon Google Hash Code de 2021",
+        "description": "Notre équipe \"from random import *\" s'est positionnée 559ème !"
+      },
+      "xwiki-cdi": {
+        "title": "CDI Ingénieur Recherche et Development à XWikiSAS",
+        "description": "Travail dans l'équipe Client, customisant le logiciel afin de répondre aux besoins clients. Aussi, réalisation de patchs pour le logiciel principal, et documentation de processus quand nécessaire."
+      }
+    }
+  },
+
+  "skills": {
+    "title": "Compétences",
+
+    "os": {
+      "title": "Systèmes d'exploitations"
+    },
+
+    "softwares": {
+      "title": "Logiciels"
+    }
+  }
+}

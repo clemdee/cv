@@ -1,0 +1,181 @@
+{
+  "title": "Clément Desableau \n Ingeniero en informática",
+
+  "coordinates": {
+    "name": "Clément Desableau",
+    "age": "{age} años",
+    "nationality": "Francés",
+    "address": {
+      "street": "{number} {street}",
+      "city": "{postalCode} {city}",
+      "country": "{country}",
+      "full": "@:coordinates.address.street \n @:coordinates.address.city \n @:coordinates.address.country"
+    },
+    "phone": "{international}",
+    "linkedin": {
+      "name": "Clément Desableau",
+      "link": "https://www.linkedin.com/in/cl%C3%A9ment-desableau-92a411170/"
+    },
+    "github": {
+      "name": "clemdee",
+      "link": "https://github.com/clemdee"
+    }
+  },
+
+  "objective": {
+    "title": "Meta",
+    "content": "Ingeniero francés de informática. Me encanta crear. Me encanta aprender. Busca trabajo en ingeniería de software"
+  },
+
+  "hobbies": {
+      "title": "Ocios",
+      "content": "Violonchelista en la orquesta de Orsay, bajista en un grupo de funk, composición de música por ordenador.\n\nProgramo en mi tiempo libre en varios proyectos personales: javascript webapps, extensiones de navegador, o este CV 👀."
+  },
+
+  "languages": {
+    "title": "Idiomas",
+    "items": {
+      "fr": "Frances",
+      "en": "Inglés",
+      "es": "Español"
+    },
+    "levels": {
+      "motherTongue": "lingua materna",
+      "fluent": "bilingüe",
+      "intermediary": "intermedio"
+    }
+  },
+
+  "locations": {
+    "items": {
+      "primarySchool": {
+        "name": "Escuela Primaria Ferdinand Buisson",
+        "location": "Montmorency, France"
+      },
+      "juniorHighschool": {
+        "name": "Escuela Secundaria de Ronsard",
+        "location": "Montmorency, France"
+      },
+      "highschool": {
+        "name": "Escuela Secundaria Jean-Jacques Rousseau",
+        "location": "Montmorency, France"
+      },
+      "eisti": {
+        "name": "EISTI (Escuela Internacional de Ciencias de Tratamiento de la Información)",
+        "location": "Cergy, France"
+      },
+      "ets": {
+        "name": "ÉTS (Escuela Tecnológica Superior)",
+        "location": "Montréal, Canada"
+      }
+    }
+  },
+
+  "education": {
+    "title": "Formación",
+    "items": {
+      "primarySchool": {
+        "title": "Escuela Primaria",
+        "description": ""
+      },
+      "juniorHighschool": {
+        "title": "Escuela Secundaria",
+        "description": ""
+      },
+      "highschool": {
+        "title": "Escuela Secundaria",
+        "description": "Bachillerato Científico con mencion Muy Bien, Sección europea"
+      },
+      "prepa": {
+        "title": "Clase preparatoria integrada",
+        "description": "Clase preparatoria integrada equivalente a dos años universitarios"
+      },
+      "engineering": {
+        "title": "Ciclo Ingeniero en informática",
+        "description": "Tercero año, ciclo ingeniero en informática. Especialización en ciberseguridad durante el último año"
+      },
+      "engineeringETS": {
+        "title": "Ciclo Ingeniero",
+        "description": "Semestre en el extranjero"
+      }
+    }
+  },
+
+  "experience": {
+    "title": "Experiencia y Proyectos",
+    "items": {
+      "eisti-TIPE": {
+        "title": "TIPE - Realización de una Inteligencia Artificial para el juego de mesa Quoridor",
+        "description": "Comenzando con el lenguaje C# y el software Unity"
+      },
+      "eisti-turtle": {
+        "title": "Generador de sistema-L en python",
+        "description": "Utilización de la biblioteca python turtle para generar sistemas de Lindenmayer a partir de archivos de configuración. Admite gramáticas paramétricas, sensibles al contexto y estocásticas."
+      },
+      "eisti-bezier": {
+        "title": "Editor de curvas Bezier en python",
+        "description": "Uso de la librería python tkinter para crear una interfaz gráfica que permita al usuario dibujar curvas bezier. También soporta otras curvas como splines, b-splines y nurbs"
+      },
+      "eisti-oh-hell": {
+        "title": "Implementación del juego de cartas Oh Hell",
+        "description": "Uso del lenguaje de programación Ocaml para implementar una versión TUI del juego de cartas Oh Hell"
+      },
+      "eisti-TSP": {
+        "title": "Enfoque del TSP (Traveling Salesman Problem)",
+        "description": "Implementación del Algoritmo Little, con el lenguaje de programación Ocaml"
+      },
+      "eisti-LabVIEW": {
+        "title": "Creación de un sintetizador con LabVIEW",
+        "description": "Creación de un sintetizador de triple oscilador utilizando el lenguaje de programación visual LabVIEW. También cuenta con efectos como retardo, reverberación o ring modulation"
+      },
+      "eisti-footbet": {
+        "title": "Desarrollo de un sitio de apuestas para la Copa Mundial de la FIFA 2018",
+        "description": "Sitio seleccionado por la escuela y alojado en sus servidores durante el evento"
+      },
+      "eisti-vdsa": {
+        "title": "Desarrollo de un salpicadero para una empresa",
+        "description": "Proyecto escolar en lenguaje web que responde a las necesidades reales de la empresa VDSA"
+      },
+      "eistikathon-1": {
+        "title": "Equipo ganador del hackathon organizado por CAPFI y EISTI",
+        "description": "Desarrollo para 24 horas de una aplicación de accesibilidad para personas con discapacidades"
+      },
+      "eisti-internship-ing1": {
+        "title": "Primera práctica de programación en XWikiSAS",
+        "description": "Desarrollo en el software de código abierto CryptPad, incluyendo la adición de nuevas funciones, la corrección de errores y la mejora de la ergonomía"
+      },
+      "eistikathon-2": {
+        "title": "Participación en la segunda edición del EISTIKATHON, hackathon organizado por CAPFI y EISTI",
+        "description": "Desarrollo de una aplicación para la notificación de incidentes, y seguimiento de la intervención"
+      },
+      "eisti-internship-ing2": {
+        "title": "Segunda práctica de programación en XWikiSAS",
+        "description": "Implementación de un componente agregador de datos en tiempo real en el software de código abierto XWiki"
+      },
+      "eisti-alternance": {
+        "title": "Estudiante de trabajo en XWikiSAS",
+        "description": "Continuación del desarrollo del componente agregador de datos en tiempo real de las prácticas anteriores. También ayudando a personalizar el producto para satisfacer las necesidades de los clientes cuando sea necesario."
+      },
+      "google-hash-code-2021": {
+        "title": "Participación en el hackathon Google Hash Code 2021",
+        "description": "¡ Nuestro equipo \"from random import *\" se clasificó en el puesto 559 !"
+      },
+      "xwiki-cdi": {
+        "title": "Ingeniero de Investigación y Desarrollo en XWikiSAS",
+        "description": "Trabajar en el equipo Clientes, personalizando el software para satisfacer las necesidades de los clientes. Realizar parches para el software principal y documentar los procesos cuando sea necesario."
+      }
+    }
+  },
+
+  "skills": {
+    "title": "Conocimientos",
+
+    "os": {
+      "title": "Sistema de operaciones"
+    },
+
+    "softwares": {
+      "title": "Software"
+    }
+  }
+}

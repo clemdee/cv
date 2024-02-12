@@ -1,0 +1,215 @@
+{
+  "title": "Clément Desableau \n IT Engineer",
+
+  "coordinates": {
+    "name": "Clément Desableau",
+    "age": "{age} years old",
+    "nationality": "French",
+    "address": {
+      "street": "{number} {street}",
+      "city": "{postalCode} {city}",
+      "country": "{country}",
+      "full": "@:coordinates.address.street \n @:coordinates.address.city \n @:coordinates.address.country"
+    },
+    "phone": "{international}",
+    "linkedin": {
+      "name": "Clément Desableau",
+      "link": "https://www.linkedin.com/in/cl%C3%A9ment-desableau-92a411170/"
+    },
+    "github": {
+      "name": "clemdee",
+      "link": "https://github.com/clemdee"
+    }
+  },
+
+  "objective": {
+    "title": "Objective",
+    "content": "French engineer in computer science. I love to create. I love to learn. Looking for a job in software engineering."
+  },
+
+  "hobbies": {
+    "title": "Hobbies",
+    "content": "Cellist in the Orsay orchestra, bassist in a funk band, computer music composition.\n\nProgramming in my spare time on various personal projects, like javascript webapps, browser extensions, or this very CV 👀."
+  },
+
+  "languages": {
+    "title": "Languages",
+    "items": {
+      "fr": "French",
+      "en": "English",
+      "es": "Spanish"
+    },
+    "levels": {
+      "motherTongue": "mother tongue",
+      "fluent": "fluent",
+      "intermediary": "intermediary"
+    }
+  },
+
+
+  "locations": {
+    "items": {
+      "primarySchool": {
+        "name": "Ferdinand Buisson Primary School",
+        "location": "Montmorency, France"
+      },
+      "juniorHighschool": {
+        "name": "Pierre de Ronsard Junior Highschool",
+        "location": "Montmorency, France"
+      },
+      "highschool": {
+        "name": "Jean-Jacques Rousseau highschool",
+        "location": "Montmorency, France"
+      },
+      "eisti": {
+        "name": "EISTI (Graduate School in Computer Science and Mathematics Engineering)",
+        "location": "Cergy, France"
+      },
+      "ets": {
+        "name": "ÉTS",
+        "location": "Montréal, Canada"
+      }
+    }
+  },
+
+  "education": {
+    "title": "Education",
+    "items": {
+      "primarySchool": {
+        "title": "Primary School",
+        "description": ""
+      },
+      "juniorHighschool": {
+        "title": "Junior Highschool",
+        "description": ""
+      },
+      "highschool": {
+        "title": "Highschool",
+        "description": "Baccalauréat (equivalent to A levels) in Sciences with highest honours, european section"
+      },
+      "prepa": {
+        "title": "Prepa",
+        "description": "Two-years post secondary programme in preparation for nation-wide competitive entrance exams to french engineering"
+      },
+      "engineering": {
+        "title": "Engineering School",
+        "description": "Three years in Engineering school in Computer and Information Sciences. Specialized in Cyber Security for last year"
+      },
+      "engineeringETS": {
+        "title": "Engineering School",
+        "description": "Semester abroad"
+      }
+    }
+  },
+
+  "experience": {
+    "title": "Experience",
+    "items": {
+      "eisti-TIPE": {
+        "title": "TIPE - Making an AI for the board game Quoridor",
+        "description": "Use of C# language and Unity Game Engine"
+      },
+      "eisti-turtle": {
+        "title": "L-system generator in python",
+        "description": "Use of the turtle python library in order to generate Lindenmayer systems from configuration files. It supports parametric, context sensitive, and stochastic grammars"
+      },
+      "eisti-bezier": {
+        "title": "Bezier curves editor in python",
+        "description": "Use of the tkinter python library in order to create a GUI allowing user to draw bezier curves. It also supports other curves like splines, b-splines and nurbs"
+      },
+      "eisti-oh-hell": {
+        "title": "Implementation of the Oh Hell card game",
+        "description": "Use of the Ocaml programming language to implement a TUI version of the Oh Hell card game"
+      },
+      "eisti-TSP": {
+        "title": "Approach of the TSP (Traveling Salesman Problem)",
+        "description": "Implementation of the Little Algorithm, using the Ocaml programming  language"
+      },
+      "eisti-LabVIEW": {
+        "title": "Creation of a synthesizer in LabVIEW",
+        "description": "Creation of a triple oscillator synthesizer using the LabVIEW visual programming language. It also features effects like delay, reverb, or ring modulation"
+      },
+      "eisti-footbet": {
+        "title": "Development of a website to bet for the football world cup 2018",
+        "description": "Website selected by school among other projects, and hosted on its servers during the event"
+      },
+      "eisti-vdsa": {
+        "title": "Development of a dashboard to monitor sells",
+        "description": "Use of web technologies to implement a dashboard, meeting the real needs of the VDSA enterprise"
+      },
+      "eistikathon-1": {
+        "title": "Winning team of the EISTIKATHON, a hackathon organized by CAPFI and EISTI",
+        "description": "24-H hackathon where 5 teams develop an accessibility application to help people with a handicap"
+      },
+      "eisti-internship-ing1": {
+        "title": "First programmation internship at XWikiSAS",
+        "description": "Development on the Open Source software CryptPad, including adding new features, bug fixing, improving user experience"
+      },
+      "eistikathon-2": {
+        "title": "Participation of the second edition of the EISTIKATHON, hackathon organized by CAPFI and EISTI",
+        "description": "Development of an application for reporting incidents, and keep track of the intervention"
+      },
+      "eisti-internship-ing2": {
+        "title": "Second programmation internship at XWikiSAS",
+        "description": "Implementing a real-time data aggregator component on the Open Source software XWiki"
+      },
+      "eisti-alternance": {
+        "title": "Work-student at XWikiSAS",
+        "description": "Continuing the development of the real-time data aggregator component from previous internship. Also helping to customize the product to meet clients needs when needed."
+      },
+      "google-hash-code-2021": {
+        "title": "Participation at the 2021 Google Hash Code hackathon",
+        "description": "Our \"from random import *\" team ranked 559th!"
+      },
+      "xwiki-cdi": {
+        "title": "Research and Development Engineer at XWikiSAS",
+        "description": "Working in Client Team, customizing software to meet client needs. Making patches for the main software, and documenting processes when needed."
+      }
+    }
+  },
+
+  "skills": {
+    "title": "Skills",
+    "items": {
+      "html": "HTML 5",
+      "css": "CSS 3",
+      "javascript": "Javascript",
+      "typescript": "Typescript",
+      "responsiveDesign": "Responsive Design",
+      "jQuery": "JQuery",
+      "bootstrap": "Bootstrap",
+      "vue": "Vue",
+      "angular": "Angular",
+      "nodejs": "Node",
+      "php": "PHP",
+      "jee": "JEE",
+      "mysql": "MySQL",
+      "oracleSql": "Oracle SQL",
+      "c": "C",
+      "cpp": "C++",
+      "csharp": "C#",
+      "java": "Java",
+      "python": "Python",
+      "ocaml": "Ocaml",
+      "sh": "POSIX Shell"
+    },
+    "os": {
+      "title": "Operating Systems",
+      "items": {
+        "windows": "Windows (Windows 10, 11)",
+        "linux": "Linux (Debian, Ubuntu)"
+      }
+    },
+    "softwares": {
+      "title": "Softwares",
+      "items": {
+        "git": "Git",
+        "vim": "Vim",
+        "vscode": "VSCode",
+        "eclipse": "Eclipse",
+        "msOffice": "Microsoft Office",
+        "libreOffice": "Libre Office"
+      }
+    }
+  }
+}
