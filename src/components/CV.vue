@@ -3,6 +3,7 @@
     <div class="cv-wrapper">
       <CVAside />
       <CVContent />
+      <CVItemPanel />
       <OptionsLocale />
     </div>
   </div>
@@ -12,6 +13,7 @@
 import CVAside from '~/components/CVAside.vue';
 import CVContent from '~/components/CVContent.vue';
 import OptionsLocale from './OptionsLocale.vue';
+import CVItemPanel from './CVItemPanel.vue';
 </script>
 
 <style lang="scss" scoped>
