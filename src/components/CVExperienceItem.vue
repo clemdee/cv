@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { Experience } from '~/stores/data';
+import type { JSONExperience } from '~/stores/data';
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useData } from '~/stores/data';
@@ -39,7 +39,7 @@ const data = useData();
 const config = useConfig();
 
 const props = defineProps<{
-  experience: Experience,
+  experience: JSONExperience,
 }>();
 
 const isVisible = computed(() =>

@@ -1,12 +1,12 @@
-import type { Data } from '.';
+import type { JSONData } from '.';
 
 export default {
   profile: {
     name: "Clément Desableau",
     birthdate: {
       year: 1998,
-      month: 1,
-      day: 1,
+      month: 5,
+      day: 25,
     },
     nationality: "fr",
     address: {
@@ -71,7 +71,7 @@ export default {
         to: "2013-07",
       },
       location: "juniorHighschool",
-      diploma: true,
+      certifications: ["brevet"],
     },
     {
       id: "highschool",
@@ -80,7 +80,7 @@ export default {
         to: "2016-07",
       },
       location: "highschool",
-      diploma: true,
+      certifications: ["baccalaureat"],
     },
     {
       id: "prepa",
@@ -97,7 +97,7 @@ export default {
         to: "2021-07",
       },
       location: "eisti",
-      diploma: true,
+      certifications: ["engineering"],
     },
     {
       id: "engineeringETS",
@@ -573,4 +573,4 @@ export default {
       },
     ],
   }
-} as const satisfies Data;
+} as const satisfies JSONData;

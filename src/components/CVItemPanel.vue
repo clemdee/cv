@@ -37,13 +37,13 @@
 
 <script lang="ts">
 import { Icon } from '@iconify/vue';
-import type { Education } from '~/stores/data';
+import type { JSONEducation } from '~/stores/data';
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
 export const usePanel = defineStore('panel', () => {
 
-  type Item = Education;
+  type Item = JSONEducation;
 
   const item = ref<Item>();
   const visible = ref(true);

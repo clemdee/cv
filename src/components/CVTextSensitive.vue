@@ -50,8 +50,8 @@ const text = computed(() => {
   overflow: hidden;
   border-radius: 0.5rem;
 
-  .placeholder > * {
-    filter: blur(8px);
+  &.placeholder > * {
+    filter: blur(0.2rem);
   }
 }
 </style>

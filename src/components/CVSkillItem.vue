@@ -32,7 +32,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { Skill } from '~/stores/data';
+import type { JSONSkill } from '~/stores/data';
 import { ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useConfig } from '~/stores/config';
@@ -44,7 +44,7 @@ import GlintWrapper from '~/components/GlintWrapper.vue';
 const config = useConfig();
 
 const props = defineProps<{
-  skill: Skill,
+  skill: JSONSkill,
 }>();
 
 const { t } = useI18n();

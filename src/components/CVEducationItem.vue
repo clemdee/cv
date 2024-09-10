@@ -7,7 +7,7 @@
     <template #left>
       <div class="title">
         <Icon
-          v-if="education.diploma"
+          v-if="education.certification"
           icon="mdi:school-outline"
           title="diplome"
         />
@@ -39,7 +39,7 @@
 
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue';
-import type { Education } from '~/stores/data';
+import type { JSONEducation } from '~/stores/data';
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useData } from '~/stores/data';
@@ -53,7 +53,7 @@ const data = useData();
 const config = useConfig();
 
 const props = defineProps<{
-  education: Education,
+  education: JSONEducation,
 }>();
 
 const isVisible = computed(() =>
