@@ -4,8 +4,8 @@
       <CVAside />
       <CVContent />
       <CVItemPanel />
-      <OptionsLocale />
     </div>
+    <OptionsLocale />
   </div>
 </template>
 

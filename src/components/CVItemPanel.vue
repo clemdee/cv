@@ -1,5 +1,11 @@
 <template>
-  <aside class="item-panel">
+  <aside
+    class="item-panel"
+    :class="{
+      visible: panel.visible,
+    }"
+    v-on-click-outside="panel.hide"
+  >
     <hgroup>
       <h1>
         <CVText :text="t(`education.items.${item.id}.title`)" />
@@ -73,10 +79,12 @@ import { computed, onMounted, readonly, watch } from 'vue';
 import { useData } from '~/stores/data';
 import { useI18n } from 'vue-i18n';
 import CVText from '~/components/CVText.vue';
+import { vOnClickOutside } from '@vueuse/components';
 
 const { t } = useI18n();
 
 const data = useData();
+const panel = usePanel();
 
 const item = computed(() => {
   return data.education[4];
@@ -109,6 +117,7 @@ onMounted( () => {
   position: fixed;
   inset-block: 0rem;
   inset-inline-end: 0rem;
+  translate: 100% 0rem;
 
   display: flex;
   flex-direction: column;
@@ -122,6 +131,12 @@ onMounted( () => {
 
   color: var(--colorscheme-content-text);
   background-color: var(--colorscheme-content-background);
+
+  transition: translate 200ms ease;
+
+  &.visible {
+    translate: 0rem 0rem;
+  }
 
   @media print {
     display: none;
