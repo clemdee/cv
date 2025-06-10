@@ -5,13 +5,22 @@
     <div class="items">
       <div class="item">
         <Icon icon="mdi:user" />
-        <CVText :text="t('coordinates.age', { age }) + ', ' + t('coordinates.nationality')" />
+        <div>
+          <CVText :text="t('coordinates.age', { age }) + ', ' + t('coordinates.nationality')" />
+          <template v-if="t('coordinates.pronouns')">
+            <br />
+            <CVText
+              class="pronouns"
+              :text="t('coordinates.pronouns', '')"
+            />
+          </template>
+        </div>
       </div>
 
       <div class="item">
         <Icon icon="mdi:map-marker" />
         <CVTextSensitive
-          :text="t('coordinates.address.full', data.profile.address)"
+          :text="t('coordinates.address.full', data.profile.address).trim()"
           :placeholder="`01 name of the street\n01234 region\ncountry`"
         />
       </div>
@@ -27,7 +36,7 @@
       </div>
 
       <div class="item">
-        <Icon icon="mdi:phone" horizontalFlip />
+        <Icon icon="mdi:phone" />
         <a :href="`tel:${data.profile.phone}`">
           <CVTextSensitive
             :text="t('coordinates.phone', phone)"
@@ -100,16 +109,33 @@ const age = computed(() => {
   }
 
   .items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-items: stretch;
+    gap: 0.5rem;
+
     .item {
       display: flex;
       align-items: flex-start;
+      line-height: 1rem;
 
       svg {
-        width: 1.5rem;
-        margin-top: 0.3rem;
+        width: 1rem;
+        margin-top: 0.15rem;
+        margin-left: 0.15rem;
+        margin-right: 0.5rem;
         color: var(--colorscheme-secondary);
       }
     }
+  }
+
+  .pronouns {
+    font-size: 0.8em;
+    font-style: italic;
+    vertical-align: top;
+    filter: brightness(0.9);
+
   }
 }
 

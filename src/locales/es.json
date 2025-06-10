@@ -3,6 +3,7 @@
 
   "coordinates": {
     "name": "Clément Desableau",
+    "pronouns": "(they/them)",
     "age": "{age} años",
     "nationality": "Francés",
     "address": {
@@ -42,7 +43,8 @@
     "levels": {
       "motherTongue": "lingua materna",
       "fluent": "bilingüe",
-      "intermediary": "intermedio"
+      "intermediary": "intermedio",
+      "beginner": "principiante"
     }
   },
 

@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import data from './data';
+import dataJSON from './data';
 import { useI18n } from 'vue-i18n';
 import { reactiveComputed } from '@vueuse/core'
 import { watchEffect } from 'vue';
@@ -30,6 +30,7 @@ export type JSONSkill = {
 };
 
 export type Skill = {
+  type: 'skill',
   id: string,
   title: string,
   level: Percentage,
@@ -50,6 +51,7 @@ export type JSONEducation = {
 };
 
 export type Education = {
+  type: 'education',
   id: string,
   title: string,
   description: string,
@@ -67,6 +69,7 @@ export type JSONExperience = {
 };
 
 export type Experience = {
+  type: 'experience',
   id: string,
   title: string,
   description: string,
@@ -106,7 +109,7 @@ export type Data = {
   skills: Skills,
 }
 
-export type DataConst = typeof data;
+export type DataConst = typeof dataJSON;
 
 export const useData = defineStore('data', () => {
 
@@ -140,7 +143,7 @@ export const useData = defineStore('data', () => {
   const locationsMap = new Map<string, Location>();
   const getLocation = (id?: string) => {
     if (!id) return undefined;
-    const insert = () => resolveLocation(find(data.locations, id));
+    const insert = () => resolveLocation(find(dataJSON.locations, id));
     return emplace(locationsMap, id, insert)
   }
 
@@ -159,28 +162,46 @@ export const useData = defineStore('data', () => {
 
   const getCertifications = (ids?: string[]) => getList(ids, getCertification);
 
+  const createSkill = (id: string): Skill => reactiveComputed<Skill>(() => ({
+    type: 'skill',
+    id,
+    title: id,
+    level: 0,
+    tags: [],
+  }));
+
   const resolveSkill = (skill: JSONSkill): Skill => reactiveComputed<Skill>(() => ({
+    type: 'skill',
     id: skill.id,
-    title: t(`skills.items.${skill.id}`),
+    title: t(`languages.items.${skill.id}`),
     level: skill.level,
     tags: skill.tags,
   }));
 
   const skillsMap = new Map<string, Skill>();
   const getSkill = (id?: string) => {
+    console.log('id', id);
     if (!id) return undefined;
-    const insert = () => resolveSkill(find([
-      ...data.skills.languages,
-      ...data.skills.os,
-      ...data.skills.programmingLanguages,
-      ...data.skills.softwares,
-    ], id));
+    const insert = () => {
+      const skill = find<Skill>([
+        ...dataJSON.skills.languages,
+        ...dataJSON.skills.os,
+        ...dataJSON.skills.programmingLanguages,
+        ...dataJSON.skills.softwares,
+      ], id);
+      if (!skill) {
+        console.warn(`skill "${id}" not found and has to be created`)
+        return createSkill(id);
+      }
+      return skill
+    }
     return emplace(skillsMap, id, insert)
   };
 
   const getSkills = (ids?: string[]) => getList(ids, getSkill);
 
   const resolveEducation = (education: JSONEducation): Education => reactiveComputed<Education>(() => ({
+    type: 'education',
     id: education.id,
     date: education.date,
     description: t(`education.items.${education.id}.description`),
@@ -192,11 +213,12 @@ export const useData = defineStore('data', () => {
   const educationMap = new Map<string, Education>();
   const getEducation = (id?: string) => {
     if (!id) return undefined;
-    const insert = () => resolveEducation(find(data.education, id));
+    const insert = () => resolveEducation(find(dataJSON.education, id));
     return emplace(educationMap, id, insert)
   };
 
   const resolveExperience = (experience: JSONExperience): Experience => reactiveComputed<Experience>(() => ({
+    type: 'experience',
     id: experience.id,
     date: experience.date,
     description: t(`experience.items.${experience.id}.description`),
@@ -209,24 +231,24 @@ export const useData = defineStore('data', () => {
   const experienceMap = new Map<string, Experience>();
   const getExperience = (id?: string) => {
     if (!id) return undefined;
-    const insert = () => resolveExperience(find(data.experience, id));
+    const insert = () => resolveExperience(find(dataJSON.experience, id));
     return emplace(experienceMap, id, insert)
   };
 
-  const dataTest: Data = reactiveComputed<Data>(() => ({
-    profile: data.profile,
-    locations: data.locations.map(location => resolveLocation(location)),
-    education: data.education.map(education => resolveEducation(education)),
-    experience: data.experience.map(experience => resolveExperience(experience)),
+  const data: Data = reactiveComputed<Data>(() => ({
+    profile: dataJSON.profile,
+    locations: dataJSON.locations.map(location => resolveLocation(location)),
+    education: dataJSON.education.map(education => resolveEducation(education)),
+    experience: dataJSON.experience.map(experience => resolveExperience(experience)),
     skills: {
-      languages: data.skills.languages.map(skill => resolveSkill(skill)),
-      os: data.skills.os.map(skill => resolveSkill(skill)),
-      programmingLanguages: data.skills.programmingLanguages.map(skill => resolveSkill(skill)),
-      softwares: data.skills.softwares.map(skill => resolveSkill(skill)),
+      languages: dataJSON.skills.languages.map(skill => resolveSkill(skill)),
+      os: dataJSON.skills.os.map(skill => resolveSkill(skill)),
+      programmingLanguages: dataJSON.skills.programmingLanguages.map(skill => resolveSkill(skill)),
+      softwares: dataJSON.skills.softwares.map(skill => resolveSkill(skill)),
     }
   }));
 
-  watchEffect(() => console.log('ATTENTION', dataTest));
+  watchEffect(() => console.log('ATTENTION', data));
 
-  return data as JSONData;
+  return data;
 });

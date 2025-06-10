@@ -29,15 +29,13 @@ const levels = ref({
   motherTongue: 1,
   fluent: 0.8,
   intermediary: 0.5,
-  beginnner: 0,
+  beginner: 0,
 });
 
 const { t } = useI18n();
 const displayedLanguages = computed(() => {
   // For each language
   return data.skills.languages.map(language => {
-    // Get name translation
-    const languageName = t(`languages.items.${language.id}`);
     // Find appropriate level and get its translation
     const languageLevel = computed(() => {
       const languageLevelKey = Object.entries(levels.value)
@@ -46,7 +44,7 @@ const displayedLanguages = computed(() => {
       return t(`languages.levels.${ languageLevelKey }`);
     });
     // Return full text translated
-    return `${languageName} (${languageLevel.value})`;
+    return `${language.title} (${languageLevel.value})`;
   });
 });
 </script>

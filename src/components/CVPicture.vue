@@ -1,7 +1,7 @@
 <template>
   <div class="cv-picture">
     <img
-      src="../stores/profiles/profile-light.jpg"
+      src="../stores/profiles/profile_light.jpg"
       alt="Profile Picture"
     />
   </div>

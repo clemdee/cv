@@ -3,15 +3,16 @@
     class="cv-education-item"
     :anchor-id="`education-${education.id}`"
     :visible="isVisible"
+    @click="panel.set(education)"
   >
     <template #left>
       <div class="title">
         <Icon
-          v-if="education.certification"
+          v-if="education.certifications.length > 0"
           icon="mdi:school-outline"
           title="diplome"
         />
-        <CVText :text="t(`education.items.${education.id}.title`)" />
+        <CVText :text="props.education.title" />
       </div>
 
       <div class="date">
@@ -24,14 +25,14 @@
     <template #right>
       <div class="location">
         <Icon icon="mdi:home-city-outline" />
-        <CVText :text="t(`locations.items.${location?.id}.name`)" />
+        <CVText :text="props.education.location?.name" />
         <br/>
         <Icon icon="mdi:map-marker-outline" />
-        <CVText :text="t(`locations.items.${location?.id}.location`)" />
+        <CVText :text="props.education.location?.location" />
       </div>
 
       <div class="details">
-        <CVText :text="t(`education.items.${education.id}.description`)" />
+        <CVText :text="props.education.description" />
       </div>
     </template>
   </CVBaseItem>
@@ -39,29 +40,25 @@
 
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue';
-import type { JSONEducation } from '~/stores/data';
+import type { Education } from '~/stores/data';
 import { computed } from 'vue';
-import { useI18n } from 'vue-i18n';
-import { useData } from '~/stores/data';
 import { useConfig } from '~/stores/config';
+import { usePanel } from './CVItemPanel.vue';
 
 import CVText from '~/components/CVText.vue';
 import CVBaseItem from '~/components/CVBaseItem.vue';
 
-const { t } = useI18n();
-const data = useData();
 const config = useConfig();
+const panel = usePanel();
 
 const props = defineProps<{
-  education: JSONEducation,
+  education: Education,
 }>();
 
 const isVisible = computed(() =>
   !config.education?.show?.id
   || config.education.show.id.includes(props.education.id)
 );
-
-const location = computed(() => data.locations.find(location => location.id === props.education.location));
 </script>
 
 <style lang="scss" scoped>

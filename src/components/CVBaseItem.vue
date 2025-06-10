@@ -85,7 +85,7 @@ const updateScrollHeight = (el: HTMLElement) => {
 .cv-base-item {
   font-size: 0.8rem;
   break-inside: avoid;
-  backface-visibility: hidden; /* For hardware acceleration */
+  backface-visibility: hidden; /* For animation hardware acceleration */
 
   .grid-layout {
     position: relative;
@@ -96,6 +96,7 @@ const updateScrollHeight = (el: HTMLElement) => {
 
     padding: 0.5rem;
     border-radius: 0.5rem;
+    cursor: pointer;
 
     &:hover {
       box-shadow:
@@ -161,6 +162,10 @@ const updateScrollHeight = (el: HTMLElement) => {
       pointer-events: none;
       user-select: none;
     }
+  }
+
+  .iconify {
+    margin-bottom: -0.075rem;
   }
 }
 </style>

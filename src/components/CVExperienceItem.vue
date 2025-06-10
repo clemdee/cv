@@ -3,6 +3,7 @@
     class="cv-experience-item"
     :anchor-id="`experience-${experience.id}`"
     :visible="isVisible"
+    @click="panel.set(experience)"
   >
     <template #left>
       <div class="date">
@@ -14,10 +15,10 @@
 
     <template #right>
       <div class="title">
-        <CVText :text="t(`experience.items.${experience.id}.title`)" />
+        <CVText :text="experience.title" />
       </div>
       <div class="details">
-        <CVText :text="t(`experience.items.${experience.id}.description`)" />
+        <CVText :text="experience.description" />
       </div>
     </template>
 
@@ -25,29 +26,25 @@
 </template>
 
 <script lang="ts" setup>
-import type { JSONExperience } from '~/stores/data';
+import type { Experience } from '~/stores/data';
 import { computed } from 'vue';
-import { useI18n } from 'vue-i18n';
-import { useData } from '~/stores/data';
 import { useConfig } from '~/stores/config';
+import { usePanel } from './CVItemPanel.vue';
 
 import CVText from '~/components/CVText.vue';
 import CVBaseItem from '~/components/CVBaseItem.vue';
 
-const { t } = useI18n();
-const data = useData();
 const config = useConfig();
+const panel = usePanel();
 
 const props = defineProps<{
-  experience: JSONExperience,
+  experience: Experience,
 }>();
 
 const isVisible = computed(() =>
   !config.experience?.show?.id
   || config.experience.show.id.includes(props.experience.id)
 );
-
-const location = computed(() => data.locations.find(location => location.id === props.experience.location));
 </script>
 
 <style lang="scss" scoped>

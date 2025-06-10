@@ -8,27 +8,27 @@
   >
     <hgroup>
       <h1>
-        <CVText :text="t(`education.items.${item.id}.title`)" />
+        <CVText :text="item?.title" />
       </h1>
       <p>
-        <CVText :text="t('education.title')" />
+        <CVText :text="t(`${item?.type}.title`)" />
       </p>
     </hgroup>
 
     <div>
-      <CVText :text="t(`education.items.${item.id}.description`)" />
+      <CVText :text="item?.description" />
     </div>
 
     <div class="location">
       <Icon icon="mdi:home-city-outline" />
-      <CVText :text="t(`locations.items.${location?.id}.name`)" />
+      <CVText :text="item?.location?.name" />
       <br/>
       <Icon icon="mdi:map-marker-outline" />
-      <CVText :text="t(`locations.items.${location?.id}.location`)" />
+      <CVText :text="item?.location?.location" />
     </div>
 
     <div
-      v-if="location"
+      v-if="item?.location"
       id="map"
       class="map"
     />
@@ -37,16 +37,16 @@
 
 <script lang="ts">
 import { Icon } from '@iconify/vue';
-import type { JSONEducation } from '~/stores/data';
+import type { Education, Experience } from '~/stores/data';
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
 export const usePanel = defineStore('panel', () => {
 
-  type Item = JSONEducation;
+  type Item = Education | Experience;
 
   const item = ref<Item>();
-  const visible = ref(true);
+  const visible = ref(false);
 
   const set = (newItem: Item) => {
     item.value = newItem;
@@ -76,39 +76,31 @@ export const usePanel = defineStore('panel', () => {
 import 'leaflet/dist/leaflet.css';
 import Leaflet from 'leaflet';
 import { computed, onMounted, readonly, watch } from 'vue';
-import { useData } from '~/stores/data';
 import { useI18n } from 'vue-i18n';
 import CVText from '~/components/CVText.vue';
 import { vOnClickOutside } from '@vueuse/components';
 
 const { t } = useI18n();
 
-const data = useData();
 const panel = usePanel();
 
-const item = computed(() => {
-  return data.education[4];
-})
-
-const location = computed(() => {
-  return data.locations.find(location => location.id === item.value.location)
-});
+const item = computed(() => panel.item);
 
 const coords = computed<[lat: number, lng: number]>(() => {
-  return location.value?.map ?? [0, 0];
+  return item.value?.location?.map ?? [0, 0];
 });
 
 onMounted( () => {
   const map = Leaflet.map('map');
 
   watch(item, () => {
-    map.setView(coords.value, 13);
+    map.setView(coords.value, 15);
     Leaflet.marker(coords.value).addTo(map);
     Leaflet.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
-  }, { immediate: true });
+  });
 });
 </script>
 
