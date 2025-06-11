@@ -6,14 +6,23 @@
     }"
     v-on-click-outside="panel.hide"
   >
-    <hgroup>
-      <h1>
-        <CVText :text="item?.title" />
-      </h1>
-      <p>
-        <CVText :text="t(`${item?.type}.title`)" />
-      </p>
-    </hgroup>
+    <header>
+      <hgroup>
+        <h2>
+          <CVText :text="item?.title" />
+        </h2>
+        <p>
+          <CVText :text="t(`${item?.type}.title`)" />
+        </p>
+      </hgroup>
+
+      <div
+        class="close"
+        @click="panel.hide"
+      >
+        <Icon icon="material-symbols-light:close" />
+      </div>
+    </header>
 
     <div>
       <CVText :text="item?.description" />
@@ -28,7 +37,7 @@
     </div>
 
     <div
-      v-if="item?.location"
+      v-show="item?.location"
       id="map"
       class="map"
     />
@@ -40,6 +49,8 @@ import { Icon } from '@iconify/vue';
 import type { Education, Experience } from '~/stores/data';
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
+import { wait } from '~/composables/utils';
+import { onKeyStroke } from '@vueuse/core';
 
 export const usePanel = defineStore('panel', () => {
 
@@ -47,18 +58,39 @@ export const usePanel = defineStore('panel', () => {
 
   const item = ref<Item>();
   const visible = ref(false);
+  let isHiding = false;
 
   const set = (newItem: Item) => {
+    const oldItem = item.value;
     item.value = newItem;
-    show();
+    if (oldItem?.id === newItem.id && isHiding) {
+      hide();
+    } else {
+      isHiding = false;
+      show();
+    }
   }
 
   const show = () => {
     visible.value = true;
   }
 
-  const hide = () => {
+  const hide = async () => {
+    if (!visible.value) return;
     visible.value = false;
+    isHiding = true;
+    await wait(1);
+    if (isHiding) {
+      item.value = undefined;
+    }
+  }
+
+  const toggle = () =>{
+    if (visible.value) {
+      hide();
+    } else {
+      show();
+    }
   }
 
   return {
@@ -67,12 +99,12 @@ export const usePanel = defineStore('panel', () => {
     visible: readonly(visible),
     show,
     hide,
+    toggle,
   }
 });
 </script>
 
 <script lang="ts" setup>
-
 import 'leaflet/dist/leaflet.css';
 import Leaflet from 'leaflet';
 import { computed, onMounted, readonly, watch } from 'vue';
@@ -90,12 +122,24 @@ const coords = computed<[lat: number, lng: number]>(() => {
   return item.value?.location?.map ?? [0, 0];
 });
 
+onKeyStroke('Escape', (event) => {
+  if (!panel.visible) return;
+  event.preventDefault();
+  panel.hide();
+});
+
 onMounted( () => {
   const map = Leaflet.map('map');
+  let marker: ReturnType<typeof Leaflet.marker>;
 
-  watch(item, () => {
+  watch(item, async () => {
+    // Wait for panel to open in order to get the map displayed with the right dimensions
+    await wait(200);
     map.setView(coords.value, 15);
-    Leaflet.marker(coords.value).addTo(map);
+    if (marker) {
+      map.removeLayer(marker);
+    }
+    marker = Leaflet.marker(coords.value).addTo(map);
     Leaflet.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -146,19 +190,44 @@ onMounted( () => {
     width: unset;
     height: 30rem;
     padding: 2rem;
-
   }
 
-  hgroup {
-    font-family: "roboto-thin";
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 
-    h1 {
-      font-weight: 800;
+    hgroup {
+      font-family: "roboto-thin";
+
+      h1 {
+        font-size: 1.6rem;
+        font-weight: 800;
+      }
+
+      p {
+        font-style: italic;
+        font-size: 1rem;
+      }
     }
 
-    p {
-      font-style: italic;
-      font-size: 1rem;
+    .close {
+      margin-left: 1rem;
+      cursor: pointer;
+
+      svg {
+        font-size: 2rem;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .location {
+    svg {
+      font-size: 0.7rem;
+      filter: brightness(120%);
+      width: 0.8rem;
+      margin-right: 0.3rem;
     }
   }
 

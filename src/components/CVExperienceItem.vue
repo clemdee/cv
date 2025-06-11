@@ -50,11 +50,9 @@ const isVisible = computed(() =>
 <style lang="scss" scoped>
 
 .cv-experience-item {
-
   .title {
     font-weight: bold;
   }
-
 }
 
 </style>

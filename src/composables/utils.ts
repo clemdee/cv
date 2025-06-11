@@ -1,4 +1,6 @@
 
+export const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
 export const randomInt = (min: number, max: number): number => {
   return Math.floor(Math.random() * (max - min) + min);
 }
