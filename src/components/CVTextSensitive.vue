@@ -48,7 +48,10 @@ const text = computed(() => {
 .sensitive {
   display: inline-flex;
   overflow: hidden;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
+  --spacing: 0.2rem;
+  margin: calc(-1 * var(--spacing));
+  padding: var(--spacing);
 
   &.placeholder > * {
     filter: blur(0.2rem);
