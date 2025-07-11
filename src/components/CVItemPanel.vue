@@ -112,6 +112,16 @@ import { useI18n } from 'vue-i18n';
 import CVText from '~/components/CVText.vue';
 import { vOnClickOutside } from '@vueuse/components';
 
+// Needed for marker to show in prod
+import markerIconUrl from "~/../node_modules/leaflet/dist/images/marker-icon.png";
+import markerIconRetinaUrl from "~/../node_modules/leaflet/dist/images/marker-icon-2x.png";
+import markerShadowUrl from "~/../node_modules/leaflet/dist/images/marker-shadow.png";
+Leaflet.Icon.Default.prototype.options.iconUrl = markerIconUrl;
+Leaflet.Icon.Default.prototype.options.iconRetinaUrl = markerIconRetinaUrl;
+Leaflet.Icon.Default.prototype.options.shadowUrl = markerShadowUrl;
+Leaflet.Icon.Default.imagePath = "";
+
+
 type Coord = [lat: number, lng: number];
 
 const { t } = useI18n();
