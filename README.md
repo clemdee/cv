@@ -1,36 +1,22 @@
-# cv
+# CV
 
-My cv, in vue because why not.
+My CV, built in Vue, because why not
 
-[See it live](https://clemdee.github.io/cv/)
+[See it online](https://clemdee.github.io/cv/)
 
-## Project Setup
+## Usual stuff
 
 ```sh
 pnpm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 pnpm dev
+# build (without type checking)
+pnpm build-only
 ```
 
-### Type-Check, Compile and Minify for Production
+## Usage
 
-```sh
-pnpm build
-```
+Some files are not tracked to preserve sensitive info, but have sample versions for the public live demo:
+- `src/stores/config/config.sample.ts` -> `config.ts`
+- `src/stores/data/data.sample.ts` -> `data.ts`
 
-### Run Unexisting Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-pnpm test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-pnpm lint
-```
-
+To generate pdf from it, save the page as a pdf from the browser (adjust margins and stuff).
