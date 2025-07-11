@@ -35,7 +35,7 @@ const { availableLocales, locale } = useI18n();
   }
 
   .locale {
-    --border-radius: 1rem;
+    --border-radius: 0.5rem;
     display: grid;
     place-items: center;
     width: 3.5rem;

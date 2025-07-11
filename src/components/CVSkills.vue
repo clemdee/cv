@@ -92,7 +92,7 @@ const softwaresString = computed(() => data.skills.softwares
 
     .head {
       width: 10rem;
-      padding-right: 0.2em;
+      padding-right: 0.2rem;
 
       .title {
         font-weight: bold;

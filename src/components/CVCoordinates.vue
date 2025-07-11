@@ -131,11 +131,10 @@ const age = computed(() => {
   }
 
   .pronouns {
-    font-size: 0.8em;
+    font-size: 0.83em;
     font-style: italic;
     vertical-align: top;
-    filter: brightness(0.9);
-
+    color: hsl(from var(--colorscheme-main-text) h 0 calc(l * 0.7));
   }
 }
 

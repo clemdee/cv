@@ -237,7 +237,7 @@ onMounted( () => {
   .location {
     svg {
       font-size: 0.7rem;
-      filter: brightness(120%);
+      color: hsl(from var(--colorscheme-content-text) h 0 calc(l * 1.2));
       width: 0.8rem;
       margin-right: 0.3rem;
     }

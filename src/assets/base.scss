@@ -8,18 +8,14 @@
   src: url("~/assets/fonts/roboto/Roboto-Light.ttf") format("truetype");
 }
 
-// Returns either #fdfdfd or #222 based on $var contrast
-// @function custom-color-contrast ($var) {
-//   @return hsl(from $var h 0 clamp(20, round(100 - l, 100), 99));
-// }
 
 // Returns either #fdfdfd or #222 based on $var contrast
 @function custom-color-contrast ($var) {
-  @return hwb(from $var
+  @return rgb(from hwb(from $var
     h
     clamp(0, round(up, b - w, 100), 99)
     clamp(0, 100 - round(up, b - w, 100), 80)
-  );
+  ) r g b);
 }
 
 :root {
@@ -41,7 +37,7 @@
   // --colorscheme-content-background: #222;
   --colorscheme-content-title-background: #ddd;
 
-  // TODO: refactor when color-contrast() is shipped
+  // TODO: refactor when color-contrast() (or any, cause it changes every month) is shipped
   --colorscheme-main-text: #{custom-color-contrast(var(--colorscheme-main))};
   --colorscheme-content-text: #{custom-color-contrast(var(--colorscheme-content-background))};
   --colorscheme-content-title-text: #{custom-color-contrast(var(--colorscheme-content-title-background))};
