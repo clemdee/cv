@@ -130,7 +130,7 @@ export const useData = defineStore('data', () => {
     ids ??= [];
     return ids
       .map(id => getter(id))
-      .filter(v => v !== undefined);
+      .filter(v => v !== undefined) as T[];
   }
 
   const resolveLocation = (location: JSONLocation): Location => reactiveComputed<Location>(() => ({

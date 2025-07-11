@@ -43,7 +43,7 @@ const props = defineProps<{
 
 const isVisible = computed(() =>
   !config.experience?.show?.id
-  || config.experience.show.id.includes(props.experience.id)
+  || (config.experience.show.id as unknown as string).includes(props.experience.id)
 );
 </script>
 

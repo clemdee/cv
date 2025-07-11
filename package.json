@@ -1,8 +1,13 @@
 {
   "name": "cv",
-  "version": "0.0.0",
-  "private": true,
   "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.8.1",
+  "description": "My CV made with Vue",
+  "author": "https://github.com/clemdee",
+  "license": "MIT",
+
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",

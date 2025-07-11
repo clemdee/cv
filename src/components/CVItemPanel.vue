@@ -112,14 +112,16 @@ import { useI18n } from 'vue-i18n';
 import CVText from '~/components/CVText.vue';
 import { vOnClickOutside } from '@vueuse/components';
 
+type Coord = [lat: number, lng: number];
+
 const { t } = useI18n();
 
 const panel = usePanel();
 
 const item = computed(() => panel.item);
 
-const coords = computed<[lat: number, lng: number]>(() => {
-  return item.value?.location?.map ?? [0, 0];
+const coords = computed<Coord>(() => {
+  return (item.value?.location?.map as Coord) ?? [0, 0];
 });
 
 onKeyStroke('Escape', (event) => {
