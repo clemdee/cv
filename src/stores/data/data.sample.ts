@@ -358,6 +358,16 @@ export default {
         ],
       },
       {
+        id: "typescript",
+        level: 0.85,
+        tags: [
+          "programation",
+          "webdev",
+          "frontend",
+          "language",
+        ],
+      },
+      {
         id: "responsiveDesign",
         level: 0.95,
         tags: [
@@ -550,22 +560,21 @@ export default {
         ],
       },
       {
-        id: "eclipse",
-        level: 0.65,
-        tags: [
-          "editor",
-        ],
-      },
-      {
-        id: "starUml",
-        level: 0.6,
-        tags: [
-          "editor",
-          "uml",
-        ],
-      },
-      {
         id: "git",
+        level: 0.8,
+        tags: [
+          "collaboration",
+        ],
+      },
+      {
+        id: "gitlab",
+        level: 0.8,
+        tags: [
+          "collaboration",
+        ],
+      },
+      {
+        id: "github",
         level: 0.8,
         tags: [
           "collaboration",

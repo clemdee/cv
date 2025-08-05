@@ -210,6 +210,8 @@
       "title": "Softwares",
       "items": {
         "git": "Git",
+        "gitlab": "Gitlab",
+        "github": "Github",
         "vim": "Vim",
         "vscode": "VSCode",
         "eclipse": "Eclipse",
