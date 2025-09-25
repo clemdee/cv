@@ -56,11 +56,11 @@
         "location": "Montmorency, France"
       },
       "juniorHighschool": {
-        "name": "Pierre de Ronsard Junior Highschool",
+        "name": "Pierre de Ronsard Junior High School",
         "location": "Montmorency, France"
       },
       "highschool": {
-        "name": "Jean-Jacques Rousseau highschool",
+        "name": "Jean-Jacques Rousseau High School",
         "location": "Montmorency, France"
       },
       "eisti": {
@@ -86,12 +86,12 @@
         "description": ""
       },
       "juniorHighschool": {
-        "title": "Junior Highschool",
+        "title": "Junior High School",
         "description": ""
       },
       "highschool": {
-        "title": "Highschool",
-        "description": "Baccalauréat (equivalent to A levels) in Sciences with highest honours, european section"
+        "title": "High School",
+        "description": "Baccalauréat (equivalent to A levels) in Sciences with highest honours, European section"
       },
       "prepa": {
         "title": "Prepa",

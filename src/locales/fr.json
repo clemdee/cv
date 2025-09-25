@@ -64,11 +64,11 @@
         "location": "Montmorency, France"
       },
       "eisti": {
-        "name": "EISTI (École Internationnale des Sciences du Traitement de l'Information)",
+        "name": "EISTI (École Internationale des Sciences du Traitement de l'Information)",
         "location": "Cergy, France"
       },
       "ets": {
-        "name": "ÉTS (École Technologic Supérieur)",
+        "name": "ÉTS (École de Technologie Supérieure)",
         "location": "Montréal, Canada"
       }
     }
@@ -129,7 +129,7 @@
       },
       "eisti-LabVIEW": {
         "title": "Création d'un synthétiseur avec LabVIEW",
-        "description": "Création d'un synthétiseur triple oscillateurs, à l'aide du langage de programmation visuelle LabVIEW. Il comporte également des effets tels que du délai, de la réverb, ou encore de la ring modulation."
+        "description": "Création d'un synthétiseur triple oscillateurs, à l'aide du langage de programmation visuelle LabVIEW. Il comporte également des effets tels que du délai, de la reverb, ou encore de la ring modulation."
       },
       "eisti-footbet": {
         "title": "Développement d'un site de pari pour la coupe du monde de football 2018",
@@ -145,7 +145,7 @@
       },
       "eisti-internship-ing1": {
         "title": "Premier stage de programmation à XWikiSAS",
-        "description": "Developpement sur le logiciel Open Source CryptPad: rajout de nouvelles fonctionnalités, fixer les bugs existants, amélioreration de l'ergonomie"
+        "description": "Développement sur le logiciel Open Source CryptPad: rajout de nouvelles fonctionnalités, fixer les bugs existants, amélioration de l'ergonomie"
       },
       "eistikathon-2": {
         "title": "Participation à la seconde édition de l'EISTIKATHON, hackathon organisé par CAPFI et l'EISTI",
@@ -153,11 +153,11 @@
       },
       "eisti-internship-ing2": {
         "title": "Second stage de programmation à XWikiSAS",
-        "description": "Implémentation d'un composant d'aggrégation et de présentation de donneés en temps réel sur le logiciel Open Source XWiki"
+        "description": "Implémentation d'un composant d'agrégation et de présentation de données en temps réel sur le logiciel Open Source XWiki"
       },
       "eisti-alternance": {
-        "title": "Contrat de professionalisation à XWikiSAS",
-        "description": "Poursuite du développement du composant d'aggrégation de données en temps réél du stage précédent. Aussi, si besoin, aide à la customisation du produit selon la demande des clients."
+        "title": "Contrat de professionnalisation à XWikiSAS",
+        "description": "Poursuite du développement du composant d'agrégation de données en temps réel du stage précédent. Aussi, si besoin, aide à la customisation du produit selon la demande des clients."
       },
       "google-hash-code-2021": {
         "title": "Participation au hackathon Google Hash Code de 2021",
