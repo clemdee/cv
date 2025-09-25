@@ -331,7 +331,7 @@ export default {
         id: "html",
         level: 0.95,
         tags: [
-          "programation",
+          "programming",
           "webdev",
           "frontend",
           "language",
@@ -341,7 +341,7 @@ export default {
         id: "css",
         level: 0.95,
         tags: [
-          "programation",
+          "programming",
           "webdev",
           "frontend",
           "language",
@@ -351,7 +351,7 @@ export default {
         id: "javascript",
         level: 0.95,
         tags: [
-          "programation",
+          "programming",
           "webdev",
           "frontend",
           "language",
@@ -361,7 +361,7 @@ export default {
         id: "typescript",
         level: 0.85,
         tags: [
-          "programation",
+          "programming",
           "webdev",
           "frontend",
           "language",
@@ -371,7 +371,7 @@ export default {
         id: "responsiveDesign",
         level: 0.95,
         tags: [
-          "programation",
+          "programming",
           "webdev",
           "frontend",
           "practise",
@@ -381,7 +381,7 @@ export default {
         id: "jQuery",
         level: 0.85,
         tags: [
-          "programation",
+          "programming",
           "webdev",
           "frontend",
           "framework",
@@ -391,7 +391,7 @@ export default {
         id: "bootstrap",
         level: 0.75,
         tags: [
-          "programation",
+          "programming",
           "webdev",
           "frontend",
           "framework",
@@ -401,7 +401,7 @@ export default {
         id: "vue",
         level: 0.92,
         tags: [
-          "programation",
+          "programming",
           "webdev",
           "frontend",
           "framework",
@@ -411,7 +411,7 @@ export default {
         id: "angular",
         level: 0.4,
         tags: [
-          "programation",
+          "programming",
           "webdev",
           "frontend",
           "framework",
@@ -421,7 +421,7 @@ export default {
         id: "nodejs",
         level: 0.75,
         tags: [
-          "programation",
+          "programming",
           "webdev",
           "backend",
           "tool",
@@ -431,7 +431,7 @@ export default {
         id: "php",
         level: 0.65,
         tags: [
-          "programation",
+          "programming",
           "webdev",
           "backend",
           "language",
@@ -441,7 +441,7 @@ export default {
         id: "jee",
         level: 0.5,
         tags: [
-          "programation",
+          "programming",
           "webdev",
           "backend",
           "framework",
@@ -451,7 +451,7 @@ export default {
         id: "mysql",
         level: 0.75,
         tags: [
-          "programation",
+          "programming",
           "webdev",
           "database",
           "language",
@@ -461,7 +461,7 @@ export default {
         id: "oracleSql",
         level: 0.7,
         tags: [
-          "programation",
+          "programming",
           "webdev",
           "database",
           "language",
@@ -471,7 +471,7 @@ export default {
         id: "c",
         level: 0.8,
         tags: [
-          "programation",
+          "programming",
           "language",
         ],
       },
@@ -479,7 +479,7 @@ export default {
         id: "cpp",
         level: 0.85,
         tags: [
-          "programation",
+          "programming",
           "language",
         ],
       },
@@ -487,7 +487,7 @@ export default {
         id: "csharp",
         level: 0.65,
         tags: [
-          "programation",
+          "programming",
           "language",
         ],
       },
@@ -495,7 +495,7 @@ export default {
         id: "java",
         level: 0.75,
         tags: [
-          "programation",
+          "programming",
           "language",
         ],
       },
@@ -503,7 +503,7 @@ export default {
         id: "python",
         level: 0.85,
         tags: [
-          "programation",
+          "programming",
           "language",
         ],
       },
@@ -511,7 +511,7 @@ export default {
         id: "ocaml",
         level: 0.6,
         tags: [
-          "programation",
+          "programming",
           "language",
         ],
       },
@@ -519,7 +519,7 @@ export default {
         id: "sh",
         level: 0.85,
         tags: [
-          "programation",
+          "programming",
           "language",
           "shell",
         ],
