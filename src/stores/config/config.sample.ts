@@ -21,7 +21,6 @@ export default {
     },
     show: {
       id: [
-        "eistikathon-1",
         "eisti-internship-ing1",
         "eisti-internship-ing2",
         "eisti-alternance",

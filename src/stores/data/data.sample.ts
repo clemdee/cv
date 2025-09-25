@@ -509,7 +509,7 @@ export default {
       },
       {
         id: "ocaml",
-        level: 0.75,
+        level: 0.6,
         tags: [
           "programation",
           "language",
