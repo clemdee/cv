@@ -5,14 +5,12 @@
       <CVContent />
       <CVItemPanel />
     </div>
-    <OptionsLocale />
   </div>
 </template>
 
 <script lang="ts" setup>
 import CVAside from '~/components/CVAside.vue';
 import CVContent from '~/components/CVContent.vue';
-import OptionsLocale from './OptionsLocale.vue';
 import CVItemPanel from './CVItemPanel.vue';
 </script>
 
