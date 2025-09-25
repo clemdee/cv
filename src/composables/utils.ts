@@ -25,7 +25,7 @@ export const shuffle = <T>(array: T[]) => {
   for (let i = 0 ; i < shuffled.length ; i++) {
     const a = randomInt(0, shuffled.length);
     const b = randomInt(0, shuffled.length);
-    [shuffled[a], shuffled[b]] = [shuffled[b], shuffled[a]];
+    [shuffled[a], shuffled[b]] = [shuffled[b], shuffled[a]] as [T, T];
   }
   return shuffled;
 }

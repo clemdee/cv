@@ -44,8 +44,8 @@ const mutateText = (toText: string) => {
   const mutationRecursiveFunction = () => {
     timeoutId = window.setTimeout(() => {
       for (let i = 0 ; i < simultaneousIndexes ; i++) {
-        const charIndex = shuffledIndexArray[index];
-        textArray.value[charIndex] = toText[charIndex];
+        const charIndex = shuffledIndexArray[index] as number;
+        textArray.value[charIndex] = toText[charIndex] as string;
         index++;
       }
       if (index <= maxLength) {
