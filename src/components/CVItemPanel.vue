@@ -28,6 +28,17 @@
       <CVText :text="item?.description" />
     </div>
 
+    <div
+      v-if="item?.type === 'experience'"
+      class="skills"
+    >
+      <CVSkillItem
+        v-for="skill in item.skills"
+        :key="skill.id"
+        :skill="skill as Skill"
+      />
+    </div>
+
     <div class="location">
       <Icon icon="mdi:home-city-outline" />
       <CVText :text="item?.location?.name" />
@@ -46,11 +57,12 @@
 
 <script lang="ts">
 import { Icon } from '@iconify/vue';
-import type { Education, Experience } from '~/stores/data';
+import type { Education, Experience, Skill } from '~/stores/data';
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import { wait } from '~/composables/utils';
 import { onKeyStroke } from '@vueuse/core';
+import CVSkillItem from './CVSkillItem.vue';
 
 export const usePanel = defineStore('panel', () => {
 
@@ -232,6 +244,13 @@ onMounted( () => {
         opacity: 0.5;
       }
     }
+  }
+
+  .skills {
+    margin-top: 0.4rem;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 0.2rem;
   }
 
   .location {
