@@ -176,6 +176,12 @@
 
   "skills": {
     "title": "Skills",
+    "titles": {
+      "main": "Main Stack",
+      "secondary": "Secondary Stack",
+      "os": "Operating Systems",
+      "softwares": "Softwares"
+    },
     "items": {
       "html": "HTML",
       "css": "CSS",
@@ -183,7 +189,6 @@
       "typescript": "Typescript",
       "responsiveDesign": "Responsive Design",
       "jquery": "JQuery",
-      "bootstrap": "Bootstrap",
       "vue": "Vue",
       "angular": "Angular",
       "nodejs": "Node",
@@ -200,27 +205,20 @@
       "sh": "POSIX Shell",
       "ui": "UI",
       "ux": "UX",
-      "a11y": "a11y"
-    },
-    "os": {
-      "title": "Operating Systems",
-      "items": {
-        "windows": "Windows (10, 11)",
-        "linux": "Linux (Debian, Ubuntu)"
-      }
-    },
-    "softwares": {
-      "title": "Softwares",
-      "items": {
-        "git": "Git",
-        "gitlab": "Gitlab",
-        "github": "Github",
-        "vim": "Vim",
-        "vscode": "VSCode",
-        "eclipse": "Eclipse",
-        "msOffice": "Microsoft Office",
-        "libreOffice": "Libre Office"
-      }
+      "a11y": "A11y",
+      "cicd": "CI/CD",
+      "windows10": "Windows 10",
+      "windows11": "Windows 11",
+      "ubuntu": "Ubuntu",
+      "debian": "Debian",
+      "git": "Git",
+      "gitlab": "Gitlab",
+      "github": "Github",
+      "vim": "Vim",
+      "vscode": "VSCode",
+      "eclipse": "Eclipse",
+      "msOffice": "Microsoft Office",
+      "libreOffice": "Libre Office"
     }
   }
 }

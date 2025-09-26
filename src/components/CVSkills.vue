@@ -3,37 +3,60 @@
     <CVSectionTitle anchor-id="skills">
       <CVText :text="t('skills.title')" />
     </CVSectionTitle>
-    <article class="skills-container">
-      <CVSkillItem
-        v-for="skill in programmingLanguages"
-        :key="skill.id"
-        :skill="skill"
-      />
-    </article>
 
     <article class="item">
-      <div class="head">
-        <div class="title">
-          <CVText :text="t('skills.os.title')" />
-        </div>
+      <div class="title">
+        <CVText :text="t('skills.titles.main')" />
       </div>
-      <div class="body">
-        <div class="detail">
-          <CVText :text="osString" />
-        </div>
+
+      <div class="skills">
+        <CVSkillItem
+          v-for="skill in skillsMain"
+          :key="skill.id"
+          :skill="skill"
+        />
       </div>
     </article>
 
     <article class="item">
-      <div class="head">
-        <div class="title">
-          <CVText :text="t('skills.softwares.title')" />
-        </div>
+      <div class="title">
+        <CVText :text="t('skills.titles.secondary')" />
       </div>
-      <div class="body">
-        <div class="detail">
-          <CVText :text="softwaresString" />
-        </div>
+
+      <div class="skills">
+        <CVSkillItem
+          v-for="skill in skillsSecondary"
+          :key="skill.id"
+          :skill="skill"
+        />
+      </div>
+    </article>
+
+    <article class="item">
+      <div class="title">
+        <CVText :text="t('skills.titles.os')" />
+      </div>
+
+      <div class="skills">
+        <CVSkillItem
+          v-for="skill in skillsOS"
+          :key="skill.id"
+          :skill="skill"
+        />
+      </div>
+    </article>
+
+    <article class="item">
+      <div class="title">
+        <CVText :text="t('skills.titles.softwares')" />
+      </div>
+
+      <div class="skills">
+        <CVSkillItem
+          v-for="skill in skillsSoftwares"
+          :key="skill.id"
+          :skill="skill"
+        />
       </div>
     </article>
   </section>
@@ -54,61 +77,49 @@ const config = useConfig();
 
 const { t } = useI18n();
 
-const programmingLanguages = computed(() =>
-  data.skills
-    .filter(skill => skill.tags?.some(tag => ['programming', 'design'].includes(tag)))
-    .filter(skill => skill.level > (config.skills?.level?.min ?? 0))
+const skillsMain = computed(() => data.skills
+  .filter(skill => skill.tags?.includes('programming'))
+  .filter(skill => skill.tags?.includes('main'))
+  .filter(skill => skill.level > (config.skills?.level?.min ?? 0))
 );
 
-const osString = computed(() => data.skills
+const skillsSecondary = computed(() => data.skills
+  .filter(skill => skill.tags?.includes('programming'))
+  .filter(skill => !skill.tags?.includes('main'))
+  .filter(skill => skill.level > (config.skills?.level?.min ?? 0))
+);
+
+const skillsOS = computed(() => data.skills
   .filter(skill => skill.tags?.includes('os'))
-  .map(os => t(`skills.os.items.${os.id}`))
-  .join('\n')
 );
 
-const softwaresString = computed(() => data.skills
+const skillsSoftwares = computed(() => data.skills
   .filter(skill => skill.tags?.includes('software'))
-  .map(software => t(`skills.softwares.items.${software.id}`))
-  .join(', ')
 );
 </script>
 
 <style lang="scss" scoped>
 .cv-skills {
-
-  .skills-container {
-    margin-bottom: 0.5rem;
-    padding: 0.5rem;
-    display: flex;
-    flex-flow: row wrap;
-    gap: 0.2rem;
-  }
-
   .item {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    gap: 0.5rem;
 
     padding: 0.5rem;
     font-size: 0.8rem;
     break-inside: avoid;
 
-    .head {
-      width: 10rem;
-      padding-right: 0.2rem;
-
-      .title {
-        font-weight: bold;
-      }
+    .title {
+      font-weight: bold;
     }
 
-    .body {
-      width: 70%;
-
-      .location {
-        font-weight: bold;
-      }
+    .skills {
+      margin-bottom: 0.5rem;
+      display: flex;
+      flex-flow: row wrap;
+      gap: 0.2rem;
     }
   }
 }

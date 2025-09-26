@@ -172,13 +172,11 @@
 
   "skills": {
     "title": "Compétences",
-
-    "os": {
-      "title": "Systèmes d'exploitations"
-    },
-
-    "softwares": {
-      "title": "Logiciels"
+    "titles": {
+      "main": "Stack Principale",
+      "secondary": "Stack Secondaire",
+      "os": "Systèmes d'exploitations",
+      "softwares": "Logiciels"
     }
   }
 }

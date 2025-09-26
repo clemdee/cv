@@ -204,7 +204,6 @@ export default {
         "css",
         "javascript",
         "jquery",
-        "bootstrap",
         "responsiveDesign",
       ],
     },
@@ -233,7 +232,6 @@ export default {
         "jquery",
         "ui",
         "ux",
-        "responsiveDesign",
       ],
     },
     {
@@ -307,6 +305,7 @@ export default {
         "vue",
         "java",
         "ui",
+        "ux",
       ],
     },
   ],
@@ -341,6 +340,7 @@ export default {
         "programming",
         "webdev",
         "frontend",
+        "main",
       ],
     },
     {
@@ -350,6 +350,7 @@ export default {
         "programming",
         "webdev",
         "frontend",
+        "main",
       ],
     },
     {
@@ -359,6 +360,7 @@ export default {
         "programming",
         "webdev",
         "frontend",
+        "main",
       ],
     },
     {
@@ -368,31 +370,12 @@ export default {
         "programming",
         "webdev",
         "frontend",
-      ],
-    },
-    {
-      id: "responsiveDesign",
-      level: 0.95,
-      tags: [
-        "programming",
-        "webdev",
-        "frontend",
-        "design",
+        "main",
       ],
     },
     {
       id: "jquery",
       level: 0.85,
-      tags: [
-        "programming",
-        "webdev",
-        "frontend",
-        "framework",
-      ],
-    },
-    {
-      id: "bootstrap",
-      level: 0.75,
       tags: [
         "programming",
         "webdev",
@@ -408,6 +391,7 @@ export default {
         "webdev",
         "frontend",
         "framework",
+        "main",
       ],
     },
     {
@@ -428,6 +412,7 @@ export default {
         "webdev",
         "backend",
         "tool",
+        "main",
       ],
     },
     {
@@ -456,6 +441,7 @@ export default {
         "programming",
         "webdev",
         "database",
+        "main",
       ],
     },
     {
@@ -515,13 +501,16 @@ export default {
       tags: [
         "programming",
         "shell",
+        "main",
       ],
     },
     {
       id: "ui",
       level: 0.9,
       tags: [
+        "programming",
         "design",
+        "main",
       ],
     },
 
@@ -529,14 +518,29 @@ export default {
       id: "ux",
       level: 0.8,
       tags: [
+        "programming",
         "design",
+        "main",
+      ],
+    },
+    {
+      id: "responsiveDesign",
+      level: 0.95,
+      tags: [
+        "programming",
+        "webdev",
+        "frontend",
+        "design",
+        "main",
       ],
     },
     {
       id: "a11y",
       level: 0.75,
       tags: [
+        "programming",
         "design",
+        "main",
       ],
     },
 
@@ -544,22 +548,42 @@ export default {
       id: "cicd",
       level: 0.75,
       tags: [
+        "programming",
         "devops",
+        "main",
       ],
     },
 
     {
-      id: "windows",
-      level: 0.7,
-      tags: [
-        "os",
-      ],
-    },
-    {
-      id: "linux",
+      id: "debian",
       level: 0.9,
       tags: [
         "os",
+        "linux",
+      ],
+    },
+    {
+      id: "ubuntu",
+      level: 0.9,
+      tags: [
+        "os",
+        "linux",
+      ],
+    },
+    {
+      id: "windows10",
+      level: 0.7,
+      tags: [
+        "os",
+        "windows",
+      ],
+    },
+    {
+      id: "windows11",
+      level: 0.7,
+      tags: [
+        "os",
+        "windows",
       ],
     },
 
