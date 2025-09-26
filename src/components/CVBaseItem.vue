@@ -99,9 +99,10 @@ const updateScrollHeight = (el: HTMLElement) => {
     cursor: pointer;
 
     &:hover {
+      --hover-color: rgb(from var(--colorscheme-content-text) r g b / 0.15);
       box-shadow:
-        -0.1rem 0.1rem 0.2rem #ccc,
-        0.1rem 0.1rem 0.2rem #ccc;
+        -0.1rem 0.1rem 0.2rem var(--hover-color),
+        0.1rem 0.1rem 0.2rem var(--hover-color);
     }
 
     :deep( svg ) {
