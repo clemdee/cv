@@ -12,7 +12,7 @@ export type LevelFilter = {
   max?: number,
 }
 
-export type SkillId = DataConst['skills'][keyof DataConst['skills']][number]['id'];
+export type SkillId = DataConst['skills'][number]['id'];
 
 export type EducationConfig = {
   date?: DateSpan,

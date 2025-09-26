@@ -205,7 +205,7 @@
     "os": {
       "title": "Operating Systems",
       "items": {
-        "windows": "Windows (Windows 10, 11)",
+        "windows": "Windows (10, 11)",
         "linux": "Linux (Debian, Ubuntu)"
       }
     },

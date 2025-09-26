@@ -79,19 +79,9 @@ export type Experience = {
   skills: Skill[],
 };
 
-export type JSONSkills = {
-  languages: JSONSkill[],
-  os: JSONSkill[],
-  softwares: JSONSkill[],
-  programmingLanguages: JSONSkill[],
-}
+export type JSONSkills = JSONSkill[];
 
-export type Skills = {
-  languages: Skill[],
-  os: Skill[],
-  softwares: Skill[],
-  programmingLanguages: Skill[],
-}
+export type Skills = Skill[];
 
 export type JSONData = {
   profile: any,
@@ -183,12 +173,7 @@ export const useData = defineStore('data', () => {
     console.log('id', id);
     if (!id) return undefined;
     const insert = () => {
-      const skill = find<Skill>([
-        ...dataJSON.skills.languages,
-        ...dataJSON.skills.os,
-        ...dataJSON.skills.programmingLanguages,
-        ...dataJSON.skills.softwares,
-      ], id);
+      const skill = find<Skill>(dataJSON.skills, id);
       if (!skill) {
         console.warn(`skill "${id}" not found and has to be created`)
         return createSkill(id);
@@ -240,12 +225,7 @@ export const useData = defineStore('data', () => {
     locations: dataJSON.locations.map(location => resolveLocation(location)),
     education: dataJSON.education.map(education => resolveEducation(education)),
     experience: dataJSON.experience.map(experience => resolveExperience(experience)),
-    skills: {
-      languages: dataJSON.skills.languages.map(skill => resolveSkill(skill)),
-      os: dataJSON.skills.os.map(skill => resolveSkill(skill)),
-      programmingLanguages: dataJSON.skills.programmingLanguages.map(skill => resolveSkill(skill)),
-      softwares: dataJSON.skills.softwares.map(skill => resolveSkill(skill)),
-    }
+    skills: dataJSON.skills.map(skill => resolveSkill(skill))
   }));
 
   watchEffect(() => console.log('ATTENTION', data));

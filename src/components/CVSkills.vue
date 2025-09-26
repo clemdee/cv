@@ -55,16 +55,19 @@ const config = useConfig();
 const { t } = useI18n();
 
 const programmingLanguages = computed(() =>
-  data.skills.programmingLanguages
+  data.skills
+    .filter(skill => skill.tags?.some(tag => ['programming', 'design'].includes(tag)))
     .filter(skill => skill.level > (config.skills?.level?.min ?? 0))
 );
 
-const osString = computed(() => data.skills.os
+const osString = computed(() => data.skills
+  .filter(skill => skill.tags?.includes('os'))
   .map(os => t(`skills.os.items.${os.id}`))
   .join('\n')
 );
 
-const softwaresString = computed(() => data.skills.softwares
+const softwaresString = computed(() => data.skills
+  .filter(skill => skill.tags?.includes('software'))
   .map(software => t(`skills.softwares.items.${software.id}`))
   .join(', ')
 );

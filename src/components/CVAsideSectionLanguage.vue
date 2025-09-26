@@ -33,9 +33,12 @@ const levels = ref({
 });
 
 const { t } = useI18n();
+
+const languages = data.skills.filter(skill => skill.tags?.includes('language'));
+
 const displayedLanguages = computed(() => {
   // For each language
-  return data.skills.languages.map(language => {
+  return languages.map(language => {
     // Find appropriate level and get its translation
     const languageLevel = computed(() => {
       const languageLevelKey = Object.entries(levels.value)

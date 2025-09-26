@@ -311,300 +311,305 @@ export default {
     },
   ],
 
-  skills: {
-    languages: [
-      {
-        id: "fr",
-        level: 1,
-        tags: [
-          "mothertongue",
-        ],
-      },
-      {
-        id: "en",
-        level: 0.9,
-      },
-      {
-        id: "es",
-        level: 0.6,
-      },
-    ],
+  skills: [
+    {
+      id: "fr",
+      level: 1,
+      tags: [
+        "language",
+      ],
+    },
+    {
+      id: "en",
+      level: 0.9,
+      tags: [
+        "language",
+      ],
+    },
+    {
+      id: "es",
+      level: 0.6,
+      tags: [
+        "language",
+      ],
+    },
 
-    programmingLanguages: [
-      {
-        id: "html",
-        level: 0.95,
-        tags: [
-          "programming",
-          "webdev",
-          "frontend",
-          "language",
-        ],
-      },
-      {
-        id: "css",
-        level: 0.95,
-        tags: [
-          "programming",
-          "webdev",
-          "frontend",
-          "language",
-        ],
-      },
-      {
-        id: "javascript",
-        level: 0.95,
-        tags: [
-          "programming",
-          "webdev",
-          "frontend",
-          "language",
-        ],
-      },
-      {
-        id: "typescript",
-        level: 0.85,
-        tags: [
-          "programming",
-          "webdev",
-          "frontend",
-          "language",
-        ],
-      },
-      {
-        id: "responsiveDesign",
-        level: 0.95,
-        tags: [
-          "programming",
-          "webdev",
-          "frontend",
-          "design",
-        ],
-      },
-      {
-        id: "jquery",
-        level: 0.85,
-        tags: [
-          "programming",
-          "webdev",
-          "frontend",
-          "framework",
-        ],
-      },
-      {
-        id: "bootstrap",
-        level: 0.75,
-        tags: [
-          "programming",
-          "webdev",
-          "frontend",
-          "framework",
-        ],
-      },
-      {
-        id: "vue",
-        level: 0.92,
-        tags: [
-          "programming",
-          "webdev",
-          "frontend",
-          "framework",
-        ],
-      },
-      {
-        id: "angular",
-        level: 0.4,
-        tags: [
-          "programming",
-          "webdev",
-          "frontend",
-          "framework",
-        ],
-      },
-      {
-        id: "nodejs",
-        level: 0.75,
-        tags: [
-          "programming",
-          "webdev",
-          "backend",
-          "tool",
-        ],
-      },
-      {
-        id: "php",
-        level: 0.65,
-        tags: [
-          "programming",
-          "webdev",
-          "backend",
-          "language",
-        ],
-      },
-      {
-        id: "jee",
-        level: 0.5,
-        tags: [
-          "programming",
-          "webdev",
-          "backend",
-          "framework",
-        ],
-      },
-      {
-        id: "mysql",
-        level: 0.75,
-        tags: [
-          "programming",
-          "webdev",
-          "database",
-          "language",
-        ],
-      },
-      {
-        id: "oracleSql",
-        level: 0.7,
-        tags: [
-          "programming",
-          "webdev",
-          "database",
-          "language",
-        ],
-      },
-      {
-        id: "c",
-        level: 0.8,
-        tags: [
-          "programming",
-          "language",
-        ],
-      },
-      {
-        id: "cpp",
-        level: 0.85,
-        tags: [
-          "programming",
-          "language",
-        ],
-      },
-      {
-        id: "csharp",
-        level: 0.65,
-        tags: [
-          "programming",
-          "language",
-        ],
-      },
-      {
-        id: "java",
-        level: 0.75,
-        tags: [
-          "programming",
-          "language",
-        ],
-      },
-      {
-        id: "python",
-        level: 0.85,
-        tags: [
-          "programming",
-          "language",
-        ],
-      },
-      {
-        id: "ocaml",
-        level: 0.6,
-        tags: [
-          "programming",
-          "language",
-        ],
-      },
-      {
-        id: "sh",
-        level: 0.85,
-        tags: [
-          "programming",
-          "language",
-          "shell",
-        ],
-      },
-      {
-        id: "ui",
-        level: 0.9,
-        tags: [
-          "design",
-        ],
-      },
-      {
-        id: "ux",
-        level: 0.8,
-        tags: [
-          "design",
-        ],
-      },
-      {
-        id: "a11y",
-        level: 0.75,
-        tags: [
-          "design",
-        ],
-      },
-    ],
+    {
+      id: "html",
+      level: 0.95,
+      tags: [
+        "programming",
+        "webdev",
+        "frontend",
+      ],
+    },
+    {
+      id: "css",
+      level: 0.95,
+      tags: [
+        "programming",
+        "webdev",
+        "frontend",
+      ],
+    },
+    {
+      id: "javascript",
+      level: 0.95,
+      tags: [
+        "programming",
+        "webdev",
+        "frontend",
+      ],
+    },
+    {
+      id: "typescript",
+      level: 0.85,
+      tags: [
+        "programming",
+        "webdev",
+        "frontend",
+      ],
+    },
+    {
+      id: "responsiveDesign",
+      level: 0.95,
+      tags: [
+        "programming",
+        "webdev",
+        "frontend",
+        "design",
+      ],
+    },
+    {
+      id: "jquery",
+      level: 0.85,
+      tags: [
+        "programming",
+        "webdev",
+        "frontend",
+        "framework",
+      ],
+    },
+    {
+      id: "bootstrap",
+      level: 0.75,
+      tags: [
+        "programming",
+        "webdev",
+        "frontend",
+        "framework",
+      ],
+    },
+    {
+      id: "vue",
+      level: 0.92,
+      tags: [
+        "programming",
+        "webdev",
+        "frontend",
+        "framework",
+      ],
+    },
+    {
+      id: "angular",
+      level: 0.4,
+      tags: [
+        "programming",
+        "webdev",
+        "frontend",
+        "framework",
+      ],
+    },
+    {
+      id: "nodejs",
+      level: 0.75,
+      tags: [
+        "programming",
+        "webdev",
+        "backend",
+        "tool",
+      ],
+    },
+    {
+      id: "php",
+      level: 0.65,
+      tags: [
+        "programming",
+        "webdev",
+        "backend",
+      ],
+    },
+    {
+      id: "jee",
+      level: 0.5,
+      tags: [
+        "programming",
+        "webdev",
+        "backend",
+        "framework",
+      ],
+    },
+    {
+      id: "mysql",
+      level: 0.75,
+      tags: [
+        "programming",
+        "webdev",
+        "database",
+      ],
+    },
+    {
+      id: "oracleSql",
+      level: 0.7,
+      tags: [
+        "programming",
+        "webdev",
+        "database",
+      ],
+    },
+    {
+      id: "c",
+      level: 0.7,
+      tags: [
+        "programming",
+      ],
+    },
+    {
+      id: "cpp",
+      level: 0.75,
+      tags: [
+        "programming",
+      ],
+    },
+    {
+      id: "csharp",
+      level: 0.65,
+      tags: [
+        "programming",
+      ],
+    },
+    {
+      id: "java",
+      level: 0.75,
+      tags: [
+        "programming",
+      ],
+    },
+    {
+      id: "python",
+      level: 0.85,
+      tags: [
+        "programming",
+      ],
+    },
+    {
+      id: "ocaml",
+      level: 0.6,
+      tags: [
+        "programming",
+      ],
+    },
+    {
+      id: "sh",
+      level: 0.85,
+      tags: [
+        "programming",
+        "shell",
+      ],
+    },
+    {
+      id: "ui",
+      level: 0.9,
+      tags: [
+        "design",
+      ],
+    },
 
-    os: [
-      {
-        id: "windows",
-        level: 0.7,
-      },
-      {
-        id: "linux",
-        level: 0.9,
-      },
-    ],
+    {
+      id: "ux",
+      level: 0.8,
+      tags: [
+        "design",
+      ],
+    },
+    {
+      id: "a11y",
+      level: 0.75,
+      tags: [
+        "design",
+      ],
+    },
 
-    softwares: [
-      {
-        id: "msOffice",
-        level: 0.9,
-        tags: [
-          "office",
-        ],
-      },
-      {
-        id: "libreOffice",
-        level: 0.7,
-        tags: [
-          "office",
-        ],
-      },
-      {
-        id: "vim",
-        level: 0.85,
-        tags: [
-          "editor",
-        ],
-      },
-      {
-        id: "git",
-        level: 0.8,
-        tags: [
-          "collaboration",
-        ],
-      },
-      {
-        id: "gitlab",
-        level: 0.8,
-        tags: [
-          "collaboration",
-        ],
-      },
-      {
-        id: "github",
-        level: 0.8,
-        tags: [
-          "collaboration",
-        ],
-      },
-    ],
-  }
+    {
+      id: "cicd",
+      level: 0.75,
+      tags: [
+        "devops",
+      ],
+    },
+
+    {
+      id: "windows",
+      level: 0.7,
+      tags: [
+        "os",
+      ],
+    },
+    {
+      id: "linux",
+      level: 0.9,
+      tags: [
+        "os",
+      ],
+    },
+
+    {
+      id: "msOffice",
+      level: 0.9,
+      tags: [
+        "software",
+        "office",
+      ],
+    },
+    {
+      id: "libreOffice",
+      level: 0.7,
+      tags: [
+        "software",
+        "office",
+      ],
+    },
+    {
+      id: "vim",
+      level: 0.85,
+      tags: [
+        "software",
+        "editor",
+      ],
+    },
+    {
+      id: "git",
+      level: 0.8,
+      tags: [
+        "software",
+        "collaboration",
+      ],
+    },
+    {
+      id: "gitlab",
+      level: 0.8,
+      tags: [
+        "software",
+        "collaboration",
+      ],
+    },
+    {
+      id: "github",
+      level: 0.8,
+      tags: [
+        "software",
+        "collaboration",
+      ],
+    },
+  ]
 } as const satisfies JSONData;
