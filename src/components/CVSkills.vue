@@ -78,6 +78,7 @@ const softwaresString = computed(() => data.skills.softwares
     padding: 0.5rem;
     display: flex;
     flex-flow: row wrap;
+    gap: 0.2rem;
   }
 
   .item {

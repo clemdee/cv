@@ -26,13 +26,13 @@
       </transition>
 
     <template #content>
-      {{ skillName }}: {{ skill.level * 100 }}%
+      {{ skillName }}: {{ skillLevel * 100 }}%
     </template>
   </Tippy>
 </template>
 
 <script lang="ts" setup>
-import type { JSONSkill } from '~/stores/data';
+import { type JSONSkill } from '~/stores/data';
 import { ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useConfig } from '~/stores/config';
@@ -48,7 +48,9 @@ const props = defineProps<{
 }>();
 
 const { t } = useI18n();
+
 const skillName = t(`skills.items.${ props.skill.id }`);
+const skillLevel = computed(() => props.skill.level);
 
 const input = ref<HTMLInputElement | null>(null);
 
@@ -87,16 +89,9 @@ const updateScrollWidth = (el: Element) => {
 
 .cv-skill-item {
   position: relative;
-  --level: calc( v-bind('skill.level') * 100%);
-  padding: 0.15rem 0.5rem;
-  margin: 0.1rem;
+  padding: 0.1rem 0.5rem;
   border-radius: 0.3rem;
   background-color: var(--colorscheme-main);
-  background-image: linear-gradient(100deg,
-    transparent 0%,
-    var(--level, 0%),
-    #fff4 var(--level, 0%),
-  );
   backface-visibility: hidden; /* For hardware acceleration */
 
   font-size: 0.8rem;

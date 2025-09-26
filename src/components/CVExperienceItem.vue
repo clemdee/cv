@@ -20,6 +20,13 @@
       <div class="details">
         <CVText :text="experience.description" />
       </div>
+      <div class="skills">
+        <CVSkillItem
+          v-for="skill in experience.skills"
+          :key="skill.id"
+          :skill="skill"
+        />
+      </div>
     </template>
 
   </CVBaseItem>
@@ -33,6 +40,7 @@ import { usePanel } from './CVItemPanel.vue';
 
 import CVText from '~/components/CVText.vue';
 import CVBaseItem from '~/components/CVBaseItem.vue';
+import CVSkillItem from './CVSkillItem.vue';
 
 const config = useConfig();
 const panel = usePanel();
@@ -52,6 +60,13 @@ const isVisible = computed(() =>
 .cv-experience-item {
   .title {
     font-weight: bold;
+  }
+
+  .skills {
+    margin-top: 0.4rem;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 0.2rem;
   }
 }
 
