@@ -141,11 +141,16 @@
       },
       "eistikathon-1": {
         "title": "Équipe gagnante de l'EISTIKATHON, hackathon organisé par CAPFI et l'EISTI",
-        "description": "Développement pendant 24h d'une application d'accessibilité pour personnes à situation de handicap"
+        "description": "Développement pendant 24h d'une application d'accessibilité pour personnes en situation de handicap"
       },
       "eisti-internship-ing1": {
         "title": "Premier stage de programmation à XWikiSAS",
-        "description": "Développement sur le logiciel Open Source CryptPad: rajout de nouvelles fonctionnalités, fixer les bugs existants, amélioration de l'ergonomie"
+        "description": "Développement sur le logiciel Open Source CryptPad.",
+        "duties": [
+          "Conception de nouvelles fonctionnalités orientées produit",
+          "Correction de bugs et amélioration de la stabilité",
+          "Amélioration continue de l'ergonomie et de l'expérience utilisateur"
+        ]
       },
       "eistikathon-2": {
         "title": "Participation à la seconde édition de l'EISTIKATHON, hackathon organisé par CAPFI et l'EISTI",
@@ -153,19 +158,31 @@
       },
       "eisti-internship-ing2": {
         "title": "Second stage de programmation à XWikiSAS",
-        "description": "Implémentation d'un composant d'agrégation et de présentation de données en temps réel sur le logiciel Open Source XWiki"
+        "description": "Implémentation d'un composant d'agrégation et de présentation de données en temps réel sur le logiciel Open Source XWiki",
+        "duties": [
+          "Gestion de projet en autonomie complète",
+          "Conception d'APIs frontend et backend",
+          "Conception d'interfaces UI/UX en tenant compte des contraintes techniques"
+        ]
       },
       "eisti-alternance": {
         "title": "Contrat de professionnalisation à XWikiSAS",
-        "description": "Poursuite du développement du composant d'agrégation de données en temps réel du stage précédent. Aussi, si besoin, aide à la customisation du produit selon la demande des clients."
+        "description": "Poursuite du développement du composant d'agrégation de données en temps réel du stage précédent. Début du travail dans l'équipe Client"
       },
       "google-hash-code-2021": {
         "title": "Participation au hackathon Google Hash Code de 2021",
         "description": "Notre équipe \"from random import *\" s'est positionnée 559ème !"
       },
       "xwiki-cdi": {
-        "title": "CDI Ingénieur Recherche et Development à XWikiSAS",
-        "description": "Travail dans l'équipe Client, customisant le logiciel afin de répondre aux besoins clients. Aussi, réalisation de patchs pour le logiciel principal, et documentation de processus quand nécessaire."
+        "title": "Ingénieur R&D à XWikiSAS",
+        "description": "Travail dans l'équipe Client, customisant le logiciel afin de répondre aux besoins clients. Création de patchs pour le logiciel principal.",
+        "duties": [
+          "Développement d'interfaces conformes aux maquettes fournies",
+          "Respect de contraintes strictes de temps et de livrables",
+          "Adaptation aux besoins clients et ajustement rapide des fonctionnalités",
+          "Travail en équipe Agile et coordination inter-équipes",
+          "Mise à jour de la documentation technique et fonctionnelle"
+        ]
       }
     }
   },

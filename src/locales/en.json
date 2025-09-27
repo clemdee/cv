@@ -149,7 +149,12 @@
       },
       "eisti-internship-ing1": {
         "title": "First programmation internship at XWikiSAS",
-        "description": "Development on the Open Source software CryptPad, including adding new features, bug fixing, improving user experience"
+        "description": "Development on the Open Source software CryptPad.",
+        "duties": [
+          "Designing new product-oriented features",
+          "Bug fixing and stability improvements",
+          "Enhancing usability and user experience"
+        ]
       },
       "eistikathon-2": {
         "title": "Participation of the second edition of the EISTIKATHON, hackathon organized by CAPFI and EISTI",
@@ -157,19 +162,31 @@
       },
       "eisti-internship-ing2": {
         "title": "Second programmation internship at XWikiSAS",
-        "description": "Implementing a real-time data aggregator component on the Open Source software XWiki"
+        "description": "Implementing a real-time data aggregator component on the Open Source software XWiki",
+        "duties": [
+          "Leading project with full autonomy",
+          "Designing front-end and back-end APIs",
+          "Designing UI/UX interfaces, accounting for technical constraints"
+        ]
       },
       "eisti-alternance": {
         "title": "Work-student at XWikiSAS",
-        "description": "Continuing the development of the real-time data aggregator component from previous internship. Also helping to customize the product to meet clients needs when needed."
+        "description": "Continuing the development of the real-time data aggregator component from previous internship. Starting to work in Client team."
       },
       "google-hash-code-2021": {
         "title": "Participation at the 2021 Google Hash Code hackathon",
         "description": "Our \"from random import *\" team ranked 559th!"
       },
       "xwiki-cdi": {
-        "title": "Research and Development Engineer at XWikiSAS",
-        "description": "Working in Client Team, customizing software to meet client needs. Making patches for the main software, and documenting processes when needed."
+        "title": "R&D Engineer at XWikiSAS",
+        "description": "Working in Client Team, customizing software to meet client needs. Making patches for the main software.",
+        "duties": [
+          "Developing interfaces based on provided mockups",
+          "Delivering work under strict time and deliverable constraints",
+          "Adapting features to client needs with quick iterations",
+          "Collaborating in Agile methodology, coordinating across teams",
+          "Maintaining technical and functional documentation"
+        ]
       }
     }
   },

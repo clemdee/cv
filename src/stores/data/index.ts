@@ -73,6 +73,7 @@ export type Experience = {
   id: string,
   title: string,
   description: string,
+  duties: string[],
   date: DateSpan,
   location?: Location,
   certifications: Certification[],
@@ -103,7 +104,7 @@ export type DataConst = typeof dataJSON;
 
 export const useData = defineStore('data', () => {
 
-  const { t } = useI18n();
+  const { t, tm } = useI18n();
 
   const emplace = <T>(map: Map<string, T>, id: string, insert: () => T) => {
     if (!map.has(id)) {
@@ -207,6 +208,7 @@ export const useData = defineStore('data', () => {
     id: experience.id,
     date: experience.date,
     description: t(`experience.items.${experience.id}.description`),
+    duties: tm(`experience.items.${experience.id}.duties`) ?? [],
     title: t(`experience.items.${experience.id}.title`),
     location: getLocation(experience.location),
     certifications: getCertifications(experience.certifications),

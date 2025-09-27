@@ -17,15 +17,31 @@
       <div class="title">
         <CVText :text="experience.title" />
       </div>
+
       <div class="details">
-        <CVText :text="experience.description" />
-      </div>
-      <div class="skills">
-        <CVSkillItem
-          v-for="skill in experience.skills"
-          :key="skill.id"
-          :skill="skill"
-        />
+        <div class="description">
+          <CVText :text="experience.description" />
+        </div>
+
+        <ul
+          v-if="experience.duties.length > 0"
+          class="duties"
+        >
+          <CVText
+            v-for="(text, index) in experience.duties"
+            :key="index"
+            tag="li"
+            :text="text"
+          />
+        </ul>
+
+        <div class="skills">
+          <CVSkillItem
+            v-for="skill in experience.skills"
+            :key="skill.id"
+            :skill="skill"
+          />
+        </div>
       </div>
     </template>
 
@@ -62,11 +78,21 @@ const isVisible = computed(() =>
     font-weight: bold;
   }
 
-  .skills {
-    margin-top: 0.4rem;
+  .details {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column;
     gap: 0.2rem;
+
+    ul.duties {
+      padding-left: 0.8rem;
+    }
+
+    .skills {
+      margin-top: 0.2rem;
+      display: flex;
+      flex-flow: row wrap;
+      gap: 0.2rem;
+    }
   }
 }
 

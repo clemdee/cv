@@ -28,16 +28,30 @@
       <CVText :text="item?.description" />
     </div>
 
-    <div
-      v-if="item?.type === 'experience'"
-      class="skills"
-    >
-      <CVSkillItem
-        v-for="skill in item.skills"
-        :key="skill.id"
-        :skill="skill as Skill"
-      />
-    </div>
+    <template v-if="item?.type === 'experience'">
+      <ul
+        v-if="item.duties.length > 0"
+        class="duties"
+      >
+        <CVText
+          v-for="(text, index) in item.duties"
+          :key="index"
+          tag="li"
+          :text="text"
+        />
+      </ul>
+
+      <div
+        v-if="item?.type === 'experience'"
+        class="skills"
+      >
+        <CVSkillItem
+          v-for="skill in item.skills"
+          :key="skill.id"
+          :skill="(skill as Skill)"
+        />
+      </div>
+    </template>
 
     <div class="location">
       <Icon icon="mdi:home-city-outline" />
@@ -246,8 +260,12 @@ onMounted( () => {
     }
   }
 
+  ul.duties {
+    padding-left: 0.8rem;
+  }
+
   .skills {
-    margin-top: 0.4rem;
+    margin-top: 0.2rem;
     display: flex;
     flex-flow: row wrap;
     gap: 0.2rem;

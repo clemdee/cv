@@ -1,10 +1,11 @@
 <template>
-  <span
+  <component
+    :is="props.tag ?? 'span'"
     ref="textElement"
     class="text"
   >
     {{ animatedText }}
-  </span>
+  </component>
 </template>
 
 <script lang="ts" setup>
@@ -12,6 +13,7 @@ import { ref, computed, watch } from 'vue';
 import { range, shuffle } from '~/composables/utils';
 
 const props = defineProps<{
+  tag?: string,
   text?: string,
 }>();
 
