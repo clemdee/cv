@@ -42,7 +42,7 @@ const { t } = useI18n();
   align-items: stretch;
 
   padding: 2rem;
-  width: 17rem;
+  width: 16rem;
   min-height: var(--page-height);
 
   color: var(--colorscheme-main-text);

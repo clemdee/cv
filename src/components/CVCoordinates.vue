@@ -101,7 +101,7 @@ const age = computed(() => {
 
   h2 {
       margin-bottom: 0.5rem;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       text-transform: uppercase;
       font-family: roboto-thin;
       font-weight: bold;

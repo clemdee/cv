@@ -15,8 +15,8 @@
   align-self: center;
 
   border: 0.2rem solid white;
-  width: 12rem;
-  height: 12rem;
+  width: 11rem;
+  height: 11rem;
   border-radius: 1rem 0 1rem 0;
   overflow: hidden;
 
