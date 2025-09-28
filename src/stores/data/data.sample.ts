@@ -57,40 +57,6 @@ export default {
 
   education: [
     {
-      id: "primarySchool",
-      date: {
-        from: "2004-09",
-        to: "2009-07",
-      },
-      location: "primarySchool",
-    },
-    {
-      id: "juniorHighschool",
-      date: {
-        from: "2009-09",
-        to: "2013-07",
-      },
-      location: "juniorHighschool",
-      certifications: ["brevet"],
-    },
-    {
-      id: "highschool",
-      date: {
-        from: "2013-09",
-        to: "2016-07",
-      },
-      location: "highschool",
-      certifications: ["baccalaureat"],
-    },
-    {
-      id: "prepa",
-      date: {
-        from: "2016-09",
-        to: "2018-07",
-      },
-      location: "eisti",
-    },
-    {
       id: "engineering",
       date: {
         from: "2018-09",
@@ -107,169 +73,48 @@ export default {
       },
       location: "ets",
     },
-  ],
-
-  experience: [
     {
-      id: "eisti-TIPE",
+      id: "prepa",
       date: {
         from: "2016-09",
         to: "2018-07",
       },
       location: "eisti",
-      skills: [
-        "csharp",
-        "unity",
-      ],
     },
     {
-      id: "eisti-turtle",
+      id: "highschool",
       date: {
-        from: "2017-01",
-        to: "2017-01",
+        from: "2013-09",
+        to: "2016-07",
       },
-      location: "eisti",
-      skills: [
-        "python",
-      ],
+      location: "highschool",
+      certifications: ["baccalaureat"],
     },
     {
-      id: "eisti-bezier",
+      id: "juniorHighschool",
       date: {
-        from: "2017-05",
-        to: "2017-06",
+        from: "2009-09",
+        to: "2013-07",
       },
-      location: "eisti",
-      skills: [
-        "python",
-      ],
+      location: "juniorHighschool",
+      certifications: ["brevet"],
     },
     {
-      id: "eisti-oh-hell",
+      id: "primarySchool",
       date: {
-        from: "2017-10",
-        to: "2017-10",
+        from: "2004-09",
+        to: "2009-07",
       },
-      location: "eisti",
-      skills: [
-        "ocaml",
-      ],
+      location: "primarySchool",
     },
+  ],
+
+  experience: [
     {
-      id: "eisti-TSP",
+      id: "xwiki-cdi",
       date: {
-        from: "2017-12",
-        to: "2018-01",
-      },
-      location: "eisti",
-      skills: [
-        "ocaml",
-      ],
-    },
-    {
-      id: "eisti-LabVIEW",
-      date: {
-        from: "2018-05",
-        to: "2018-06",
-      },
-      location: "eisti",
-      skills: [
-        "ocaml",
-      ],
-    },
-    {
-      id: "eisti-footbet",
-      date: {
-        from: "2018-06",
-        to: "2018-07",
-      },
-      location: "eisti",
-      skills: [
-        "html",
-        "css",
-        "javascript",
-        "responsiveDesign",
-        "php",
-      ],
-    },
-    {
-      id: "eisti-vdsa",
-      date: {
-        from: "2018-09",
-        to: "2018-12",
-      },
-      location: "eisti",
-      skills: [
-        "html",
-        "css",
-        "javascript",
-        "jquery",
-        "responsiveDesign",
-      ],
-    },
-    {
-      id: "eistikathon-1",
-      date: {
-        from: "2018-12",
-        to: "2018-12",
-      },
-      location: "eisti",
-      skills: [
-        "mysql",
-        "cicd",
-      ],
-    },
-    {
-      id: "eisti-internship-ing1",
-      date: {
-        from: "2019-05",
-        to: "2019-08",
-      },
-      location: "xwiki",
-      skills: [
-        "html",
-        "css",
-        "javascript",
-        "jquery",
-        "ui",
-        "ux",
-      ],
-    },
-    {
-      id: "eistikathon-2",
-      date: {
-        from: "2019-12",
-        to: "2019-12",
-      },
-      location: "eisti",
-      skills: [
-        "html",
-        "css",
-        "javascript",
-        "angular",
-      ],
-    },
-    {
-      id: "eisti-internship-ing2",
-      date: {
-        from: "2020-05",
-        to: "2020-08",
-      },
-      location: "xwiki",
-      skills: [
-        "html",
-        "css",
-        "javascript",
-        "vue",
-        "ui",
-        "ux",
-      ],
-    },
-    {
-      id: "eisti-alternance",
-      date: {
-        from: "2020-09",
-        to: "2021-08",
+        from: "2021-09",
+        to: "2023-12",
       },
       location: "xwiki",
       skills: [
@@ -293,10 +138,10 @@ export default {
       ],
     },
     {
-      id: "xwiki-cdi",
+      id: "eisti-alternance",
       date: {
-        from: "2021-09",
-        to: "2023-12",
+        from: "2020-09",
+        to: "2021-08",
       },
       location: "xwiki",
       skills: [
@@ -307,6 +152,161 @@ export default {
         "java",
         "ui",
         "ux",
+      ],
+    },
+    {
+      id: "eisti-internship-ing2",
+      date: {
+        from: "2020-05",
+        to: "2020-08",
+      },
+      location: "xwiki",
+      skills: [
+        "html",
+        "css",
+        "javascript",
+        "vue",
+        "ui",
+        "ux",
+      ],
+    },
+    {
+      id: "eistikathon-2",
+      date: {
+        from: "2019-12",
+        to: "2019-12",
+      },
+      location: "eisti",
+      skills: [
+        "html",
+        "css",
+        "javascript",
+        "angular",
+      ],
+    },
+    {
+      id: "eisti-internship-ing1",
+      date: {
+        from: "2019-05",
+        to: "2019-08",
+      },
+      location: "xwiki",
+      skills: [
+        "html",
+        "css",
+        "javascript",
+        "jquery",
+        "ui",
+        "ux",
+      ],
+    },
+    {
+      id: "eistikathon-1",
+      date: {
+        from: "2018-12",
+        to: "2018-12",
+      },
+      location: "eisti",
+      skills: [
+        "mysql",
+        "cicd",
+      ],
+    },
+    {
+      id: "eisti-vdsa",
+      date: {
+        from: "2018-09",
+        to: "2018-12",
+      },
+      location: "eisti",
+      skills: [
+        "html",
+        "css",
+        "javascript",
+        "jquery",
+        "responsiveDesign",
+      ],
+    },
+    {
+      id: "eisti-footbet",
+      date: {
+        from: "2018-06",
+        to: "2018-07",
+      },
+      location: "eisti",
+      skills: [
+        "html",
+        "css",
+        "javascript",
+        "responsiveDesign",
+        "php",
+      ],
+    },
+    {
+      id: "eisti-LabVIEW",
+      date: {
+        from: "2018-05",
+        to: "2018-06",
+      },
+      location: "eisti",
+      skills: [
+        "ocaml",
+      ],
+    },
+    {
+      id: "eisti-TSP",
+      date: {
+        from: "2017-12",
+        to: "2018-01",
+      },
+      location: "eisti",
+      skills: [
+        "ocaml",
+      ],
+    },
+    {
+      id: "eisti-oh-hell",
+      date: {
+        from: "2017-10",
+        to: "2017-10",
+      },
+      location: "eisti",
+      skills: [
+        "ocaml",
+      ],
+    },
+    {
+      id: "eisti-bezier",
+      date: {
+        from: "2017-05",
+        to: "2017-06",
+      },
+      location: "eisti",
+      skills: [
+        "python",
+      ],
+    },
+    {
+      id: "eisti-turtle",
+      date: {
+        from: "2017-01",
+        to: "2017-01",
+      },
+      location: "eisti",
+      skills: [
+        "python",
+      ],
+    },
+    {
+      id: "eisti-TIPE",
+      date: {
+        from: "2016-09",
+        to: "2018-07",
+      },
+      location: "eisti",
+      skills: [
+        "csharp",
+        "unity",
       ],
     },
   ],
