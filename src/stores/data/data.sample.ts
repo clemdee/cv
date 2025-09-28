@@ -216,6 +216,7 @@ export default {
       location: "eisti",
       skills: [
         "mysql",
+        "cicd",
       ],
     },
     {

@@ -141,7 +141,11 @@
       },
       "eistikathon-1": {
         "title": "Équipe gagnante de l'EISTIKATHON, hackathon organisé par CAPFI et l'EISTI",
-        "description": "Développement pendant 24h d'une application d'accessibilité pour personnes en situation de handicap"
+        "description": "Développement en 24h d'une application d'aide pour personnes en situation de handicap",
+        "duties": [
+          "Rôle de Product Owner de l'équipe",
+          "Travail sous contrainte de temps très stricte"
+        ]
       },
       "eisti-internship-ing1": {
         "title": "Premier stage de programmation à XWikiSAS",
@@ -149,7 +153,7 @@
         "duties": [
           "Conception de nouvelles fonctionnalités orientées produit",
           "Correction de bugs et amélioration de la stabilité",
-          "Amélioration continue de l'ergonomie et de l'expérience utilisateur"
+          "Amélioration continue de l'ergonomie et de l'UX"
         ]
       },
       "eistikathon-2": {

@@ -144,8 +144,12 @@
         "description": "Use of web technologies to implement a dashboard, meeting the real needs of the VDSA enterprise"
       },
       "eistikathon-1": {
-        "title": "Winning team of the EISTIKATHON, a hackathon organized by CAPFI and EISTI",
-        "description": "24-H hackathon where 5 teams develop an accessibility application to help people with a handicap"
+        "title": "Winner of the EISTIKATHON, a hackathon organized by CAPFI and EISTI",
+        "description": "24-H hackathon where teams develop an accessibility application to help disabled people",
+        "duties": [
+          "Product owner of my team",
+          "Delivering work under very strict time constraints"
+        ]
       },
       "eisti-internship-ing1": {
         "title": "First programmation internship at XWikiSAS",
