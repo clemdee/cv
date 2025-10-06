@@ -3,6 +3,9 @@
     <h1>
       <CVText :text="t('title')" />
     </h1>
+    <h2>
+      <CVText :text="t('subtitle')" />
+    </h2>
   </header>
 </template>
 
@@ -16,9 +19,10 @@ const { t } = useI18n();
 <style lang="scss" scoped>
 header {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 0.5rem;
 
   margin-top: 1rem;
   margin-bottom: 2rem;
@@ -26,12 +30,14 @@ header {
   margin-right: -2rem;
 
   h1 {
-    flex-grow: 1;
-
     font-size: 1.5rem;
     text-align: center;
     text-transform: uppercase;
     font-family: 'roboto-thin';
+  }
+
+  h2 {
+    text-align: center;
     white-space: pre-line;
   }
 }
