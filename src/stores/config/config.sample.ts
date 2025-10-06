@@ -7,10 +7,10 @@ export default {
     },
     show: {
       id: [
-        "highschool",
-        "prepa",
         "engineering",
         "engineeringETS",
+        "prepa",
+        "highschool",
       ],
     },
   },
@@ -21,10 +21,11 @@ export default {
     },
     show: {
       id: [
-        "eisti-internship-ing1",
-        "eisti-internship-ing2",
+        "xwiki-cdi",
         "eisti-alternance",
-        "xwiki-cdi"
+        "eisti-internship-ing2",
+        "eisti-internship-ing1",
+        "eistikathon-1",
       ],
     },
   },
