@@ -13,8 +13,6 @@ export default {
       id: [
         "engineering",
         "engineeringETS",
-        "prepa",
-        "highschool",
       ],
     },
   },
