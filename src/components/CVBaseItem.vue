@@ -29,11 +29,17 @@
           ref="input"
         />
 
-        <div class="left">
+        <div
+          v-if="props.displayLeft"
+          class="left"
+        >
           <slot name="left"></slot>
         </div>
 
-        <div class="right">
+        <div
+          v-if="props.displayRight"
+          class="right"
+        >
           <slot name="right"></slot>
         </div>
 
@@ -51,9 +57,14 @@ const visible = defineModel('visible', {
   required: true,
 });
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   anchorId: string,
-}>();
+  displayLeft?: boolean,
+  displayRight?: boolean,
+}>(), {
+  displayLeft: true,
+  displayRight: true,
+});
 
 const input = ref<HTMLElement | null>(null);
 

@@ -20,7 +20,7 @@ export default {
     email: "",
     linkedin: {
       name: "Clément Desableau",
-      link: "https://www.linkedin.com/in/cl%C3%A9ment-desableau-92a411170/",
+      link: "https://www.linkedin.com/in/cl%C3%A9ment-desableau-92a411170",
     },
     github: {
       name: "ClemDee",
@@ -328,7 +328,7 @@ export default {
       date: {
         from: "2023",
       },
-      url: "https://clemdee.github.io/cv/",
+      url: "https://clemdee.github.io/cv",
       skills: [
         "html",
         "css",

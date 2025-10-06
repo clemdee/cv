@@ -3,16 +3,18 @@
     class="cv-hobbies-item"
     :anchor-id="`hobbies-${hobby.id}`"
     :visible="isVisible"
+    :display-left="!!qrcodeUrl"
     @click="panel.set(hobby)"
   >
     <template #left>
       <div
-        v-if="hobby.date"
-        class="date"
+        v-if="qrcodeUrl"
+        class="qrcode"
       >
-        <CVText :text="hobby.date.from?.toString()" />
-        <span v-if="hobby.date.to"> - </span>
-        <CVText :text="hobby.date.to?.toString()" />
+        <img
+          :src="qrcodeUrl"
+          :alt="hobby.url"
+        />
       </div>
     </template>
 
@@ -73,6 +75,8 @@ import { usePanel } from './CVItemPanel.vue';
 import CVText from '~/components/CVText.vue';
 import CVBaseItem from '~/components/CVBaseItem.vue';
 import CVSkillItem from './CVSkillItem.vue';
+import { asyncComputed } from '@vueuse/core';
+import QRCode from 'qrcode';
 
 const config = useConfig();
 const panel = usePanel();
@@ -85,11 +89,27 @@ const isVisible = computed(() =>
   !config.hobbies?.show?.id
   || (config.hobbies.show.id as unknown as string).includes(props.hobby.id)
 );
+
+const qrcodeUrl = asyncComputed<string | undefined>(async () => {
+  if (!props.hobby.url) return;
+  try {
+    return await QRCode.toDataURL(props.hobby.url, {
+      margin: 2,
+    });
+  } catch (err) {
+    console.error(err)
+  }
+}, undefined)
 </script>
 
 <style lang="scss" scoped>
 
 .cv-hobbies-item {
+  .qrcode img {
+    margin-top: 0.2rem;
+    height: 6rem;
+  }
+
   .title {
     font-weight: bold;
   }
