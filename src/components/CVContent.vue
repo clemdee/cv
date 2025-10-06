@@ -4,10 +4,10 @@
     class="cv-content"
   >
     <CVHeader />
-    <CVEducation />
     <CVExperience />
-    <CVHobbies />
     <CVSkills />
+    <CVEducation />
+    <CVHobbies />
   </div>
 </template>
 
