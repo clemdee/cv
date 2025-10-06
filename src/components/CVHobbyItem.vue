@@ -11,7 +11,7 @@
         class="date"
       >
         <CVText :text="hobby.date.from?.toString()" />
-        -
+        <span v-if="hobby.date.to"> - </span>
         <CVText :text="hobby.date.to?.toString()" />
       </div>
     </template>

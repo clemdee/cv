@@ -8,7 +8,7 @@
     <template #left>
       <div class="date">
         <CVText :text="experience.date.from?.toString()" />
-        -
+        <span v-if="experience.date.to"> - </span>
         <CVText :text="experience.date.to?.toString()" />
       </div>
     </template>

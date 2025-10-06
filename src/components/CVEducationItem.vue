@@ -17,7 +17,7 @@
 
       <div class="date">
         <CVText :text="props.education.date.from?.toString()" />
-        -
+        <span v-if="props.education.date.to"> - </span>
         <CVText :text="props.education.date.to?.toString()" />
       </div>
     </template>
