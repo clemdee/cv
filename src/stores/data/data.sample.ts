@@ -312,7 +312,63 @@ export default {
   ],
 
   hobbies: [
-
+    {
+      id: "projects",
+    },
+    {
+      id: "projects-cv",
+      date: {
+        from: "2023",
+      },
+      url: "https://clemdee.github.io/cv/",
+      skills: [
+        "html",
+        "css",
+        "typescript",
+        "vue",
+        "vite",
+        "ui",
+        "cicd",
+      ],
+    },
+    {
+      id: "projects-enalion",
+      date: {
+        from: "2024",
+      },
+      url: "https://enalion.fr",
+      skills: [
+        "html",
+        "css",
+        "typescript",
+        "vue",
+        "ui",
+        "a11y",
+        "vite",
+        "cicd",
+      ],
+    },
+    {
+      id: "projects-amalgamemusic",
+      date: {
+        from: "2025",
+      },
+      url: "https://amalgamemusic.com",
+      skills: [
+        "html",
+        "css",
+        "typescript",
+        "vue",
+        "ui",
+        "ux",
+        "a11y",
+        "vite",
+        "cicd",
+      ],
+    },
+    {
+      id: "music",
+    },
   ],
 
   skills: [

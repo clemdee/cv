@@ -30,11 +30,6 @@
     "content": "Ingénieur en informatique. J'adore créer. J'adore apprendre. À la recherche d'un travail en ingénierie logiciel."
   },
 
-  "hobbies": {
-      "title": "Centres d'intérêt",
-      "content": "Violoncelliste à l'orchestre d'Orsay, bassiste dans un groupe de funk, composition musicale par ordinateur.\n\nProgrammation dans mon temps libre sur divers projets personnels : webapps javascript, extensions navigateur, ou encore ce CV 👀."
-  },
-
   "languages": {
     "title": "Langues",
     "items": {
@@ -187,6 +182,38 @@
           "Adaptation aux besoins clients et ajustement rapide des fonctionnalités",
           "Travail en équipe Agile et coordination inter-équipes",
           "Mise à jour de la documentation technique et fonctionnelle"
+        ]
+      }
+    }
+  },
+
+  "hobbies": {
+    "title": "Centres d'intérêt",
+    "items": {
+      "projects": {
+        "title": "Projets personnels",
+        "description": "Je programme beaucoup pendant mon temps libre, ce qui me permet d'expérimenter, d'apprendre et de renforcer mon expertise sur l'écosystème web, et notamment sur Vue.js. Certains projets sont publiques sur mon github."
+      },
+      "projects-cv": {
+        "title": "CV",
+        "description": "Programmation de mon CV en Vue, par ce que finalement pourquoi pas"
+      },
+      "projects-enalion": {
+        "title": "Site web Enalion",
+        "description": "Site web pour mon groupe de musique Enalion. Utilise la SSG pour une meilleure DX tout en garantissant un temps de chargement rapide."
+      },
+      "projects-amalgamemusic": {
+        "title": "Site web Amalgame",
+        "description": "Site web pour mon projet de musique Amalgame"
+      },
+      "music": {
+        "title": "Musique",
+        "description": "La musique est la seconde partie de ma vie.",
+        "duties": [
+          "Violoncelliste à l'orchestre semi-professionnel d'Orsay depuis 2022",
+          "Bassiste en groupe se produisant en concert selon les occasions",
+          "Production musicale sur ordinateur",
+          "Membre du bureau de l'association de musique de mon école d'ingénieur pendant mes études"
         ]
       }
     }

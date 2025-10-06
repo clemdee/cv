@@ -29,11 +29,6 @@
     "content": "French engineer in computer science. I love to create. I love to learn. Looking for a job in software engineering."
   },
 
-  "hobbies": {
-    "title": "Hobbies",
-    "content": "Cellist in the Orsay orchestra, bassist in a funk band, computer music composition.\n\nProgramming in my spare time on various personal projects, like javascript webapps, browser extensions, or this very CV 👀."
-  },
-
   "languages": {
     "title": "Languages",
     "items": {
@@ -196,6 +191,38 @@
     }
   },
 
+  "hobbies": {
+    "title": "Hobbies",
+    "items": {
+      "projects": {
+        "title": "Personal projects",
+        "description": "I program a lot in my spare time, which allows me to experiment, learn, and strengthen my expertise in the web ecosystem, particularly in Vue.js. Some projects are public on my github."
+      },
+      "projects-cv": {
+        "title": "CV",
+        "description": "I made my CV using Vue because why not"
+      },
+      "projects-enalion": {
+        "title": "Enalion website",
+        "description": "Website for my band Enalion. Uses SSG for better DX and faster loading times."
+      },
+      "projects-amalgamemusic": {
+        "title": "Amalgame website",
+        "description": "Website for my music project Amalgame"
+      },
+      "music": {
+        "title": "Music",
+        "description": "Music is the second part of my life",
+        "duties": [
+          "Cellist at the Orsay semi-professional orchestra since 2022",
+          "Bassist in a band performing live on occasion",
+          "Computer music production",
+          "Member of the music association committee at my engineering school during my studies"
+        ]
+      }
+    }
+  },
+
   "skills": {
     "title": "Skills",
     "titles": {
@@ -214,6 +241,7 @@
       "vue": "Vue",
       "angular": "Angular",
       "nodejs": "Node",
+      "vite": "Vite",
       "php": "PHP",
       "jee": "JEE",
       "mysql": "MySQL",

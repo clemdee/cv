@@ -9,14 +9,6 @@
     >
       <CVText :text="t('objective.content')" />
     </CVAsideSection>
-
-    <CVAsideSection
-      :title="t('hobbies.title')"
-      anchorId="hobbies"
-    >
-      <CVText :text="t('hobbies.content')" />
-    </CVAsideSection>
-
     <CVAsideSectionLanguage />
   </div>
 </template>
