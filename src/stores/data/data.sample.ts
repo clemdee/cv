@@ -125,6 +125,7 @@ export default {
         "java",
         "ui",
         "ux",
+        "git",
       ],
     },
     {
@@ -152,6 +153,7 @@ export default {
         "java",
         "ui",
         "ux",
+        "git",
       ],
     },
     {
@@ -168,6 +170,7 @@ export default {
         "vue",
         "ui",
         "ux",
+        "git",
       ],
     },
     {
@@ -182,6 +185,7 @@ export default {
         "css",
         "javascript",
         "angular",
+        "git",
       ],
     },
     {
@@ -198,6 +202,7 @@ export default {
         "jquery",
         "ui",
         "ux",
+        "git",
       ],
     },
     {
@@ -209,6 +214,7 @@ export default {
       location: "eisti",
       skills: [
         "mysql",
+        "git",
         "cicd",
       ],
     },
@@ -225,6 +231,7 @@ export default {
         "javascript",
         "jquery",
         "responsiveDesign",
+        "git",
       ],
     },
     {
@@ -240,6 +247,7 @@ export default {
         "javascript",
         "responsiveDesign",
         "php",
+        "git",
       ],
     },
     {
@@ -328,6 +336,7 @@ export default {
         "vue",
         "vite",
         "ui",
+        "git",
         "cicd",
       ],
     },
@@ -345,6 +354,7 @@ export default {
         "ui",
         "a11y",
         "vite",
+        "git",
         "cicd",
       ],
     },
@@ -363,6 +373,7 @@ export default {
         "ux",
         "a11y",
         "vite",
+        "git",
         "cicd",
       ],
     },
