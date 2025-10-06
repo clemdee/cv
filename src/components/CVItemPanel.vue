@@ -53,16 +53,19 @@
       </div>
     </template>
 
-    <div class="location">
+    <div
+      v-show="location"
+      class="location"
+    >
       <Icon icon="mdi:home-city-outline" />
-      <CVText :text="item?.location?.name" />
+      <CVText :text="location?.name" />
       <br/>
       <Icon icon="mdi:map-marker-outline" />
-      <CVText :text="item?.location?.location" />
+      <CVText :text="location?.location" />
     </div>
 
     <div
-      v-show="item?.location"
+      v-show="location?.map"
       id="map"
       class="map"
     />
@@ -71,7 +74,7 @@
 
 <script lang="ts">
 import { Icon } from '@iconify/vue';
-import type { Education, Experience, Skill } from '~/stores/data';
+import { type Location, type Education, type Experience, type Hobby, type Skill } from '~/stores/data';
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import { wait } from '~/composables/utils';
@@ -80,7 +83,7 @@ import CVSkillItem from './CVSkillItem.vue';
 
 export const usePanel = defineStore('panel', () => {
 
-  type Item = Education | Experience;
+  type Item = Education | Experience | Hobby;
 
   const item = ref<Item>();
   const visible = ref(false);
@@ -156,8 +159,14 @@ const panel = usePanel();
 
 const item = computed(() => panel.item);
 
-const coords = computed<Coord>(() => {
-  return (item.value?.location?.map as Coord) ?? [0, 0];
+const location = computed<Location | undefined>(() => {
+  if (item.value === undefined) return;
+  if (! ('location' in item.value)) return;
+  return item.value.location as Location;
+})
+
+const coords = computed<Coord | undefined>(() => {
+  return (location.value?.map as Coord) ?? [0, 0];
 });
 
 onKeyStroke('Escape', (event) => {
@@ -171,6 +180,7 @@ onMounted( () => {
   let marker: ReturnType<typeof Leaflet.marker>;
 
   watch(item, async () => {
+    if (!coords.value) return;
     // Wait for panel to open in order to get the map displayed with the right dimensions
     await wait(200);
     map.setView(coords.value, 15);

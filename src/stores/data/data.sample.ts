@@ -311,6 +311,10 @@ export default {
     },
   ],
 
+  hobbies: [
+
+  ],
+
   skills: [
     {
       id: "fr",

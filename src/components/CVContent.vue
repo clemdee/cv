@@ -6,6 +6,7 @@
     <CVHeader />
     <CVEducation />
     <CVExperience />
+    <CVHobbies />
     <CVSkills />
   </div>
 </template>
@@ -17,6 +18,7 @@ import { useResizeObserver } from '@vueuse/core'
 import CVHeader from '~/components/CVHeader.vue';
 import CVEducation from '~/components/CVEducation.vue';
 import CVExperience from '~/components/CVExperience.vue';
+import CVHobbies from './CVHobbies.vue';
 import CVSkills from '~/components/CVSkills.vue';
 
 const root = ref<HTMLElement | null>(null);

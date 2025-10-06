@@ -29,6 +29,10 @@ export default {
     },
   },
 
+  hobbies: {
+
+  },
+
   skills: {
     level: {
       min: 0.6,

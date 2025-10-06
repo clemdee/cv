@@ -35,6 +35,16 @@ export type ExperienceConfig = {
   }
 }
 
+export type HobbiesConfig = {
+  date?: DateSpan,
+  duration?: DateDuration,
+  show?: {
+    id?: DataConst['hobbies'][number]['id'][],
+    skills?: SkillId[],
+    tags?: string[],
+  }
+}
+
 export type SkillsConfig = {
   level?: LevelFilter,
   show?: {
@@ -46,6 +56,7 @@ export type SkillsConfig = {
 export type Config = {
   education?: EducationConfig,
   experience?: ExperienceConfig,
+  hobbies?: HobbiesConfig,
   skills?: SkillsConfig,
 }
 

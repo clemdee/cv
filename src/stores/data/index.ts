@@ -80,6 +80,24 @@ export type Experience = {
   skills: Skill[],
 };
 
+export type JSONHobby = {
+  id: string,
+  date?: DateSpan,
+  url?: string,
+  skills?: JSONSkill['id'][],
+};
+
+export type Hobby = {
+  type: 'hobby',
+  id: string,
+  title: string,
+  description: string,
+  url?: string,
+  duties: string[],
+  date?: DateSpan,
+  skills: Skill[],
+};
+
 export type JSONSkills = JSONSkill[];
 
 export type Skills = Skill[];
@@ -89,6 +107,7 @@ export type JSONData = {
   locations: JSONLocation[],
   education: JSONEducation[],
   experience: JSONExperience[],
+  hobbies: JSONHobby[],
   skills: JSONSkills,
 }
 
@@ -97,6 +116,7 @@ export type Data = {
   locations: Location[],
   education: Education[],
   experience: Experience[],
+  hobbies: Hobby[],
   skills: Skills,
 }
 
@@ -215,6 +235,16 @@ export const useData = defineStore('data', () => {
     skills: getSkills(experience.skills),
   }));
 
+  const resolveHobby = (hobby: JSONHobby): Hobby => reactiveComputed<Hobby>(() => ({
+    type: 'hobby',
+    id: hobby.id,
+    date: hobby.date,
+    description: t(`experience.items.${hobby.id}.description`),
+    duties: tm(`experience.items.${hobby.id}.duties`) ?? [],
+    title: t(`experience.items.${hobby.id}.title`),
+    skills: getSkills(hobby.skills),
+  }));
+
   const experienceMap = new Map<string, Experience>();
   const getExperience = (id?: string) => {
     if (!id) return undefined;
@@ -227,6 +257,7 @@ export const useData = defineStore('data', () => {
     locations: dataJSON.locations.map(location => resolveLocation(location)),
     education: dataJSON.education.map(education => resolveEducation(education)),
     experience: dataJSON.experience.map(experience => resolveExperience(experience)),
+    hobbies: dataJSON.hobbies.map(hobby => resolveHobby(hobby)),
     skills: dataJSON.skills.map(skill => resolveSkill(skill))
   }));
 
