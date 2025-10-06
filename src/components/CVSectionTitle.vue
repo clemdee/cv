@@ -19,11 +19,12 @@ defineProps<{
 
 <style lang="scss" scoped>
 .cv-section-title {
+  break-after: avoid;
+
   h2 {
     position: relative;
     display: flex;
     font-size: 1rem;
-    break-after: avoid;
 
     .title {
       width: 100%;
