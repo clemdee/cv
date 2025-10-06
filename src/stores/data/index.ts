@@ -239,9 +239,10 @@ export const useData = defineStore('data', () => {
     type: 'hobby',
     id: hobby.id,
     date: hobby.date,
-    description: t(`experience.items.${hobby.id}.description`),
-    duties: tm(`experience.items.${hobby.id}.duties`) ?? [],
-    title: t(`experience.items.${hobby.id}.title`),
+    description: t(`hobbies.items.${hobby.id}.description`),
+    url: hobby.url,
+    duties: tm(`hobbies.items.${hobby.id}.duties`) ?? [],
+    title: t(`hobbies.items.${hobby.id}.title`),
     skills: getSkills(hobby.skills),
   }));
 

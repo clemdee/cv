@@ -30,8 +30,12 @@
           v-if="hobby.url"
           class="url"
         >
-          <a>
-           <CVText :text="hobby.description" />
+          <a
+            @click.stop
+            :href="hobby.url"
+            target="_blank"
+          >
+           <CVText :text="hobby.url" />
           </a>
         </div>
 
@@ -94,6 +98,10 @@ const isVisible = computed(() =>
     display: flex;
     flex-flow: column;
     gap: 0.2rem;
+
+    a {
+      font-style: italic;
+    }
 
     ul.duties {
       padding-left: 0.8rem;
