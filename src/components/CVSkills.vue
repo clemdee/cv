@@ -45,20 +45,6 @@
         />
       </div>
     </article>
-
-    <article class="item">
-      <div class="title">
-        <CVText :text="t('skills.titles.softwares')" />
-      </div>
-
-      <div class="skills">
-        <CVSkillItem
-          v-for="skill in skillsSoftwares"
-          :key="skill.id"
-          :skill="skill"
-        />
-      </div>
-    </article>
   </section>
 </template>
 
@@ -91,10 +77,6 @@ const skillsSecondary = computed(() => data.skills
 
 const skillsOS = computed(() => data.skills
   .filter(skill => skill.tags?.includes('os'))
-);
-
-const skillsSoftwares = computed(() => data.skills
-  .filter(skill => skill.tags?.includes('software'))
 );
 </script>
 

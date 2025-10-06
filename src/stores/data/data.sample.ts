@@ -477,6 +477,17 @@ export default {
       ],
     },
     {
+      id: "vite",
+      level: 0.75,
+      tags: [
+        "programming",
+        "webdev",
+        "backend",
+        "tool",
+        "main",
+      ],
+    },
+    {
       id: "php",
       level: 0.65,
       tags: [
@@ -604,7 +615,16 @@ export default {
         "main",
       ],
     },
-
+    {
+      id: "git",
+      level: 0.8,
+      tags: [
+        "programming",
+        "software",
+        "collaboration",
+        "main",
+      ],
+    },
     {
       id: "cicd",
       level: 0.75,
@@ -670,14 +690,6 @@ export default {
       tags: [
         "software",
         "editor",
-      ],
-    },
-    {
-      id: "git",
-      level: 0.8,
-      tags: [
-        "software",
-        "collaboration",
       ],
     },
     {
