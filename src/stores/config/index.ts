@@ -14,6 +14,10 @@ export type LevelFilter = {
 
 export type SkillId = DataConst['skills'][number]['id'];
 
+export type CoordinatesConfig = {
+  showPronouns?: boolean,
+}
+
 export type EducationConfig = {
   date?: DateSpan,
   duration?: DateDuration,
@@ -54,6 +58,7 @@ export type SkillsConfig = {
 }
 
 export type Config = {
+  coordinates?: CoordinatesConfig,
   education?: EducationConfig,
   experience?: ExperienceConfig,
   hobbies?: HobbiesConfig,

@@ -7,7 +7,7 @@
         <Icon icon="mdi:user" />
         <div>
           <CVText :text="t('coordinates.age', { age }) + ', ' + t('coordinates.nationality')" />
-          <template v-if="t('coordinates.pronouns')">
+          <template v-if="showPronouns">
             <br />
             <CVText
               class="pronouns"
@@ -72,9 +72,16 @@ import { computed } from 'vue';
 
 import CVText from '~/components/CVText.vue';
 import CVTextSensitive from '~/components/CVTextSensitive.vue';
+import { useConfig } from '~/stores/config';
 
 const { t } = useI18n();
+const config = useConfig();
 const data = useData();
+
+const showPronouns = computed(() => {
+  if (!config.coordinates?.showPronouns) return false;
+  return !!t('coordinates.pronouns');
+})
 
 const phone = computed(() => {
   const phone = parsePhoneNumber(data.profile.phone);

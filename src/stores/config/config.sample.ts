@@ -1,6 +1,10 @@
 import type { Config } from '.';
 
 export default {
+  coordinates: {
+    showPronouns: true,
+  },
+
   education: {
     date: {
       from: "2015",
