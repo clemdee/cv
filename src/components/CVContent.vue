@@ -50,5 +50,4 @@ const pageCount = customRef((track, trigger) => {
   background-color: var(--colorscheme-content-background);
   color: var(--colorscheme-content-text);
 }
-
 </style>

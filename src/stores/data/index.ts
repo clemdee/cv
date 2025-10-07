@@ -191,7 +191,6 @@ export const useData = defineStore('data', () => {
 
   const skillsMap = new Map<string, Skill>();
   const getSkill = (id?: string) => {
-    console.log('id', id);
     if (!id) return undefined;
     const insert = () => {
       const skill = find<Skill>(dataJSON.skills, id);
@@ -261,8 +260,6 @@ export const useData = defineStore('data', () => {
     hobbies: dataJSON.hobbies.map(hobby => resolveHobby(hobby)),
     skills: dataJSON.skills.map(skill => resolveSkill(skill))
   }));
-
-  watchEffect(() => console.log('ATTENTION', data));
 
   return data;
 });

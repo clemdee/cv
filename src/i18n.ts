@@ -11,6 +11,7 @@ export default createI18n({
     en,
     fr,
   },
-  silentTranslationWarn: true,
-  silentFallbackWarn: true,
+  missing: () => '',
+  missingWarn: true,
+  fallbackWarn: false,
 });

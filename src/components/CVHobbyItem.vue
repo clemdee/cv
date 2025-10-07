@@ -24,7 +24,10 @@
       </div>
 
       <div class="details">
-        <div class="description">
+        <div
+          v-if="hobby.description"
+          class="description"
+        >
           <CVText :text="hobby.description" />
         </div>
 
