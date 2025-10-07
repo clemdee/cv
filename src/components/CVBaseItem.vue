@@ -104,6 +104,7 @@ const updateScrollHeight = (el: HTMLElement) => {
     flex-direction: row;
     justify-content: flex-start;
     align-items: stretch;
+    gap: 1rem;
 
     padding: 0.5rem;
     border-radius: 0.5rem;
@@ -124,12 +125,12 @@ const updateScrollHeight = (el: HTMLElement) => {
     }
 
     .left {
-      width: 10rem;
-      padding-right: 0.2rem;
+      flex-shrink: 0;
+      width: 9rem;
     }
 
     .right {
-      width: 70%;
+      width: fit-content;
     }
   }
 

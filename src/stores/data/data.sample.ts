@@ -321,6 +321,9 @@ export default {
 
   hobbies: [
     {
+      id: "music",
+    },
+    {
       id: "projects",
     },
     {
@@ -376,9 +379,6 @@ export default {
         "git",
         "cicd",
       ],
-    },
-    {
-      id: "music",
     },
   ],
 

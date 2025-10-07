@@ -190,8 +190,18 @@
   "hobbies": {
     "title": "Centres d'intérêt",
     "items": {
+      "music": {
+        "title": "Musique",
+        "description": "La musique est la seconde partie de ma vie.",
+        "duties": [
+          "Violoncelliste à l'orchestre semi-professionnel d'Orsay depuis 2022",
+          "Bassiste en groupe se produisant en concert selon les occasions",
+          "Production musicale sur ordinateur",
+          "Membre du bureau de l'association de musique de mon école d'ingénieur pendant mes études"
+        ]
+      },
       "projects": {
-        "title": "Projets personnels",
+        "title": "Programmation - projets personnels",
         "description": "Je programme beaucoup pendant mon temps libre, ce qui me permet d'expérimenter, d'apprendre et de renforcer mon expertise sur l'écosystème web, et notamment sur Vue.js. Certains projets sont publiques sur mon github."
       },
       "projects-cv": {
@@ -205,16 +215,6 @@
       "projects-amalgamemusic": {
         "title": "Site web Amalgame",
         "description": "Site web pour mon projet de musique Amalgame"
-      },
-      "music": {
-        "title": "Musique",
-        "description": "La musique est la seconde partie de ma vie.",
-        "duties": [
-          "Violoncelliste à l'orchestre semi-professionnel d'Orsay depuis 2022",
-          "Bassiste en groupe se produisant en concert selon les occasions",
-          "Production musicale sur ordinateur",
-          "Membre du bureau de l'association de musique de mon école d'ingénieur pendant mes études"
-        ]
       }
     }
   },
