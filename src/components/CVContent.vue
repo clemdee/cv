@@ -41,7 +41,11 @@ const pageCount = customRef((track, trigger) => {
 .cv-content {
   --page-count: v-bind('pageCount');
   min-height: var(--page-height);
-  height: calc(var(--page-count) * var(--page-height) - 4rem);
+  height: calc(
+    var(--page-count) * var(--page-height)
+    - 4rem * (var(--page-count) - 1)
+    - 1px
+  );
   padding: 2rem;
   background-color: var(--colorscheme-content-background);
   color: var(--colorscheme-content-text);
