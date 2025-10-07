@@ -89,7 +89,7 @@ const updateScrollWidth = (el: Element) => {
 
 .cv-skill-item {
   position: relative;
-  padding: 0.1rem 0.5rem;
+  padding: 0.05rem 0.5rem;
   border-radius: 0.3rem;
   background-color: var(--colorscheme-main);
   backface-visibility: hidden; /* For hardware acceleration */
