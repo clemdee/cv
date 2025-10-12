@@ -12,13 +12,13 @@
           <span v-if="experience.date.to"> - </span>
           <CVText :text="experience.date.to?.toString()" />
         </div>
-      </div>
 
-      <div class="experience-body">
         <div class="title">
           <CVText :text="experience.title" />
         </div>
+      </div>
 
+      <div class="experience-body">
         <div class="details">
           <div class="description">
             <CVText :text="experience.description" />
@@ -73,23 +73,13 @@ const isVisible = computed(() =>
 </script>
 
 <style lang="scss" scoped>
-
 .cv-experience-item {
   .experience-content {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    gap: 1rem;
-
-    .experience-header {
-      flex-shrink: 0;
-      width: 7rem;
-    }
-
-    .experience-body {
-      width: fit-content;
-    }
+    gap: 0.3rem;
   }
 
   .title {
@@ -106,10 +96,13 @@ const isVisible = computed(() =>
     }
 
     .skills {
-      margin-top: 0.2rem;
       display: flex;
       flex-flow: row wrap;
       gap: 0.2rem;
+
+      &:not(:empty) {
+        margin-top: 0.2rem;
+      }
     }
   }
 }

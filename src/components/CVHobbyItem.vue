@@ -107,7 +107,6 @@ const qrcodeUrl = asyncComputed<string | undefined>(async () => {
 </script>
 
 <style lang="scss" scoped>
-
 .cv-hobbies-item {
   .hobby-content {
     display: flex;

@@ -100,10 +100,13 @@ const skillsOS = computed(() => data.skills
     }
 
     .skills {
-      margin-bottom: 0.5rem;
       display: flex;
       flex-flow: row wrap;
       gap: 0.2rem;
+
+      &:not(:empty) {
+        margin-bottom: 0.5rem;
+      }
     }
   }
 }
