@@ -13,7 +13,7 @@
       @click="editing && input?.click()"
       v-show="editing || visible"
     >
-      <div class="grid-layout">
+      <div class="cv-base-item-wrapper">
 
         <CVAnchor
           v-if="props.anchorId"
@@ -29,18 +29,8 @@
           ref="input"
         />
 
-        <div
-          v-if="props.displayLeft"
-          class="left"
-        >
-          <slot name="left"></slot>
-        </div>
-
-        <div
-          v-if="props.displayRight"
-          class="right"
-        >
-          <slot name="right"></slot>
+        <div class="cv-base-item-content">
+          <slot />
         </div>
 
       </div>
@@ -57,14 +47,9 @@ const visible = defineModel('visible', {
   required: true,
 });
 
-const props = withDefaults(defineProps<{
+const props = defineProps<{
   anchorId: string,
-  displayLeft?: boolean,
-  displayRight?: boolean,
-}>(), {
-  displayLeft: true,
-  displayRight: true,
-});
+}>();
 
 const input = ref<HTMLElement | null>(null);
 
@@ -98,10 +83,10 @@ const updateScrollHeight = (el: HTMLElement) => {
   break-inside: avoid;
   backface-visibility: hidden; /* For animation hardware acceleration */
 
-  .grid-layout {
+  .cv-base-item-wrapper {
     position: relative;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
     gap: 1rem;
@@ -124,13 +109,12 @@ const updateScrollHeight = (el: HTMLElement) => {
       margin-right: 0.3rem;
     }
 
-    .left {
-      flex-shrink: 0;
-      width: 9rem;
-    }
-
-    .right {
-      width: fit-content;
+    .cv-base-item-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      gap: 1rem;
     }
   }
 
@@ -170,8 +154,7 @@ const updateScrollHeight = (el: HTMLElement) => {
       opacity: 0.5;
     }
 
-    .left,
-    .right {
+    .cv-base-item-content {
       pointer-events: none;
       user-select: none;
     }

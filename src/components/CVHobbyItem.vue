@@ -6,66 +6,67 @@
     :display-left="!!qrcodeUrl"
     @click="panel.set(hobby)"
   >
-    <template #left>
-      <div
-        v-if="qrcodeUrl"
-        class="qrcode"
-      >
-        <img
-          :src="qrcodeUrl"
-          :alt="hobby.url"
-        />
-      </div>
-    </template>
-
-    <template #right>
-      <div class="title">
-        <CVText :text="hobby.title" />
-      </div>
-
-      <div class="details">
+    <div class="hobby-content">
+      <div class="hobby-header">
         <div
-          v-if="hobby.description"
-          class="description"
+          v-if="qrcodeUrl"
+          class="qrcode"
         >
-          <CVText :text="hobby.description" />
+          <img
+            :src="qrcodeUrl"
+            :alt="hobby.url"
+          />
+        </div>
+      </div>
+
+      <div class="hobby-body">
+        <div class="title">
+          <CVText :text="hobby.title" />
         </div>
 
-        <div
-          v-if="hobby.url"
-          class="url"
-        >
-          <a
-            @click.stop
-            :href="hobby.url"
-            target="_blank"
+        <div class="details">
+          <div
+            v-if="hobby.description"
+            class="description"
           >
-           <CVText :text="hobby.url" />
-          </a>
-        </div>
+            <CVText :text="hobby.description" />
+          </div>
 
-        <ul
-          v-if="hobby.duties.length > 0"
-          class="duties"
-        >
-          <CVText
-            v-for="(text, index) in hobby.duties"
-            :key="index"
-            tag="li"
-            :text="text"
-          />
-        </ul>
+          <div
+            v-if="hobby.url"
+            class="url"
+          >
+            <a
+              @click.stop
+              :href="hobby.url"
+              target="_blank"
+            >
+            <CVText :text="hobby.url" />
+            </a>
+          </div>
 
-        <div class="skills">
-          <CVSkillItem
-            v-for="skill in hobby.skills"
-            :key="skill.id"
-            :skill="skill"
-          />
+          <ul
+            v-if="hobby.duties.length > 0"
+            class="duties"
+          >
+            <CVText
+              v-for="(text, index) in hobby.duties"
+              :key="index"
+              tag="li"
+              :text="text"
+            />
+          </ul>
+
+          <div class="skills">
+            <CVSkillItem
+              v-for="skill in hobby.skills"
+              :key="skill.id"
+              :skill="skill"
+            />
+          </div>
         </div>
       </div>
-    </template>
-
+    </div>
   </CVBaseItem>
 </template>
 
@@ -108,6 +109,22 @@ const qrcodeUrl = asyncComputed<string | undefined>(async () => {
 <style lang="scss" scoped>
 
 .cv-hobbies-item {
+  .hobby-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 1rem;
+
+    .hobby-header {
+      flex-shrink: 0;
+    }
+
+    .hobby-body {
+      width: fit-content;
+    }
+  }
+
   .qrcode img {
     margin-top: 0.2rem;
     height: 6rem;

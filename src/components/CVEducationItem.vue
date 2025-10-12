@@ -5,36 +5,39 @@
     :visible="isVisible"
     @click="panel.set(education)"
   >
-    <template #left>
-      <div class="title">
-        <Icon
-          v-if="education.certifications.length > 0"
-          icon="mdi:school-outline"
-          title="diplome"
-        />
-        <CVText :text="props.education.title" />
+    <div class="education-content">
+
+      <div class="education-header">
+        <div class="title">
+          <Icon
+            v-if="education.certifications.length > 0"
+            icon="mdi:school-outline"
+            title="diplome"
+          />
+          <CVText :text="props.education.title" />
+        </div>
+
+        <div class="date">
+          <CVText :text="props.education.date.from?.toString()" />
+          <span v-if="props.education.date.to"> - </span>
+          <CVText :text="props.education.date.to?.toString()" />
+        </div>
       </div>
 
-      <div class="date">
-        <CVText :text="props.education.date.from?.toString()" />
-        <span v-if="props.education.date.to"> - </span>
-        <CVText :text="props.education.date.to?.toString()" />
-      </div>
-    </template>
+      <div class="education-body">
+        <div class="location">
+          <Icon icon="mdi:home-city-outline" />
+          <CVText :text="props.education.location?.name" />
+          <br/>
+          <Icon icon="mdi:map-marker-outline" />
+          <CVText :text="props.education.location?.location" />
+        </div>
 
-    <template #right>
-      <div class="location">
-        <Icon icon="mdi:home-city-outline" />
-        <CVText :text="props.education.location?.name" />
-        <br/>
-        <Icon icon="mdi:map-marker-outline" />
-        <CVText :text="props.education.location?.location" />
+        <div class="details">
+          <CVText :text="props.education.description" />
+        </div>
       </div>
-
-      <div class="details">
-        <CVText :text="props.education.description" />
-      </div>
-    </template>
+    </div>
   </CVBaseItem>
 </template>
 
@@ -63,6 +66,23 @@ const isVisible = computed(() =>
 
 <style lang="scss" scoped>
 .cv-education-item {
+  .education-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 1rem;
+
+    .education-header {
+      flex-shrink: 0;
+      width: 10rem;
+    }
+
+    .education-body {
+      width: fit-content;
+    }
+  }
+
   .title,
   .location {
     font-weight: bold;

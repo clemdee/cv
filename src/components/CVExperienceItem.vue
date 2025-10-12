@@ -5,46 +5,47 @@
     :visible="isVisible"
     @click="panel.set(experience)"
   >
-    <template #left>
-      <div class="date">
-        <CVText :text="experience.date.from?.toString()" />
-        <span v-if="experience.date.to"> - </span>
-        <CVText :text="experience.date.to?.toString()" />
-      </div>
-    </template>
-
-    <template #right>
-      <div class="title">
-        <CVText :text="experience.title" />
-      </div>
-
-      <div class="details">
-        <div class="description">
-          <CVText :text="experience.description" />
-        </div>
-
-        <ul
-          v-if="experience.duties.length > 0"
-          class="duties"
-        >
-          <CVText
-            v-for="(text, index) in experience.duties"
-            :key="index"
-            tag="li"
-            :text="text"
-          />
-        </ul>
-
-        <div class="skills">
-          <CVSkillItem
-            v-for="skill in experience.skills"
-            :key="skill.id"
-            :skill="skill"
-          />
+    <div class="experience-content">
+      <div class="experience-header">
+        <div class="date">
+          <CVText :text="experience.date.from?.toString()" />
+          <span v-if="experience.date.to"> - </span>
+          <CVText :text="experience.date.to?.toString()" />
         </div>
       </div>
-    </template>
 
+      <div class="experience-body">
+        <div class="title">
+          <CVText :text="experience.title" />
+        </div>
+
+        <div class="details">
+          <div class="description">
+            <CVText :text="experience.description" />
+          </div>
+
+          <ul
+            v-if="experience.duties.length > 0"
+            class="duties"
+          >
+            <CVText
+              v-for="(text, index) in experience.duties"
+              :key="index"
+              tag="li"
+              :text="text"
+            />
+          </ul>
+
+          <div class="skills">
+            <CVSkillItem
+              v-for="skill in experience.skills"
+              :key="skill.id"
+              :skill="skill"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   </CVBaseItem>
 </template>
 
@@ -74,6 +75,23 @@ const isVisible = computed(() =>
 <style lang="scss" scoped>
 
 .cv-experience-item {
+  .experience-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 1rem;
+
+    .experience-header {
+      flex-shrink: 0;
+      width: 7rem;
+    }
+
+    .experience-body {
+      width: fit-content;
+    }
+  }
+
   .title {
     font-weight: bold;
   }
