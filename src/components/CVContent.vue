@@ -4,10 +4,10 @@
     class="cv-content"
   >
     <CVHeader />
-    <CVExperience />
-    <CVSkills />
-    <CVEducation />
-    <CVHobbies />
+    <CVSectionExperience />
+    <CVSectionSkills />
+    <CVSectionEducation />
+    <CVSectionHobbies />
   </div>
 </template>
 
@@ -16,10 +16,10 @@ import { ref, customRef } from 'vue';
 import { useResizeObserver } from '@vueuse/core'
 
 import CVHeader from '~/components/CVHeader.vue';
-import CVEducation from '~/components/CVEducation.vue';
-import CVExperience from '~/components/CVExperience.vue';
-import CVHobbies from './CVHobbies.vue';
-import CVSkills from '~/components/CVSkills.vue';
+import CVSectionEducation from '~/components/CVSectionEducation.vue';
+import CVSectionExperience from '~/components/CVSectionExperience.vue';
+import CVSectionHobbies from '~/components/CVSectionHobbies.vue';
+import CVSectionSkills from '~/components/CVSectionSkills.vue';
 
 const root = ref<HTMLElement | null>(null);
 const pageCount = customRef((track, trigger) => {

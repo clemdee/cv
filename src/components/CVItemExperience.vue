@@ -37,7 +37,7 @@
           </ul>
 
           <div class="skills">
-            <CVSkillItem
+            <CVSkill
               v-for="skill in experience.skills"
               :key="skill.id"
               :skill="skill"
@@ -53,11 +53,11 @@
 import type { Experience } from '~/stores/data';
 import { computed } from 'vue';
 import { useConfig } from '~/stores/config';
-import { usePanel } from './CVItemPanel.vue';
+import { usePanel } from './CVPanelItem.vue';
 
 import CVText from '~/components/CVText.vue';
 import CVBaseItem from '~/components/CVBaseItem.vue';
-import CVSkillItem from './CVSkillItem.vue';
+import CVSkill from './CVSkill.vue';
 
 const config = useConfig();
 const panel = usePanel();

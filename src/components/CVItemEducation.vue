@@ -46,7 +46,7 @@ import { Icon } from '@iconify/vue';
 import type { Education } from '~/stores/data';
 import { computed } from 'vue';
 import { useConfig } from '~/stores/config';
-import { usePanel } from './CVItemPanel.vue';
+import { usePanel } from './CVPanelItem.vue';
 
 import CVText from '~/components/CVText.vue';
 import CVBaseItem from '~/components/CVBaseItem.vue';

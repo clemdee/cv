@@ -4,7 +4,7 @@
       <CVText :text="t('experience.title')" />
     </CVSectionTitle>
 
-    <CVExperienceItem
+    <CVItemExperience
       v-for="experience in data.experience"
       :key="experience.id"
       :experience="experience"
@@ -18,7 +18,7 @@ import { useData } from '~/stores/data';
 
 import CVText from '~/components/CVText.vue';
 import CVSectionTitle from '~/components/CVSectionTitle.vue';
-import CVExperienceItem from '~/components/CVExperienceItem.vue';
+import CVItemExperience from '~/components/CVItemExperience.vue';
 
 const { t } = useI18n();
 const data = useData();

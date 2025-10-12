@@ -10,7 +10,7 @@
       </div>
 
       <div class="skills">
-        <CVSkillItem
+        <CVSkill
           v-for="skill in skillsMain"
           :key="skill.id"
           :skill="skill"
@@ -24,7 +24,7 @@
       </div>
 
       <div class="skills">
-        <CVSkillItem
+        <CVSkill
           v-for="skill in skillsSecondary"
           :key="skill.id"
           :skill="skill"
@@ -38,7 +38,7 @@
       </div>
 
       <div class="skills">
-        <CVSkillItem
+        <CVSkill
           v-for="skill in skillsOS"
           :key="skill.id"
           :skill="skill"
@@ -56,7 +56,7 @@ import { useConfig } from '~/stores/config';
 
 import CVText from '~/components/CVText.vue';
 import CVSectionTitle from '~/components/CVSectionTitle.vue';
-import CVSkillItem from '~/components/CVSkillItem.vue';
+import CVSkill from '~/components/CVSkill.vue';
 
 const data = useData();
 const config = useConfig();

@@ -1,13 +1,13 @@
 <template>
-  <section class="cv-hobby">
-    <CVSectionTitle anchor-id="hobbies">
-      <CVText :text="t('hobbies.title')" />
+  <section class="cv-education">
+    <CVSectionTitle anchor-id="education">
+      <CVText :text="t('education.title')" />
     </CVSectionTitle>
 
-    <CVHobbyItem
-      v-for="hobby in data.hobbies"
-      :key="hobby.id"
-      :hobby="hobby"
+    <CVItemEducation
+      v-for="education in data.education"
+      :key="education.id"
+      :education="education"
     />
   </section>
 </template>
@@ -18,14 +18,14 @@ import { useData } from '~/stores/data';
 
 import CVText from '~/components/CVText.vue';
 import CVSectionTitle from '~/components/CVSectionTitle.vue';
-import CVHobbyItem from './CVHobbyItem.vue';
+import CVItemEducation from '~/components/CVItemEducation.vue';
 
 const { t } = useI18n();
 const data = useData();
 </script>
 
 <style lang="scss" scoped>
-.cv-hobby {
+.cv-education {
   margin-bottom: 2rem;
 }
 </style>

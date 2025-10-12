@@ -11,7 +11,7 @@
 <script lang="ts" setup>
 import CVAside from '~/components/CVAside.vue';
 import CVContent from '~/components/CVContent.vue';
-import CVItemPanel from './CVItemPanel.vue';
+import CVItemPanel from './CVPanelItem.vue';
 </script>
 
 <style lang="scss" scoped>

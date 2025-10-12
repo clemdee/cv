@@ -45,7 +45,7 @@
         v-if="item?.type === 'experience'"
         class="skills"
       >
-        <CVSkillItem
+        <CVSkill
           v-for="skill in item.skills"
           :key="skill.id"
           :skill="(skill as Skill)"
@@ -79,7 +79,7 @@ import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import { wait } from '~/composables/utils';
 import { onKeyStroke } from '@vueuse/core';
-import CVSkillItem from './CVSkillItem.vue';
+import CVSkill from './CVSkill.vue';
 
 export const usePanel = defineStore('panel', () => {
 
