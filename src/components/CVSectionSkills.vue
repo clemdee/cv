@@ -9,13 +9,7 @@
         <CVText :text="t('skills.titles.main')" />
       </div>
 
-      <div class="skills">
-        <CVSkill
-          v-for="skill in skillsMain"
-          :key="skill.id"
-          :skill="skill"
-        />
-      </div>
+      <CVSkills :skills="skillsMain" />
     </article>
 
     <article class="item">
@@ -23,13 +17,7 @@
         <CVText :text="t('skills.titles.secondary')" />
       </div>
 
-      <div class="skills">
-        <CVSkill
-          v-for="skill in skillsSecondary"
-          :key="skill.id"
-          :skill="skill"
-        />
-      </div>
+      <CVSkills :skills="skillsSecondary" />
     </article>
 
     <article class="item">
@@ -37,13 +25,7 @@
         <CVText :text="t('skills.titles.os')" />
       </div>
 
-      <div class="skills">
-        <CVSkill
-          v-for="skill in skillsOS"
-          :key="skill.id"
-          :skill="skill"
-        />
-      </div>
+      <CVSkills :skills="skillsOS" />
     </article>
   </section>
 </template>
@@ -57,6 +39,7 @@ import { useConfig } from '~/stores/config';
 import CVText from '~/components/CVText.vue';
 import CVSectionTitle from '~/components/CVSectionTitle.vue';
 import CVSkill from '~/components/CVSkill.vue';
+import CVSkills from './CVSkills.vue';
 
 const data = useData();
 const config = useConfig();
@@ -97,16 +80,6 @@ const skillsOS = computed(() => data.skills
 
     .title {
       font-weight: bold;
-    }
-
-    .skills {
-      display: flex;
-      flex-flow: row wrap;
-      gap: 0.2rem;
-
-      &:not(:empty) {
-        margin-bottom: 0.5rem;
-      }
     }
   }
 }

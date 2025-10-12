@@ -36,13 +36,10 @@
             />
           </ul>
 
-          <div class="skills">
-            <CVSkill
-              v-for="skill in experience.skills"
-              :key="skill.id"
-              :skill="skill"
-            />
-          </div>
+          <CVSkills
+            class="skills"
+            :skills="experience.skills"
+          />
         </div>
       </div>
     </div>
@@ -57,7 +54,7 @@ import { usePanel } from './CVPanelItem.vue';
 
 import CVText from '~/components/CVText.vue';
 import CVBaseItem from '~/components/CVBaseItem.vue';
-import CVSkill from './CVSkill.vue';
+import CVSkills from './CVSkills.vue';
 
 const config = useConfig();
 const panel = usePanel();
@@ -96,13 +93,7 @@ const isVisible = computed(() =>
     }
 
     .skills {
-      display: flex;
-      flex-flow: row wrap;
-      gap: 0.2rem;
-
-      &:not(:empty) {
-        margin-top: 0.2rem;
-      }
+      margin-top: 0.2rem;
     }
   }
 }

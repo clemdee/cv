@@ -57,13 +57,10 @@
             />
           </ul>
 
-          <div class="skills">
-            <CVSkill
-              v-for="skill in hobby.skills"
-              :key="skill.id"
-              :skill="skill"
-            />
-          </div>
+          <CVSkills
+            class="skills"
+            :skills="hobby.skills"
+          />
         </div>
       </div>
     </div>
@@ -78,9 +75,9 @@ import { usePanel } from './CVPanelItem.vue';
 
 import CVText from '~/components/CVText.vue';
 import CVBaseItem from '~/components/CVBaseItem.vue';
-import CVSkill from './CVSkill.vue';
 import { asyncComputed } from '@vueuse/core';
 import QRCode from 'qrcode';
+import CVSkills from './CVSkills.vue';
 
 const config = useConfig();
 const panel = usePanel();
@@ -148,9 +145,6 @@ const qrcodeUrl = asyncComputed<string | undefined>(async () => {
 
     .skills {
       margin-top: 0.2rem;
-      display: flex;
-      flex-flow: row wrap;
-      gap: 0.2rem;
     }
   }
 }
