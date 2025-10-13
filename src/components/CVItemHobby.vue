@@ -7,11 +7,11 @@
     @click="panel.set(hobby)"
   >
     <div class="hobby-content">
-      <div class="hobby-header">
-        <div
-          v-if="qrcodeUrl"
-          class="qrcode"
-        >
+      <div
+        v-if="qrcodeUrl"
+        class="hobby-header"
+      >
+        <div class="qrcode">
           <img
             :src="qrcodeUrl"
             :alt="hobby.url"
