@@ -26,15 +26,14 @@
       </transition>
 
     <template #content>
-      {{ skillName }}: {{ skillLevel * 100 }}%
+      {{ skillName }}: {{ skillLevel * 100 }}/100
     </template>
   </Tippy>
 </template>
 
 <script lang="ts" setup>
-import { type JSONSkill } from '~/stores/data';
+import { type Skill } from '~/stores/data';
 import { ref, computed } from 'vue';
-import { useI18n } from 'vue-i18n';
 import { useConfig } from '~/stores/config';
 
 import { Tippy } from 'vue-tippy';
@@ -44,12 +43,10 @@ import GlintWrapper from '~/components/GlintWrapper.vue';
 const config = useConfig();
 
 const props = defineProps<{
-  skill: JSONSkill,
+  skill: Skill,
 }>();
 
-const { t } = useI18n();
-
-const skillName = t(`skills.items.${ props.skill.id }`);
+const skillName = computed(() => props.skill.title);
 const skillLevel = computed(() => props.skill.level);
 
 const input = ref<HTMLInputElement | null>(null);

@@ -184,7 +184,7 @@ export const useData = defineStore('data', () => {
   const resolveSkill = (skill: JSONSkill): Skill => reactiveComputed<Skill>(() => ({
     type: 'skill',
     id: skill.id,
-    title: t(`languages.items.${skill.id}`),
+    title: t(`skills.items.${skill.id}`) ?? skill.id,
     level: skill.level,
     tags: skill.tags,
   }));
@@ -198,7 +198,7 @@ export const useData = defineStore('data', () => {
         console.warn(`skill "${id}" not found and has to be created`)
         return createSkill(id);
       }
-      return skill
+      return resolveSkill(skill);
     }
     return emplace(skillsMap, id, insert)
   };
