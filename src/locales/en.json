@@ -31,11 +31,6 @@
 
   "languages": {
     "title": "Languages",
-    "items": {
-      "fr": "French",
-      "en": "English",
-      "es": "Spanish"
-    },
     "levels": {
       "motherTongue": "mother tongue",
       "fluent": "fluent",
@@ -231,6 +226,9 @@
       "softwares": "Softwares"
     },
     "items": {
+      "fr": "French",
+      "en": "English",
+      "es": "Spanish",
       "html": "HTML",
       "css": "CSS",
       "javascript": "Javascript",
