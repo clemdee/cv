@@ -72,7 +72,7 @@ const skillsOS = computed(() => data.skills
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 0.5rem;
+    gap: 0.3rem;
 
     padding: 0.5rem;
     font-size: 0.8rem;
