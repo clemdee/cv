@@ -1,5 +1,5 @@
 <template>
-  <div class="cv-aside-section">
+  <article class="cv-aside-article">
     <h2>
       <CVAnchor :id="anchorId" />
       <CVText :text="title" />
@@ -7,7 +7,7 @@
     <div class="content">
       <slot />
     </div>
-  </div>
+  </article>
 </template>
 
 <script lang="ts" setup>
@@ -22,7 +22,7 @@ defineProps<{
 </script>
 
 <style lang="scss" scoped>
-.cv-aside-section {
+.cv-aside-article {
   padding: 0.5rem;
   margin: 0rem -0.5rem;
   margin-top: 1rem;

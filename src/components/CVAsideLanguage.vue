@@ -1,5 +1,5 @@
 <template>
-  <CVAsideSection
+  <CVAsideArticle
     :title="t('languages.title')"
     anchorId="languages"
   >
@@ -11,7 +11,7 @@
         <CVText :text="languageString" />
       </li>
     </ul>
-  </CVAsideSection>
+  </CVAsideArticle>
 </template>
 
 <script lang="ts" setup>
@@ -20,7 +20,7 @@ import { useI18n } from 'vue-i18n';
 import { useData } from '~/stores/data';
 
 import CVText from '~/components/CVText.vue';
-import CVAsideSection from '~/components/CVAsideSection.vue';
+import CVAsideArticle from '~/components/CVAsideArticle.vue';
 
 const data = useData();
 

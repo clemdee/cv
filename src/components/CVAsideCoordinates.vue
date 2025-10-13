@@ -1,5 +1,5 @@
 <template>
-  <div class="coordinates">
+  <article class="coordinates">
     <h2><CVText :text="t('coordinates.name')" /></h2>
 
     <div class="items">
@@ -59,7 +59,7 @@
         </a>
       </div>
     </div>
-  </div>
+  </article>
 </template>
 
 <script lang="ts" setup>
