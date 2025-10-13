@@ -83,6 +83,10 @@ const updateScrollHeight = (el: HTMLElement) => {
   break-inside: avoid;
   backface-visibility: hidden; /* For animation hardware acceleration */
 
+  &:has(+ &) {
+    margin-bottom: 0.3rem;
+  }
+
   .cv-base-item-wrapper {
     position: relative;
     display: flex;

@@ -26,6 +26,6 @@ const data = useData();
 
 <style lang="scss" scoped>
 .cv-hobby {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 </style>
