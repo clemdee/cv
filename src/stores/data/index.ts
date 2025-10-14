@@ -2,7 +2,6 @@ import { defineStore } from 'pinia';
 import dataJSON from './data';
 import { useI18n } from 'vue-i18n';
 import { reactiveComputed } from '@vueuse/core'
-import { watchEffect } from 'vue';
 
 export type Percentage = Partial<number>;
 
@@ -11,15 +10,10 @@ export type DateSpan = {
   to?: string,
 }
 
+/* JSON Typings */
+
 export type JSONLocation = {
   id: string,
-  map?: [latitude: number, longitude: number],
-};
-
-export type Location = {
-  id: string,
-  name: string,
-  location: string,
   map?: [latitude: number, longitude: number],
 };
 
@@ -27,6 +21,48 @@ export type JSONSkill = {
   id: string,
   level: Percentage,
   tags?: string[],
+};
+
+export type JSONExperience = {
+  id: string,
+  date: DateSpan,
+  location?: JSONLocation['id'],
+  skills?: JSONSkill['id'][],
+  certifications?: string[],
+};
+
+export type JSONEducation = {
+  id: string,
+  date: DateSpan,
+  location?: JSONLocation['id'],
+  certifications?: string[],
+};
+
+export type JSONHobby = {
+  id: string,
+  date?: DateSpan,
+  url?: string,
+  skills?: JSONSkill['id'][],
+};
+
+export type JSONData = {
+  profile: any,
+  locations: JSONLocation[],
+  education: JSONEducation[],
+  experience: JSONExperience[],
+  hobbies: JSONHobby[],
+  skills: JSONSkill[],
+}
+
+export type DataConst = typeof dataJSON;
+
+/* Data Typings */
+
+export type Location = {
+  id: string,
+  name: string,
+  location: string,
+  map?: [latitude: number, longitude: number],
 };
 
 export type Skill = {
@@ -43,31 +79,6 @@ export type Certification = {
   image: string,
 };
 
-export type JSONEducation = {
-  id: string,
-  date: DateSpan,
-  location?: JSONLocation['id'],
-  certifications?: string[],
-};
-
-export type Education = {
-  type: 'education',
-  id: string,
-  title: string,
-  description: string,
-  date: DateSpan,
-  location?: Location,
-  certifications: Certification[],
-};
-
-export type JSONExperience = {
-  id: string,
-  date: DateSpan,
-  location?: JSONLocation['id'],
-  skills?: JSONSkill['id'][],
-  certifications?: string[],
-};
-
 export type Experience = {
   type: 'experience',
   id: string,
@@ -80,15 +91,18 @@ export type Experience = {
   skills: Skill[],
 };
 
-export type JSONHobby = {
+export type Education = {
+  type: 'education',
   id: string,
-  date?: DateSpan,
-  url?: string,
-  skills?: JSONSkill['id'][],
+  title: string,
+  description: string,
+  date: DateSpan,
+  location?: Location,
+  certifications: Certification[],
 };
 
 export type Hobby = {
-  type: 'hobby',
+  type: 'hobbies',
   id: string,
   title: string,
   description: string,
@@ -98,18 +112,18 @@ export type Hobby = {
   skills: Skill[],
 };
 
-export type JSONSkills = JSONSkill[];
-
-export type Skills = Skill[];
-
-export type JSONData = {
-  profile: any,
-  locations: JSONLocation[],
-  education: JSONEducation[],
-  experience: JSONExperience[],
-  hobbies: JSONHobby[],
-  skills: JSONSkills,
-}
+export type Item = {
+  type?: string,
+  id?: string,
+  title?: string,
+  description?: string,
+  date?: DateSpan,
+  url?: string,
+  location?: Location,
+  skills?: Skill[],
+  certifications?: Certification[],
+  duties?: string[],
+};
 
 export type Data = {
   profile: any,
@@ -117,7 +131,7 @@ export type Data = {
   education: Education[],
   experience: Experience[],
   hobbies: Hobby[],
-  skills: Skills,
+  skills: Skill[],
 }
 
 export const languageLevels = {
@@ -127,29 +141,26 @@ export const languageLevels = {
   beginner: 0,
 };
 
-export type DataConst = typeof dataJSON;
+const emplace = <T>(map: Map<string, T>, id: string, insert: () => T) => {
+  if (!map.has(id)) {
+    map.set(id, insert());
+  }
+  return map.get(id);
+}
+
+const find = <T>(list: { id: string }[], id: string) => {
+  return list.find(item => item.id === id) as T
+};
+
+const getList = <T>(ids: string[] | undefined, getter: (id: string) => T | undefined): T[] => {
+  ids ??= [];
+  return ids
+    .map(id => getter(id))
+    .filter(v => v !== undefined) as T[];
+}
 
 export const useData = defineStore('data', () => {
-
   const { t, tm } = useI18n();
-
-  const emplace = <T>(map: Map<string, T>, id: string, insert: () => T) => {
-    if (!map.has(id)) {
-      map.set(id, insert());
-    }
-    return map.get(id);
-  }
-
-  const find = <T>(list: { id: string }[], id: string) => {
-    return list.find(item => item.id === id) as T
-  };
-
-  const getList = <T>(ids: string[] | undefined, getter: (id: string) => T | undefined): T[] => {
-    ids ??= [];
-    return ids
-      .map(id => getter(id))
-      .filter(v => v !== undefined) as T[];
-  }
 
   const resolveLocation = (location: JSONLocation): Location => reactiveComputed<Location>(() => ({
     id: location.id,
@@ -222,13 +233,6 @@ export const useData = defineStore('data', () => {
     certifications: getCertifications(education.certifications),
   }));
 
-  const educationMap = new Map<string, Education>();
-  const getEducation = (id?: string) => {
-    if (!id) return undefined;
-    const insert = () => resolveEducation(find(dataJSON.education, id));
-    return emplace(educationMap, id, insert)
-  };
-
   const resolveExperience = (experience: JSONExperience): Experience => reactiveComputed<Experience>(() => ({
     type: 'experience',
     id: experience.id,
@@ -242,7 +246,7 @@ export const useData = defineStore('data', () => {
   }));
 
   const resolveHobby = (hobby: JSONHobby): Hobby => reactiveComputed<Hobby>(() => ({
-    type: 'hobby',
+    type: 'hobbies',
     id: hobby.id,
     date: hobby.date,
     description: t(`hobbies.items.${hobby.id}.description`),
@@ -251,13 +255,6 @@ export const useData = defineStore('data', () => {
     title: t(`hobbies.items.${hobby.id}.title`),
     skills: getSkills(hobby.skills),
   }));
-
-  const experienceMap = new Map<string, Experience>();
-  const getExperience = (id?: string) => {
-    if (!id) return undefined;
-    const insert = () => resolveExperience(find(dataJSON.experience, id));
-    return emplace(experienceMap, id, insert)
-  };
 
   const data: Data = reactiveComputed<Data>(() => ({
     profile: dataJSON.profile,

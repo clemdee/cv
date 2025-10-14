@@ -24,67 +24,132 @@
       </div>
     </header>
 
-    <div>
+    <div
+      v-if="item?.description"
+      class="description"
+    >
       <CVText :text="item?.description" />
     </div>
 
-    <template v-if="item?.type === 'experience'">
-      <ul
-        v-if="item.duties.length > 0"
-        class="duties"
+    <div
+      v-if="item?.url"
+      class="url"
+    >
+      <a
+        @click.stop
+        :href="item?.url"
+        target="_blank"
       >
-        <CVText
-          v-for="(text, index) in item.duties"
-          :key="index"
-          tag="li"
-          :text="text"
-        />
-      </ul>
+      <CVText :text="item?.url" />
+      </a>
+    </div>
 
-      <div
-        v-if="item?.type === 'experience'"
-        class="skills"
-      >
-        <CVSkill
-          v-for="skill in item.skills"
-          :key="skill.id"
-          :skill="(skill as Skill)"
-        />
-      </div>
-    </template>
+    <ul
+      v-if="item?.duties && item?.duties.length > 0"
+      class="duties"
+    >
+      <CVText
+        v-for="(text, index) in item?.duties"
+        :key="index"
+        tag="li"
+        :text="text"
+      />
+    </ul>
 
     <div
-      v-show="location"
-      class="location"
+      v-if="item?.skills && item?.skills?.length > 0"
+      class="skills"
     >
-      <Icon icon="mdi:home-city-outline" />
-      <CVText :text="location?.name" />
-      <br/>
-      <Icon icon="mdi:map-marker-outline" />
-      <CVText :text="location?.location" />
+      <CVSkill
+        v-for="skill in item.skills"
+        :key="skill.id"
+        :skill="(skill as Skill)"
+      />
     </div>
 
     <div
-      v-show="location?.map"
+      v-show="item?.location"
+      class="location"
+    >
+      <Icon icon="mdi:home-city-outline" />
+      <CVText :text="item?.location?.name" />
+      <br/>
+      <Icon icon="mdi:map-marker-outline" />
+      <CVText :text="item?.location?.location" />
+    </div>
+
+    <div
+      v-show="item?.location?.map"
       id="map"
       class="map"
     />
   </aside>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
+import 'leaflet/dist/leaflet.css';
+import Leaflet from 'leaflet';
+import { computed, onMounted, watch } from 'vue';
+import { useI18n } from 'vue-i18n';
+import CVText from '~/components/CVText.vue';
+import CVSkill from './CVSkill.vue';
+import { vOnClickOutside } from '@vueuse/components';
 import { Icon } from '@iconify/vue';
-import { type Location, type Education, type Experience, type Hobby, type Skill } from '~/stores/data';
+
+// Needed for marker to show in prod
+import markerIconUrl from "~/../node_modules/leaflet/dist/images/marker-icon.png";
+import markerIconRetinaUrl from "~/../node_modules/leaflet/dist/images/marker-icon-2x.png";
+import markerShadowUrl from "~/../node_modules/leaflet/dist/images/marker-shadow.png";
+Leaflet.Icon.Default.prototype.options.iconUrl = markerIconUrl;
+Leaflet.Icon.Default.prototype.options.iconRetinaUrl = markerIconRetinaUrl;
+Leaflet.Icon.Default.prototype.options.shadowUrl = markerShadowUrl;
+Leaflet.Icon.Default.imagePath = "";
+
+type Coord = [lat: number, lng: number];
+
+const { t } = useI18n();
+const panel = usePanel();
+const item = computed(() => panel.item);
+
+const coords = computed<Coord | undefined>(() => {
+  return (item.value?.location?.map as Coord) ?? [0, 0];
+});
+
+onKeyStroke('Escape', (event) => {
+  if (!panel.visible) return;
+  event.preventDefault();
+  panel.hide();
+});
+
+onMounted( () => {
+  const map = Leaflet.map('map');
+  let marker: ReturnType<typeof Leaflet.marker>;
+
+  watch(item, async () => {
+    if (!coords.value) return;
+    // Wait for panel to open in order to get the map displayed with the right dimensions
+    await wait(200);
+    map.setView(coords.value, 15);
+    if (marker) {
+      map.removeLayer(marker);
+    }
+    marker = Leaflet.marker(coords.value).addTo(map);
+    Leaflet.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+  });
+});
+</script>
+
+<script lang="ts">
+import { type Skill, type Item } from '~/stores/data';
 import { defineStore } from 'pinia';
-import { ref } from 'vue';
+import { ref, readonly } from 'vue';
 import { wait } from '~/composables/utils';
 import { onKeyStroke } from '@vueuse/core';
-import CVSkill from './CVSkill.vue';
 
 export const usePanel = defineStore('panel', () => {
-
-  type Item = Education | Experience | Hobby;
-
   const item = ref<Item>();
   const visible = ref(false);
   let isHiding = false;
@@ -130,69 +195,6 @@ export const usePanel = defineStore('panel', () => {
     hide,
     toggle,
   }
-});
-</script>
-
-<script lang="ts" setup>
-import 'leaflet/dist/leaflet.css';
-import Leaflet from 'leaflet';
-import { computed, onMounted, readonly, watch } from 'vue';
-import { useI18n } from 'vue-i18n';
-import CVText from '~/components/CVText.vue';
-import { vOnClickOutside } from '@vueuse/components';
-
-// Needed for marker to show in prod
-import markerIconUrl from "~/../node_modules/leaflet/dist/images/marker-icon.png";
-import markerIconRetinaUrl from "~/../node_modules/leaflet/dist/images/marker-icon-2x.png";
-import markerShadowUrl from "~/../node_modules/leaflet/dist/images/marker-shadow.png";
-Leaflet.Icon.Default.prototype.options.iconUrl = markerIconUrl;
-Leaflet.Icon.Default.prototype.options.iconRetinaUrl = markerIconRetinaUrl;
-Leaflet.Icon.Default.prototype.options.shadowUrl = markerShadowUrl;
-Leaflet.Icon.Default.imagePath = "";
-
-
-type Coord = [lat: number, lng: number];
-
-const { t } = useI18n();
-
-const panel = usePanel();
-
-const item = computed(() => panel.item);
-
-const location = computed<Location | undefined>(() => {
-  if (item.value === undefined) return;
-  if (! ('location' in item.value)) return;
-  return item.value.location as Location;
-})
-
-const coords = computed<Coord | undefined>(() => {
-  return (location.value?.map as Coord) ?? [0, 0];
-});
-
-onKeyStroke('Escape', (event) => {
-  if (!panel.visible) return;
-  event.preventDefault();
-  panel.hide();
-});
-
-onMounted( () => {
-  const map = Leaflet.map('map');
-  let marker: ReturnType<typeof Leaflet.marker>;
-
-  watch(item, async () => {
-    if (!coords.value) return;
-    // Wait for panel to open in order to get the map displayed with the right dimensions
-    await wait(200);
-    map.setView(coords.value, 15);
-    if (marker) {
-      map.removeLayer(marker);
-    }
-    marker = Leaflet.marker(coords.value).addTo(map);
-    Leaflet.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
-  });
 });
 </script>
 
@@ -268,6 +270,10 @@ onMounted( () => {
         opacity: 0.5;
       }
     }
+  }
+
+  a {
+    font-style: italic;
   }
 
   ul.duties {
