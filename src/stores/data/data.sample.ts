@@ -584,7 +584,6 @@ export default {
       tags: [
         "programming",
         "shell",
-        "main",
       ],
     },
     {
