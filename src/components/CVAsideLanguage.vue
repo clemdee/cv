@@ -15,39 +15,32 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue';
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useData } from '~/stores/data';
+import { useData, languageLevels, type Skill } from '~/stores/data';
 
 import CVText from '~/components/CVText.vue';
 import CVAsideArticle from '~/components/CVAsideArticle.vue';
 
+const { t } = useI18n();
 const data = useData();
 
-// Todo: move to config
-const levels = ref({
-  motherTongue: 1,
-  fluent: 0.8,
-  intermediary: 0.5,
-  beginner: 0,
-});
+const getLanguageLevel = (language: Skill) => {
+  return Object.entries(languageLevels)
+    .toSorted(([, thresholdA], [, thresholdB]) => thresholdB - thresholdA)
+    .find(([, threshold]) => language.level >= threshold)?.[0];
+};
 
-const { t } = useI18n();
+const getLanguageLevelTitle = (language: Skill) => {
+  return t(`languages.levels.${ getLanguageLevel(language) }`);
+}
 
 const languages = data.skills.filter(skill => skill.tags?.includes('language'));
 
 const displayedLanguages = computed(() => {
-  // For each language
   return languages.map(language => {
-    // Find appropriate level and get its translation
-    const languageLevel = computed(() => {
-      const languageLevelKey = Object.entries(levels.value)
-        .sort(([, thresholdA], [, thresholdB]) => thresholdB - thresholdA)
-        .find(([, threshold]) => language.level >= threshold)?.[0];
-      return t(`languages.levels.${ languageLevelKey }`);
-    });
-    // Return full text translated
-    return `${language.title} (${languageLevel.value})`;
+    const languageLevelTitle = getLanguageLevelTitle(language);
+    return `${language.title} (${languageLevelTitle})`;
   });
 });
 </script>

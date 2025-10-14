@@ -120,6 +120,13 @@ export type Data = {
   skills: Skills,
 }
 
+export const languageLevels = {
+  motherTongue: 1,
+  fluent: 0.8,
+  intermediary: 0.5,
+  beginner: 0,
+};
+
 export type DataConst = typeof dataJSON;
 
 export const useData = defineStore('data', () => {
