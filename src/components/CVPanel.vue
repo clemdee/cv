@@ -13,9 +13,25 @@
 <script lang="ts" setup>
 import { vOnClickOutside } from '@vueuse/components';
 import { onKeyStroke } from '@vueuse/core';
+import { wait } from '~/composables/utils';
 
 const opened = defineModel<boolean>({ default: false });
 definePanel(opened);
+
+// Fix issue when clicking on the open button outside of the panel
+// instantly reopens the panel instead of closing it
+let closing = false;
+
+watch(opened, async () => {
+  if (opened.value && closing) {
+    opened.value = false;
+  }
+  if (!opened.value) {
+    closing = true;
+    await wait(1);
+    closing = false;
+  }
+}, { flush: 'sync' });
 
 onKeyStroke('Escape', (event) => {
   if (!opened.value === false) return;

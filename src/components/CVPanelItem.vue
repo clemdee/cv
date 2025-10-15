@@ -15,7 +15,7 @@
 
       <div
         class="close"
-        @click="itemPanel.close"
+        @click="opened = false"
       >
         <Icon icon="material-symbols-light:close" />
       </div>
