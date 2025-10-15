@@ -1,10 +1,10 @@
 <template>
   <div
     ref="root"
-    class="options-locale"
+    class="settings-overlay"
   >
     <label
-      class="locale"
+      class="settings-overlay-item locale"
       v-for="availableLocale in availableLocales"
       :key="availableLocale"
     >
@@ -16,19 +16,33 @@
       />
       <span>{{ availableLocale }}</span>
     </label>
+    <button
+      class="settings-overlay-item settings"
+      @click="event => emit('settingsClick', event)"
+    >
+      <Icon icon="material-symbols-light:settings-outline-rounded" />
+    </button>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref, useTemplateRef } from 'vue';
+import { Icon } from '@iconify/vue';
+import { onMounted, ref, useTemplateRef, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 
+const emit = defineEmits<{
+  localeChange: [locale: string],
+  settingsClick: [event: MouseEvent],
+}>();
 const root = useTemplateRef('root');
 
 const { availableLocales, locale } = useI18n();
 
-const viewport = window.visualViewport;
+watch(locale, () => {
+  emit('localeChange', locale.value);
+});
 
+const viewport = window.visualViewport;
 const dx = ref(0);
 const dy = ref(0);
 const scale = ref(1);
@@ -51,7 +65,7 @@ window.visualViewport?.addEventListener("resize", viewportHandler, { passive: tr
 </script>
 
 <style lang="scss" scoped>
-.options-locale {
+.settings-overlay {
   --dx: calc(v-bind('dx') * 1px);
   --dy: calc(v-bind('dy') * 1px);
   --scale: v-bind('scale');
@@ -71,7 +85,7 @@ window.visualViewport?.addEventListener("resize", viewportHandler, { passive: tr
     display: none;
   }
 
-  .locale {
+  .settings-overlay-item {
     --border-radius: 0.5rem;
     display: grid;
     place-items: center;
@@ -85,16 +99,6 @@ window.visualViewport?.addEventListener("resize", viewportHandler, { passive: tr
     user-select: none;
     transition: 300ms;
 
-    input[type="radio"] {
-      display: none;
-    }
-
-    &:has(input:checked) {
-      background-color: var(--colorscheme-main);
-      color: var(--colorscheme-main-text);
-      cursor: default;
-    }
-
     &:first-child {
       border-left-style: solid;
       border-top-left-radius: var(--border-radius);
@@ -105,6 +109,22 @@ window.visualViewport?.addEventListener("resize", viewportHandler, { passive: tr
       border-top-right-radius: var(--border-radius);
       border-bottom-right-radius: var(--border-radius);
     }
+  }
+
+  .locale {
+    input[type="radio"] {
+      display: none;
+    }
+
+    &:has(input:checked) {
+      background-color: var(--colorscheme-main);
+      color: var(--colorscheme-main-text);
+      cursor: default;
+    }
+  }
+
+  .settings {
+    font-size: 1.5rem;
   }
 }
 </style>

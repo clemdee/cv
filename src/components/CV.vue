@@ -4,6 +4,12 @@
       <CVAside />
       <CVContent />
       <CVPanelItem v-model="itemPanel.opened" />
+      <CVPanelSettings v-model="settingsPanelOpened" />
+      <Teleport to="body" >
+        <SettingsOverlay
+          @settings-click="settingsPanelOpened = !settingsPanelOpened"
+        />
+      </Teleport>
     </div>
   </div>
 </template>
@@ -13,8 +19,12 @@ import CVAside from '~/components/CVAside.vue';
 import CVContent from '~/components/CVContent.vue';
 import CVPanelItem from './CVPanelItem.vue';
 import { useItemPanel } from '~/composables/itemPanel';
+import CVPanelSettings from './CVPanelSettings.vue';
+import SettingsOverlay from '~/components/SettingsOverlay.vue';
+import { ref } from 'vue';
 
 const itemPanel = useItemPanel();
+const settingsPanelOpened = ref(false);
 </script>
 
 <style lang="scss" scoped>
