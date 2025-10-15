@@ -3,7 +3,7 @@
     class="cv-experience-item"
     :anchor-id="`experience-${experience.id}`"
     :visible="isVisible"
-    @click="panel.set(experience)"
+    @click="itemPanel.set(experience)"
   >
     <div class="experience-content">
       <div class="experience-header">
@@ -50,14 +50,13 @@
 import type { Experience } from '~/stores/data';
 import { computed } from 'vue';
 import { useConfig } from '~/stores/config';
-import { usePanel } from './CVPanelItem.vue';
-
+import { useItemPanel } from '~/composables/itemPanel';
 import CVText from '~/components/CVText.vue';
 import CVBaseItem from '~/components/CVBaseItem.vue';
 import CVSkills from './CVSkills.vue';
 
 const config = useConfig();
-const panel = usePanel();
+const itemPanel = useItemPanel();
 
 const props = defineProps<{
   experience: Experience,

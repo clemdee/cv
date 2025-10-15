@@ -4,7 +4,7 @@
     :anchor-id="`hobbies-${hobby.id}`"
     :visible="isVisible"
     :display-left="!!qrcodeUrl"
-    @click="panel.set(hobby)"
+    @click="itemPanel.set(hobby)"
   >
     <div class="hobby-content">
       <div
@@ -71,8 +71,7 @@
 import type { Hobby } from '~/stores/data';
 import { computed } from 'vue';
 import { useConfig } from '~/stores/config';
-import { usePanel } from './CVPanelItem.vue';
-
+import { useItemPanel } from '~/composables/itemPanel';
 import CVText from '~/components/CVText.vue';
 import CVBaseItem from '~/components/CVBaseItem.vue';
 import { asyncComputed } from '@vueuse/core';
@@ -80,7 +79,7 @@ import QRCode from 'qrcode';
 import CVSkills from './CVSkills.vue';
 
 const config = useConfig();
-const panel = usePanel();
+const itemPanel = useItemPanel();
 
 const props = defineProps<{
   hobby: Hobby,

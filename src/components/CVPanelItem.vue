@@ -1,10 +1,7 @@
 <template>
-  <aside
+  <CVPanel
+    v-model="opened"
     class="item-panel"
-    :class="{
-      visible: panel.visible,
-    }"
-    v-on-click-outside="panel.hide"
   >
     <header>
       <hgroup>
@@ -18,7 +15,7 @@
 
       <div
         class="close"
-        @click="panel.hide"
+        @click="itemPanel.close"
       >
         <Icon icon="material-symbols-light:close" />
       </div>
@@ -83,7 +80,7 @@
       id="map"
       class="map"
     />
-  </aside>
+  </CVPanel>
 </template>
 
 <script lang="ts" setup>
@@ -91,34 +88,24 @@ import 'leaflet/dist/leaflet.css';
 import Leaflet from 'leaflet';
 import { computed, onMounted, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { useItemPanel } from '~/composables/itemPanel';
+import { wait } from '~/composables/utils';
+import { Icon } from '@iconify/vue';
+import type { Skill } from '~/stores/data';
 import CVText from '~/components/CVText.vue';
 import CVSkill from './CVSkill.vue';
-import { vOnClickOutside } from '@vueuse/components';
-import { Icon } from '@iconify/vue';
+import CVPanel from './CVPanel.vue';
 
-// Needed for marker to show in prod
-import markerIconUrl from "~/../node_modules/leaflet/dist/images/marker-icon.png";
-import markerIconRetinaUrl from "~/../node_modules/leaflet/dist/images/marker-icon-2x.png";
-import markerShadowUrl from "~/../node_modules/leaflet/dist/images/marker-shadow.png";
-Leaflet.Icon.Default.prototype.options.iconUrl = markerIconUrl;
-Leaflet.Icon.Default.prototype.options.iconRetinaUrl = markerIconRetinaUrl;
-Leaflet.Icon.Default.prototype.options.shadowUrl = markerShadowUrl;
-Leaflet.Icon.Default.imagePath = "";
+const opened = defineModel<boolean>({ required: false });
+
+const { t } = useI18n();
+const itemPanel = useItemPanel();
+const item = computed(() => itemPanel.item);
 
 type Coord = [lat: number, lng: number];
 
-const { t } = useI18n();
-const panel = usePanel();
-const item = computed(() => panel.item);
-
 const coords = computed<Coord | undefined>(() => {
   return (item.value?.location?.map as Coord) ?? [0, 0];
-});
-
-onKeyStroke('Escape', (event) => {
-  if (!panel.visible) return;
-  event.preventDefault();
-  panel.hide();
 });
 
 onMounted( () => {
@@ -143,105 +130,18 @@ onMounted( () => {
 </script>
 
 <script lang="ts">
-import { type Skill, type Item } from '~/stores/data';
-import { defineStore } from 'pinia';
-import { ref, readonly } from 'vue';
-import { wait } from '~/composables/utils';
-import { onKeyStroke } from '@vueuse/core';
-
-export const usePanel = defineStore('panel', () => {
-  const item = ref<Item>();
-  const visible = ref(false);
-  let isHiding = false;
-
-  const set = (newItem: Item) => {
-    const oldItem = item.value;
-    item.value = newItem;
-    if (oldItem?.id === newItem.id && isHiding) {
-      hide();
-    } else {
-      isHiding = false;
-      show();
-    }
-  }
-
-  const show = () => {
-    visible.value = true;
-  }
-
-  const hide = async () => {
-    if (!visible.value) return;
-    visible.value = false;
-    isHiding = true;
-    await wait(1);
-    if (isHiding) {
-      item.value = undefined;
-    }
-  }
-
-  const toggle = () =>{
-    if (visible.value) {
-      hide();
-    } else {
-      show();
-    }
-  }
-
-  return {
-    item: readonly(item),
-    set,
-    visible: readonly(visible),
-    show,
-    hide,
-    toggle,
-  }
-});
+// Needed for marker to show in prod
+import markerIconUrl from "~/../node_modules/leaflet/dist/images/marker-icon.png";
+import markerIconRetinaUrl from "~/../node_modules/leaflet/dist/images/marker-icon-2x.png";
+import markerShadowUrl from "~/../node_modules/leaflet/dist/images/marker-shadow.png";
+Leaflet.Icon.Default.prototype.options.iconUrl = markerIconUrl;
+Leaflet.Icon.Default.prototype.options.iconRetinaUrl = markerIconRetinaUrl;
+Leaflet.Icon.Default.prototype.options.shadowUrl = markerShadowUrl;
+Leaflet.Icon.Default.imagePath = "";
 </script>
 
 <style lang="scss" scoped>
 .item-panel {
-  position: fixed;
-  inset-block: 0rem;
-  inset-inline-end: 0rem;
-  translate: 100% 0rem;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-  gap: 1rem;
-
-  width: 30rem;
-  padding: 2rem;
-  box-shadow: 0rem 0rem 0.5rem black;
-
-  color: var(--colorscheme-content-text);
-  background-color: var(--colorscheme-content-background);
-
-  transition: translate 200ms ease;
-
-  &.visible {
-    translate: 0rem 0rem;
-  }
-
-  @media print {
-    display: none;
-  }
-
-  @media screen and (width < 60rem) {
-    inset-inline: 0rem;
-    inset-block-start: unset;
-    inset-block-end: 0rem;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    width: unset;
-    height: 30rem;
-    padding: 2rem;
-  }
-
   header {
     display: flex;
     justify-content: space-between;

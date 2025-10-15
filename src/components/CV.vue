@@ -3,7 +3,7 @@
     <div class="cv-wrapper">
       <CVAside />
       <CVContent />
-      <CVItemPanel />
+      <CVPanelItem v-model="itemPanel.opened" />
     </div>
   </div>
 </template>
@@ -11,7 +11,10 @@
 <script lang="ts" setup>
 import CVAside from '~/components/CVAside.vue';
 import CVContent from '~/components/CVContent.vue';
-import CVItemPanel from './CVPanelItem.vue';
+import CVPanelItem from './CVPanelItem.vue';
+import { useItemPanel } from '~/composables/itemPanel';
+
+const itemPanel = useItemPanel();
 </script>
 
 <style lang="scss" scoped>
