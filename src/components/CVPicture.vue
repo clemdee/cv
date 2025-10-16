@@ -13,15 +13,14 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue';
+import { resolvePicture } from '~/composables/pictures';
 import { useConfig, profileFrames } from '~/stores/config';
 
 const config = useConfig();
 
 const filename = computed(() => config.profile.filename);
-const url = computed(() => {
-  if (!filename.value) return '';
-  return new URL(`../stores/profiles/${filename.value}`, import.meta.url).href
-});
+const picture = computed(() => resolvePicture(filename.value));
+const url = computed(() => picture.value?.url);
 
 const frameId = computed(() => config.profile.frame);
 const frameStyles = computed(() => profileFrames[frameId.value]);

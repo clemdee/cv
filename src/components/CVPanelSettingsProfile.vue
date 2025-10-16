@@ -82,45 +82,14 @@
 
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue';
-import { computed, reactive, ref, toRef } from 'vue';
-import { asyncComputed } from '@vueuse/core';
-import { formatStorage } from '~/composables/utils';
+import { toRef } from 'vue';
 import { useConfig, profileFrames } from '~/stores/config';
+import { pictures } from '~/composables/pictures';
 
 const config = useConfig();
-
-interface ModuleImportInterface {
-  default: string;
-}
-
-const pictures = Object.values(import.meta.glob<ModuleImportInterface>('/src/stores/profiles/*', {
-  base: './cv/',
-  eager: true,
-  query: '?url',
-})).map((module) => {
-  const url = ref(module.default);
-  const filename = computed(() => url.value.match(/^.*\/([^/]+)$/)?.[1] ?? '');
-  const blob = asyncComputed<Blob>(async () => {
-    const response = await fetch(url.value);
-    return await response.blob();
-  });
-  const size = computed(() => {
-    const size = blob.value?.size;
-    if (!size) return '';
-    return formatStorage(size);
-  });
-  return reactive({
-    url,
-    filename,
-    blob,
-    size,
-  });
-});
-
 const currentPictureFilename = toRef(config.profile, 'filename');
 
 const { none, ...frames } = profileFrames;
-
 const currentFrameId = toRef(config.profile, 'frame');
 </script>
 

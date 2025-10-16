@@ -6,6 +6,7 @@
     "cypress.config.*",
     "nightwatch.conf.*",
     "playwright.config.*",
+    "vite-plugin-ls.ts",
     "vite-plugin-fallback.ts"
   ],
   "compilerOptions": {
