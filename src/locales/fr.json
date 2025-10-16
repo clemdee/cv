@@ -170,13 +170,12 @@
       },
       "xwiki-cdi": {
         "title": "Ingénieur R&D à XWikiSAS",
-        "description": "Travail dans l'équipe Client, customisant le logiciel afin de répondre aux besoins clients. Création de patchs pour le logiciel principal.",
+        "description": "Travail dans l'équipe Client de XWiki, customisant le logiciel afin de répondre aux besoins clients. Création de patchs pour le logiciel principal.",
         "duties": [
           "Développement d'interfaces conformes aux maquettes fournies",
           "Respect de contraintes strictes de temps et de livrables",
-          "Adaptation aux besoins clients et ajustement rapide des fonctionnalités",
           "Travail en équipe Agile et coordination inter-équipes",
-          "Mise à jour de la documentation technique et fonctionnelle"
+          "Entretien de la documentation technique et fonctionnelle"
         ]
       }
     }
