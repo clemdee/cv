@@ -17,7 +17,7 @@
     </header>
 
     <section class="content">
-      <CVPanelSettingsPicture />
+      <CVPanelSettingsProfile />
     </section>
   </CVPanel>
 </template>
@@ -25,7 +25,7 @@
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue';
 import CVPanel from './CVPanel.vue';
-import CVPanelSettingsPicture from './CVPanelSettingsPicture.vue';
+import CVPanelSettingsProfile from './CVPanelSettingsProfile.vue';
 
 const opened = defineModel<boolean>({ required: false });
 </script>
@@ -50,6 +50,14 @@ const opened = defineModel<boolean>({ required: false });
         opacity: 0.5;
       }
     }
+  }
+
+  .content {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 2rem;
   }
 }
 

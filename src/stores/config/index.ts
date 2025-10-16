@@ -27,6 +27,17 @@ export type CoordinatesConfig = {
   showPronouns?: boolean,
 }
 
+export const profileFrames = {
+  square: { borderRadius: '0rem' },
+  roundedHalf: { borderRadius: '1rem 0rem 1rem 0rem' },
+  roundedHalf2: { borderRadius: '0rem 1rem 0rem 1rem' },
+  rounded: { borderRadius: '1rem' },
+  circle: { borderRadius: '100dvw' },
+  none: { borderStyle: 'none' },
+};
+
+export type ProfileFrames = keyof typeof profileFrames;
+
 const createDefaultItem = <
   ItemType extends 'experience' | 'education' | 'hobbies'
 >(item: ItemType) => {
@@ -52,7 +63,8 @@ type Item<T extends 'experience' | 'education' | 'hobbies'> = ReturnType<typeof 
 
 const defaultConfig = {
   profile: {
-    name: 'profile.jpg',
+    filename: 'profile.jpg',
+    frame: 'square' as ProfileFrames,
   },
   coordinates: {
     showPronouns: true,
@@ -104,7 +116,8 @@ const mergeConfigItems = <
 const mergeConfig = (defaultConfig: DefaultConfig, config: Config): DefaultConfig => {
   return {
     profile: {
-      name: config.profile?.name ?? defaultConfig.profile.name
+      filename: config.profile?.filename ?? defaultConfig.profile.filename,
+      frame: config.profile?.frame ?? defaultConfig.profile.frame,
     },
     coordinates: {
       showPronouns: config.coordinates?.showPronouns ?? defaultConfig.coordinates.showPronouns

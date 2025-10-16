@@ -2,6 +2,7 @@
   <div
     v-if="url"
     class="cv-picture"
+    :style="frameStyles"
   >
     <img
       :src="url"
@@ -12,14 +13,18 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { useConfig } from '~/stores/config';
+import { useConfig, profileFrames } from '~/stores/config';
 
 const config = useConfig();
-const filename = computed(() => config.profile.name);
+
+const filename = computed(() => config.profile.filename);
 const url = computed(() => {
   if (!filename.value) return '';
   return new URL(`../stores/profiles/${filename.value}`, import.meta.url).href
 });
+
+const frameId = computed(() => config.profile.frame);
+const frameStyles = computed(() => profileFrames[frameId.value]);
 </script>
 
 <style lang="scss" scoped>
@@ -29,7 +34,6 @@ const url = computed(() => {
   border: 0.2rem solid white;
   width: 11rem;
   height: 11rem;
-  border-radius: 1rem 0 1rem 0;
   overflow: hidden;
 
   img {

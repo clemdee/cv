@@ -1,6 +1,11 @@
 import type { Config } from '.';
 
 export default {
+
+  profile: {
+    frame: 'roundedHalf',
+  },
+
   coordinates: {
     showPronouns: true,
   },
