@@ -1,4 +1,11 @@
 
+export type RecursivePartial<T> = {
+  [P in keyof T]?:
+    T[P] extends (infer U)[] ? RecursivePartial<U>[] :
+    T[P] extends object | undefined ? RecursivePartial<T[P]> :
+    T[P];
+};
+
 export const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 export const randomInt = (min: number, max: number): number => {

@@ -7,7 +7,7 @@ export default {
 
   education: {
     date: {
-      from: "2015",
+      min: "2015",
     },
     show: {
       id: [
@@ -19,7 +19,7 @@ export default {
 
   experience: {
     date: {
-      from: "2015",
+      min: "2015",
     },
     show: {
       id: [
@@ -37,9 +37,11 @@ export default {
   },
 
   skills: {
-    level: {
-      min: 0.6,
-    },
+    show: {
+      level: {
+        min: 0.6,
+      },
+    }
   },
 
 } as const satisfies Config;

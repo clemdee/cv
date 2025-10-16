@@ -1,70 +1,68 @@
-import type { DateSpan, DataConst } from '~/stores/data';
-import { defineStore } from 'pinia';
 import config from './config';
+import { type DataConst, useData } from '~/stores/data';
+import { type RecursivePartial } from '~/composables/utils';
+import { reactive } from 'vue';
+const data = useData();
 
-export type DateDuration = {
-  min?: string,
-  max?: string,
+const getMinMax = <T, V>(
+  list: T[],
+  getter: (item: T) => V | V[],
+) => {
+  const values = list.flatMap(getter).toSorted();
+  return {
+    min: values.at(0),
+    max: values.at(-1),
+  }
 }
 
-export type LevelFilter = {
-  min?: number,
-  max?: number,
-}
-
+export type ItemId = DataConst['experience' | 'education' | 'hobbies'][number]['id'];
 export type SkillId = DataConst['skills'][number]['id'];
 
 export type CoordinatesConfig = {
   showPronouns?: boolean,
 }
 
-export type EducationConfig = {
-  date?: DateSpan,
-  duration?: DateDuration,
-  certification?: string,
-  show?: {
-    id?: DataConst['education'][number]['id'][],
-    skills?: SkillId[],
-    tags?: string[],
+const createDefaultItem = <
+  ItemType extends 'experience' | 'education' | 'hobbies'
+>(item: ItemType) => {
+  type Item = (typeof data)[ItemType][number];
+
+  const date = getMinMax(
+    data[item] as Item[],
+    (item => Object.values(item.date ?? {}))
+  );
+
+  type ItemId = DataConst[ItemType][number]['id'];
+  const ids = data[item].map((item) => item.id) as ItemId[];
+
+  return {
+    date: date,
+    show: {
+      id: ids,
+    }
+  };
+}
+
+const defaultConfig = {
+  profile: {
+    url: '',
+  },
+  coordinates: {
+    showPronouns: true,
+  },
+  experience: createDefaultItem('experience'),
+  education: createDefaultItem('education'),
+  hobbies: createDefaultItem('hobbies'),
+  skills: {
+    show: {
+      level: { min: 0, max: 1 },
+      id: [] as SkillId[],
+    }
   }
 }
 
-export type ExperienceConfig = {
-  date?: DateSpan,
-  duration?: DateDuration,
-  show?: {
-    id?: DataConst['experience'][number]['id'][],
-    skills?: SkillId[],
-    tags?: string[],
-  }
-}
+export type Config = RecursivePartial<typeof defaultConfig>;
 
-export type HobbiesConfig = {
-  date?: DateSpan,
-  duration?: DateDuration,
-  show?: {
-    id?: DataConst['hobbies'][number]['id'][],
-    skills?: SkillId[],
-    tags?: string[],
-  }
-}
-
-export type SkillsConfig = {
-  level?: LevelFilter,
-  show?: {
-    id?: SkillId[],
-    tags?: string[],
-  }
-}
-
-export type Config = {
-  coordinates?: CoordinatesConfig,
-  education?: EducationConfig,
-  experience?: ExperienceConfig,
-  hobbies?: HobbiesConfig,
-  skills?: SkillsConfig,
-}
-
-export type ConfigJSON = typeof config;
-
-export const useConfig = defineStore('config', () => config as Config);
+export const useConfig = () => {
+  return reactive(config) as Config;
+};
