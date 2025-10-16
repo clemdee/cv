@@ -1,13 +1,25 @@
 <template>
-  <div class="cv-picture">
+  <div
+    v-if="url"
+    class="cv-picture"
+  >
     <img
-      src="../stores/profiles/profile_light.jpg"
+      :src="url"
       alt="Profile Picture"
     />
   </div>
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue';
+import { useConfig } from '~/stores/config';
+
+const config = useConfig();
+const filename = computed(() => config.profile.name);
+const url = computed(() => {
+  if (!filename.value) return '';
+  return new URL(`../stores/profiles/${filename.value}`, import.meta.url).href
+});
 </script>
 
 <style lang="scss" scoped>
@@ -22,6 +34,9 @@
 
   img {
     width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
   }
 }
 </style>

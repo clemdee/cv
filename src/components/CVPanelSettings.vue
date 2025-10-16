@@ -16,15 +16,16 @@
       </div>
     </header>
 
-    <div class="tbd">
-      TBD
-    </div>
+    <section class="content">
+      <CVPanelSettingsPicture />
+    </section>
   </CVPanel>
 </template>
 
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue';
 import CVPanel from './CVPanel.vue';
+import CVPanelSettingsPicture from './CVPanelSettingsPicture.vue';
 
 const opened = defineModel<boolean>({ required: false });
 </script>
@@ -49,6 +50,18 @@ const opened = defineModel<boolean>({ required: false });
         opacity: 0.5;
       }
     }
+  }
+}
+
+:deep(article) {
+  display: flex;
+  flex-flow: column;
+  gap: 1.5rem;
+
+  h3 {
+    padding-bottom: 0.3rem;
+    border-bottom: 0.01rem solid rgba(from currentColor r g b / 0.5);
+    font-family: "roboto-thin";
   }
 }
 </style>

@@ -52,7 +52,7 @@ type Item<T extends 'experience' | 'education' | 'hobbies'> = ReturnType<typeof 
 
 const defaultConfig = {
   profile: {
-    url: '',
+    name: 'profile.jpg',
   },
   coordinates: {
     showPronouns: true,
@@ -104,7 +104,7 @@ const mergeConfigItems = <
 const mergeConfig = (defaultConfig: DefaultConfig, config: Config): DefaultConfig => {
   return {
     profile: {
-      url: config.profile?.url ?? defaultConfig.profile.url
+      name: config.profile?.name ?? defaultConfig.profile.name
     },
     coordinates: {
       showPronouns: config.coordinates?.showPronouns ?? defaultConfig.coordinates.showPronouns
@@ -121,7 +121,8 @@ const mergeConfig = (defaultConfig: DefaultConfig, config: Config): DefaultConfi
   };
 };
 
+const merged = mergeConfig(defaultConfig, config as Config)
+
 export const useConfig = () => {
-  const merged = mergeConfig(defaultConfig, config as Config)
   return reactive(merged);
 };

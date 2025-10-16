@@ -36,3 +36,15 @@ export const shuffle = <T>(array: T[]) => {
   }
   return shuffled;
 }
+
+export const formatStorage = (bytes: number) => {
+  if (bytes < 0) throw new Error('Value must be non-negative');
+  if (bytes === 0) return '0B';
+
+  const units = ['B', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB'];
+
+  const i = Math.floor(Math.log(bytes) / Math.log(1024));
+  const value = bytes / 1024 ** i;
+  const unit = units[i];
+  return `${Number.parseFloat(value.toFixed(1))}${unit}`;
+};
