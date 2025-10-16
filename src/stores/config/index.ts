@@ -4,10 +4,15 @@ import { type RecursivePartial } from '~/composables/utils';
 import { reactive } from 'vue';
 const data = useData();
 
+type MinMax<T> = {
+  min: T,
+  max: T,
+};
+
 const getMinMax = <T, V>(
   list: T[],
   getter: (item: T) => V | V[],
-) => {
+): MinMax<V | undefined> => {
   const values = list.flatMap(getter).toSorted();
   return {
     min: values.at(0),
@@ -43,6 +48,8 @@ const createDefaultItem = <
   };
 }
 
+type Item<T extends 'experience' | 'education' | 'hobbies'> = ReturnType<typeof createDefaultItem<T>>;
+
 const defaultConfig = {
   profile: {
     url: '',
@@ -56,13 +63,65 @@ const defaultConfig = {
   skills: {
     show: {
       level: { min: 0, max: 1 },
-      id: [] as SkillId[],
+      id: data.skills.map((skill) => skill.id) as SkillId[],
     }
+  }
+};
+
+export type DefaultConfig = typeof defaultConfig;
+export type Config = RecursivePartial<DefaultConfig>;
+
+const mergeMinMax = <T>(
+  defaultMinMax: MinMax<T>,
+  minMax: Partial<MinMax<T>> | undefined
+): MinMax<T> => {
+  return {
+    min: minMax?.min ?? defaultMinMax.min,
+    max: minMax?.max ?? defaultMinMax.max,
   }
 }
 
-export type Config = RecursivePartial<typeof defaultConfig>;
+const mergeConfigItems = <
+  ItemType extends 'experience' | 'education' | 'hobbies'
+>(
+  itemType: ItemType,
+  defaultConfig: DefaultConfig,
+  config: Config
+): Item<ItemType> => {
+  type ItemId = DataConst[ItemType][number]['id'];
+
+  const defaultItem = defaultConfig[itemType];
+  const item = config[itemType] as RecursivePartial<Item<ItemType>> | undefined;
+
+  return {
+    date: mergeMinMax(defaultItem.date, item?.date),
+    show: {
+      id: (item?.show?.id ?? defaultItem.show.id) as ItemId[],
+    },
+  };
+};
+
+const mergeConfig = (defaultConfig: DefaultConfig, config: Config): DefaultConfig => {
+  return {
+    profile: {
+      url: config.profile?.url ?? defaultConfig.profile.url
+    },
+    coordinates: {
+      showPronouns: config.coordinates?.showPronouns ?? defaultConfig.coordinates.showPronouns
+    },
+    education: mergeConfigItems('education', defaultConfig, config),
+    experience: mergeConfigItems('experience', defaultConfig, config),
+    hobbies: mergeConfigItems('hobbies', defaultConfig, config),
+    skills: {
+      show: {
+        id: config.skills?.show?.id ?? defaultConfig.skills.show.id,
+        level: mergeMinMax(defaultConfig.skills.show.level, config.skills?.show?.level),
+      },
+    },
+  };
+};
 
 export const useConfig = () => {
-  return reactive(config) as Config;
+  const merged = mergeConfig(defaultConfig, config as Config)
+  return reactive(merged);
 };
