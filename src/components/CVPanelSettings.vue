@@ -17,6 +17,7 @@
     </header>
 
     <section class="content">
+      <CVPanelSettingsColorscheme />
       <CVPanelSettingsProfile />
     </section>
   </CVPanel>
@@ -25,6 +26,7 @@
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue';
 import CVPanel from './CVPanel.vue';
+import CVPanelSettingsColorscheme from './CVPanelSettingsColorscheme.vue';
 import CVPanelSettingsProfile from './CVPanelSettingsProfile.vue';
 
 const opened = defineModel<boolean>({ required: false });

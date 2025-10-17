@@ -2,6 +2,10 @@ import type { Config } from '.';
 
 export default {
 
+  colorscheme: {
+    preset: 'light',
+  },
+
   profile: {
     frame: 'roundedHalf',
   },

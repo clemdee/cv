@@ -1,15 +1,16 @@
 <template>
-  <div class="cv">
+  <div
+    class="cv"
+    :style="currentColorschemeStyles"
+  >
     <div class="cv-wrapper">
       <CVAside />
       <CVContent />
       <CVPanelItem v-model="itemPanel.opened" />
       <CVPanelSettings v-model="settingsPanelOpened" />
-      <Teleport to="body" >
-        <SettingsOverlay
-          @settings-click="settingsPanelOpened = !settingsPanelOpened"
-        />
-      </Teleport>
+      <SettingsOverlay
+        @settings-click="settingsPanelOpened = !settingsPanelOpened"
+      />
     </div>
   </div>
 </template>
@@ -21,10 +22,17 @@ import CVPanelItem from './CVPanelItem.vue';
 import { useItemPanel } from '~/composables/itemPanel';
 import CVPanelSettings from './CVPanelSettings.vue';
 import SettingsOverlay from '~/components/SettingsOverlay.vue';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
+import { useConfig, colorschemes } from '~/stores/config';
 
+const config = useConfig();
 const itemPanel = useItemPanel();
 const settingsPanelOpened = ref(false);
+
+const currentColorscheme = computed(() => config.colorscheme.preset);
+const currentColorschemeStyles = computed(() => {
+  return colorschemes[currentColorscheme.value].styles;
+})
 </script>
 
 <style lang="scss" scoped>
