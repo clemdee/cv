@@ -18,7 +18,10 @@
 
     <section class="content">
       <CVPanelSettingsColorscheme />
+
       <CVPanelSettingsProfile />
+
+      <CVPanelSettingsData />
     </section>
   </CVPanel>
 </template>
@@ -28,6 +31,7 @@ import { Icon } from '@iconify/vue';
 import CVPanel from './CVPanel.vue';
 import CVPanelSettingsColorscheme from './CVPanelSettingsColorscheme.vue';
 import CVPanelSettingsProfile from './CVPanelSettingsProfile.vue';
+import CVPanelSettingsData from './CVPanelSettingsData.vue';
 
 const opened = defineModel<boolean>({ required: false });
 </script>
@@ -60,6 +64,7 @@ const opened = defineModel<boolean>({ required: false });
     justify-content: flex-start;
     align-items: stretch;
     gap: 2rem;
+    overflow-y: auto;
   }
 }
 

@@ -10,7 +10,14 @@
         editing,
         hidden: !visible,
       }"
-      @click="editing && input?.click()"
+      @click="event => {
+        if (editing) {
+          input?.click();
+        }
+        else {
+          itemPanel.set(props.item);
+        }
+      }"
       v-show="editing || visible"
     >
       <div class="cv-base-item-wrapper">
@@ -39,21 +46,27 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
+import { useItemPanel } from '~/composables/itemPanel';
 import CVAnchor from '~/components/CVAnchor.vue';
+import type { Item } from '~/stores/data';
+import { useState } from '~/stores/state';
+
+const state = useState();
+const itemPanel = useItemPanel();
 
 const visible = defineModel('visible', {
   default: true,
-  required: true,
 });
 
 const props = defineProps<{
+  item: Item,
   anchorId: string,
 }>();
 
 const input = ref<HTMLElement | null>(null);
 
-const editing = ref(false);
+const editing = computed(() => state.isEditing);
 
 const scrollHeight = ref('0px');
 const updateScrollHeight = (el: HTMLElement) => {
@@ -85,6 +98,10 @@ const updateScrollHeight = (el: HTMLElement) => {
 
   &:has(+ &) {
     margin-bottom: 0.3rem;
+  }
+
+  &.hidden {
+    opacity: 0.5;
   }
 
   .cv-base-item-wrapper {
@@ -142,10 +159,9 @@ const updateScrollHeight = (el: HTMLElement) => {
 
   input[type="checkbox"] {
     position: absolute;
-    top: 0.65rem;
+    top: 0.7rem;
     right: 100%;
-    margin-right: 0.6rem;
-    font-size: 0.8rem;
+    margin-right: 0.4rem;
     filter: grayscale(100%);
   }
 
@@ -153,10 +169,6 @@ const updateScrollHeight = (el: HTMLElement) => {
 
   &.editing {
     cursor: pointer;
-
-    &.hidden {
-      opacity: 0.5;
-    }
 
     .cv-base-item-content {
       pointer-events: none;

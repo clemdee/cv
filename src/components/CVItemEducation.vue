@@ -1,9 +1,9 @@
 <template>
   <CVBaseItem
     class="cv-education-item"
+    :item="education"
     :anchor-id="`education-${education.id}`"
     :visible="isVisible"
-    @click="itemPanel.set(education)"
   >
     <div class="education-content">
 
@@ -46,12 +46,10 @@ import { Icon } from '@iconify/vue';
 import type { Education } from '~/stores/data';
 import { computed } from 'vue';
 import { useConfig } from '~/stores/config';
-import { useItemPanel } from '~/composables/itemPanel';
 import CVText from '~/components/CVText.vue';
 import CVBaseItem from '~/components/CVBaseItem.vue';
 
 const config = useConfig();
-const itemPanel = useItemPanel();
 
 const props = defineProps<{
   education: Education,

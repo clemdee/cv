@@ -1,9 +1,9 @@
 <template>
   <CVBaseItem
     class="cv-experience-item"
+    :item="experience"
     :anchor-id="`experience-${experience.id}`"
     :visible="isVisible"
-    @click="itemPanel.set(experience)"
   >
     <div class="experience-content">
       <div class="experience-header">
@@ -50,13 +50,11 @@
 import type { Experience } from '~/stores/data';
 import { computed } from 'vue';
 import { useConfig } from '~/stores/config';
-import { useItemPanel } from '~/composables/itemPanel';
 import CVText from '~/components/CVText.vue';
 import CVBaseItem from '~/components/CVBaseItem.vue';
 import CVSkills from './CVSkills.vue';
 
 const config = useConfig();
-const itemPanel = useItemPanel();
 
 const props = defineProps<{
   experience: Experience,

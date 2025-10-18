@@ -1,10 +1,9 @@
 <template>
   <CVBaseItem
     class="cv-hobbies-item"
+    :item="hobby"
     :anchor-id="`hobbies-${hobby.id}`"
     :visible="isVisible"
-    :display-left="!!qrcodeUrl"
-    @click="itemPanel.set(hobby)"
   >
     <div class="hobby-content">
       <div
@@ -71,7 +70,6 @@
 import type { Hobby } from '~/stores/data';
 import { computed } from 'vue';
 import { useConfig } from '~/stores/config';
-import { useItemPanel } from '~/composables/itemPanel';
 import CVText from '~/components/CVText.vue';
 import CVBaseItem from '~/components/CVBaseItem.vue';
 import { asyncComputed } from '@vueuse/core';
@@ -79,7 +77,6 @@ import QRCode from 'qrcode';
 import CVSkills from './CVSkills.vue';
 
 const config = useConfig();
-const itemPanel = useItemPanel();
 
 const props = defineProps<{
   hobby: Hobby,
