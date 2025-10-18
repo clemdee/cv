@@ -1,10 +1,8 @@
 import { reactive } from 'vue';
-import { useI18n } from 'vue-i18n';
-
-const { locale } = useI18n();
+import { i18n } from '~/i18n';
 
 export const useState = () => {
   return reactive({
-    locale,
+    locale: i18n.global.locale,
   });
 };
