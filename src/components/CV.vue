@@ -7,10 +7,8 @@
       <CVAside />
       <CVContent />
       <CVPanelItem v-model="itemPanel.opened" />
-      <CVPanelSettings v-model="settingsPanelOpened" />
-      <SettingsOverlay
-        @settings-click="settingsPanelOpened = !settingsPanelOpened"
-      />
+      <CVPanelSettings v-model="settingsPanel.opened" />
+      <SettingsOverlay />
     </div>
   </div>
 </template>
@@ -19,7 +17,7 @@
 import CVAside from '~/components/CVAside.vue';
 import CVContent from '~/components/CVContent.vue';
 import CVPanelItem from './CVPanelItem.vue';
-import { useItemPanel } from '~/composables/itemPanel';
+import { useItemPanel, useSettingsPanel } from '~/composables/panels';
 import CVPanelSettings from './CVPanelSettings.vue';
 import SettingsOverlay from '~/components/SettingsOverlay.vue';
 import { computed, ref } from 'vue';
@@ -27,7 +25,7 @@ import { useConfig, colorschemes } from '~/stores/config';
 
 const config = useConfig();
 const itemPanel = useItemPanel();
-const settingsPanelOpened = ref(false);
+const settingsPanel = useSettingsPanel();
 
 const currentColorscheme = computed(() => config.colorscheme.preset);
 const currentColorschemeStyles = computed(() => {

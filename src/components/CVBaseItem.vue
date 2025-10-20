@@ -47,7 +47,7 @@
 
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
-import { useItemPanel } from '~/composables/itemPanel';
+import { useItemPanel } from '~/composables/panels';
 import CVAnchor from '~/components/CVAnchor.vue';
 import type { Item } from '~/stores/data';
 import { useState } from '~/stores/state';

@@ -88,7 +88,7 @@ import 'leaflet/dist/leaflet.css';
 import Leaflet from 'leaflet';
 import { computed, onMounted, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useItemPanel } from '~/composables/itemPanel';
+import { useItemPanel } from '~/composables/panels';
 import { wait } from '~/composables/utils';
 import { Icon } from '@iconify/vue';
 import type { Skill } from '~/stores/data';

@@ -16,9 +16,10 @@
       />
       <span>{{ availableLocale }}</span>
     </label>
+
     <button
       class="settings-overlay-item settings"
-      @click="event => emit('settingsClick', event)"
+      @click="settingsPanel.opened = !settingsPanel.opened"
     >
       <Icon icon="material-symbols-light:settings-outline-rounded" />
     </button>
@@ -27,20 +28,14 @@
 
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue';
-import { onMounted, ref, useTemplateRef, watch } from 'vue';
+import { onMounted, ref, useTemplateRef } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { useSettingsPanel } from '~/composables/panels';
 
-const emit = defineEmits<{
-  localeChange: [locale: string],
-  settingsClick: [event: MouseEvent],
-}>();
 const root = useTemplateRef('root');
 
 const { availableLocales, locale } = useI18n();
-
-watch(locale, () => {
-  emit('localeChange', locale.value);
-});
+const settingsPanel = useSettingsPanel();
 
 const viewport = window.visualViewport;
 const dx = ref(0);
@@ -61,7 +56,6 @@ onMounted(() => {
 
 window.visualViewport?.addEventListener("scroll", viewportHandler, { passive: true });
 window.visualViewport?.addEventListener("resize", viewportHandler, { passive: true });
-
 </script>
 
 <style lang="scss" scoped>
