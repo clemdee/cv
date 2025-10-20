@@ -2,7 +2,7 @@
   <article class="data">
     <h3>Data</h3>
 
-    <div class="edit-mode">
+    <div class="toggle-wrapper edit-mode">
       <label>
         <span>
           Toggle Edit mode
@@ -13,13 +13,27 @@
         />
       </label>
     </div>
+
+    <div class="toggle-wrapper pronouns">
+      <label>
+        <span>
+          Show pronouns
+        </span>
+
+        <InputToggle
+          v-model="config.coordinates.showPronouns"
+        />
+      </label>
+    </div>
   </article>
 </template>
 
 <script lang="ts" setup>
+import { useConfig } from '~/stores/config';
 import { useState } from '~/stores/state';
 import InputToggle from './InputToggle.vue';
 
+const config = useConfig();
 const state = useState();
 </script>
 
@@ -29,7 +43,7 @@ article.data {
   --toggle-color-off: #444;
   --toggle-height: 1.5rem;
 
-  .edit-mode {
+  .toggle-wrapper {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
