@@ -18,6 +18,13 @@
     </label>
 
     <button
+      class="settings-overlay-item edit-mode"
+      @click="state.isEditing = !state.isEditing"
+    >
+      <Icon icon="material-symbols-light:edit-document-outline-rounded" />
+    </button>
+
+    <button
       class="settings-overlay-item settings"
       @click="settingsPanel.opened = !settingsPanel.opened"
     >
@@ -31,11 +38,13 @@ import { Icon } from '@iconify/vue';
 import { onMounted, ref, useTemplateRef } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useSettingsPanel } from '~/composables/panels';
+import { useState } from '~/stores/state';
 
 const root = useTemplateRef('root');
 
 const { availableLocales, locale } = useI18n();
 const settingsPanel = useSettingsPanel();
+const state = useState();
 
 const viewport = window.visualViewport;
 const dx = ref(0);
@@ -117,7 +126,8 @@ window.visualViewport?.addEventListener("resize", viewportHandler, { passive: tr
     }
   }
 
-  .settings {
+  .settings,
+  .edit-mode {
     font-size: 1.5rem;
   }
 }
