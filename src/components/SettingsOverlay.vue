@@ -157,7 +157,7 @@ const state = useState();
 
   &:has(input:checked) {
     background-color: var(--colorscheme-secondary);
-    color: var(--colorscheme-main-text);
+    color: var(--colorscheme-secondary-text);
     cursor: default;
   }
 }
@@ -165,7 +165,7 @@ const state = useState();
 button {
   &.active {
     background-color: var(--colorscheme-secondary);
-    color: var(--colorscheme-main-text);
+    color: var(--colorscheme-secondary-text);
   }
 }
 </style>
