@@ -3,33 +3,51 @@
     ref="root"
     class="settings-overlay"
   >
-    <label
-      class="settings-overlay-item locale"
-      v-for="availableLocale in availableLocales"
-      :key="availableLocale"
-    >
-      <input
-        type="radio"
-        name="locale"
-        :value="availableLocale"
-        v-model="locale"
-      />
-      <span>{{ availableLocale }}</span>
-    </label>
+    <div class="settings-overlay-group">
+      <div class="settings-overlay-sub">
+        <div class="settings-overlay-item locale">
+          <Icon icon="material-symbols-light:language" />
+        </div>
 
-    <button
-      class="settings-overlay-item edit-mode"
-      @click="state.isEditing = !state.isEditing"
-    >
-      <Icon icon="material-symbols-light:edit-document-outline-rounded" />
-    </button>
+        <div class="settings-overlay-sub-list">
+          <label
+            class="settings-overlay-item locale-item"
+            v-for="availableLocale in availableLocales"
+            :key="availableLocale"
+          >
+            <input
+              type="radio"
+              name="locale"
+              :value="availableLocale"
+              v-model="locale"
+            />
+            <span>{{ availableLocale }}</span>
+          </label>
+        </div>
+      </div>
+    </div>
 
-    <button
-      class="settings-overlay-item settings"
-      @click="settingsPanel.opened = !settingsPanel.opened"
-    >
-      <Icon icon="material-symbols-light:settings-outline-rounded" />
-    </button>
+    <div class="settings-overlay-group">
+      <button
+        class="settings-overlay-item edit-mode"
+        :class="{
+          active: state.isEditing,
+        }"
+        @click="state.isEditing = !state.isEditing"
+      >
+        <Icon icon="material-symbols-light:edit-document-outline-rounded" />
+      </button>
+
+      <button
+        class="settings-overlay-item settings"
+        :class="{
+          active: settingsPanel.opened,
+        }"
+        @click="settingsPanel.opened = !settingsPanel.opened"
+      >
+        <Icon icon="material-symbols-light:settings-outline-rounded" />
+      </button>
+    </div>
   </div>
 </template>
 
@@ -79,6 +97,7 @@ window.visualViewport?.addEventListener("resize", viewportHandler, { passive: tr
   right: calc(var(--margin) * var(--scale) + var(--dx));
   bottom: calc(var(--margin) * var(--scale) + var(--dy));
   display: inline-flex;
+  gap: 0.5rem;
   transform-origin: bottom right;
   scale: pow(var(--scale), 0.5);
   display: inline-flex;
@@ -88,47 +107,108 @@ window.visualViewport?.addEventListener("resize", viewportHandler, { passive: tr
     display: none;
   }
 
-  .settings-overlay-item {
+  .settings-overlay-group {
     --border-radius: 0.5rem;
-    display: grid;
-    place-items: center;
-    width: 3.5rem;
-    height: 3rem;
-    border: 0.1rem solid #ccc;
-    border-left-style: none;
-    background-color: var(--colorscheme-content-background);
-    color: var(--colorscheme-content-text);
-    cursor: pointer;
-    user-select: none;
-    transition: 300ms;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: flex-end;
 
-    &:first-child {
+    & > * {
+      border: 0.1rem solid #ccc;
+      border-left-style: none;
+    }
+
+    & > :first-child  {
       border-left-style: solid;
       border-top-left-radius: var(--border-radius);
       border-bottom-left-radius: var(--border-radius);
     }
 
-    &:last-child {
+    & > :last-child {
       border-top-right-radius: var(--border-radius);
       border-bottom-right-radius: var(--border-radius);
     }
   }
 
-  .locale {
+  .settings-overlay-sub {
+    position: relative;
+    display: flex;
+    flex-flow: column-reverse;
+    overflow: visible;
+    transition: height 100ms ease;
+
+    & > :first-child  {
+      border-bottom-left-radius: var(--border-radius);
+      border-bottom-right-radius: var(--border-radius);
+    }
+
+    & > :last-child {
+      border-top-left-radius: var(--border-radius);
+      border-top-right-radius: var(--border-radius);
+    }
+
+    &:not(:focus, :has(:focus-visible), :hover) {
+      overflow: hidden;
+      height: 3rem;
+    }
+  }
+
+  .settings-overlay-sub-list {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    & > :first-child  {
+      border-top-left-radius: var(--border-radius);
+      border-top-right-radius: var(--border-radius);
+    }
+  }
+
+  .settings-overlay-item {
+    flex-shrink: 0;
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 3.5rem;
+    height: 3rem;
+    background-color: var(--colorscheme-content-background);
+    font-size: 1.5rem;
+    color: var(--colorscheme-content-text);
+    cursor: pointer;
+    user-select: none;
+    transition: 300ms;
+  }
+
+  .locale-item {
+    font-size: 1rem;
+
     input[type="radio"] {
-      display: none;
+      position: absolute;
+      inset: 0rem;
+      opacity: 0;
+      cursor: inherit;
+    }
+
+    &:has(input:focus-visible) {
+      outline: 0.1rem solid currentColor;
+      outline-offset: 0.2rem;
+      z-index: 999;
     }
 
     &:has(input:checked) {
-      background-color: var(--colorscheme-main);
+      background-color: var(--colorscheme-secondary);
       color: var(--colorscheme-main-text);
       cursor: default;
     }
   }
 
-  .settings,
-  .edit-mode {
-    font-size: 1.5rem;
+  button {
+    &.active {
+      background-color: var(--colorscheme-secondary);
+      color: var(--colorscheme-main-text);
+    }
   }
 }
 </style>

@@ -23,6 +23,7 @@
   box-decoration-break: clone;
   margin: 0;
   padding: 0;
+  interpolate-size: allow-keywords;
 }
 
 :focus-visible {
