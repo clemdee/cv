@@ -30,6 +30,7 @@
         :class="{
           active: state.isEditing,
         }"
+        title="Edit visible items"
         @click="state.isEditing = !state.isEditing"
       >
         <Icon icon="material-symbols-light:edit-document-outline-rounded" />
@@ -40,6 +41,7 @@
         :class="{
           active: settingsPanel.opened,
         }"
+        title="Settings"
         @click="settingsPanel.opened = !settingsPanel.opened"
       >
         <Icon icon="material-symbols-light:settings-outline-rounded" />
