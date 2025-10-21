@@ -1,7 +1,7 @@
 <template>
   <component
     :is="props.tag ?? 'span'"
-    ref="textElement"
+    ref="text"
     class="text"
   >
     {{ animatedText }}
@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, useTemplateRef } from 'vue';
 import { range, shuffle } from '~/composables/utils';
 
 const props = defineProps<{
@@ -17,7 +17,7 @@ const props = defineProps<{
   text?: string,
 }>();
 
-const textElement = ref<HTMLElement | null>(null);
+const textElement = useTemplateRef<HTMLElement>('text');
 
 const text = computed(() => props.text ?? '');
 const textArray = ref(text.value?.split(''));

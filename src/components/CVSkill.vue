@@ -33,7 +33,7 @@
 
 <script lang="ts" setup>
 import { type Skill } from '~/stores/data';
-import { ref, computed } from 'vue';
+import { ref, computed, useTemplateRef } from 'vue';
 import { useConfig } from '~/stores/config';
 
 import { Tippy } from 'vue-tippy';
@@ -49,7 +49,7 @@ const props = defineProps<{
 const skillName = computed(() => props.skill.title);
 const skillLevel = computed(() => props.skill.level);
 
-const input = ref<HTMLInputElement | null>(null);
+const input = useTemplateRef('input');
 
 const editing = ref(false);
 

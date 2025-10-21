@@ -46,7 +46,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue';
+import { computed, ref, useTemplateRef } from 'vue';
 import { useItemPanel } from '~/composables/panels';
 import CVAnchor from '~/components/CVAnchor.vue';
 import type { Item } from '~/stores/data';
@@ -64,7 +64,7 @@ const props = defineProps<{
   anchorId: string,
 }>();
 
-const input = ref<HTMLElement | null>(null);
+const input = useTemplateRef('input');
 
 const editing = computed(() => state.isEditing);
 

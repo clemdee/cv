@@ -5,16 +5,16 @@
   >
     <span
       class="glint-effect"
-      ref="glintElement"
+      ref="glint"
     />
     <slot />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, useTemplateRef } from 'vue';
 
-const glintElement = ref<HTMLElement | null>(null);
+const glintElement = useTemplateRef('glint');
 
 const runGlintEffect = async () => {
   if (!glintElement.value) return;
