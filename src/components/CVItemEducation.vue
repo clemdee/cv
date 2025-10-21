@@ -12,7 +12,7 @@
           <Icon
             v-if="education.certifications.length > 0"
             icon="mdi:school-outline"
-            title="diplome"
+            title="Diploma"
           />
           <CVText :text="props.education.title" />
         </div>
