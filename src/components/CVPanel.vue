@@ -58,6 +58,7 @@ const definePanel = (panel: Ref<boolean>) => {
 
 <style lang="scss" scoped>
 .panel {
+  --panel-padding: 2rem;
   position: fixed;
   inset-block: 0rem;
   inset-inline-end: 0rem;
@@ -70,7 +71,7 @@ const definePanel = (panel: Ref<boolean>) => {
   gap: 1rem;
 
   width: 30rem;
-  padding: 2rem;
+  padding: var(--panel-padding);
   box-shadow: 0rem 0rem 0.5rem black;
 
   color: var(--colorscheme-content-text);
@@ -97,7 +98,6 @@ const definePanel = (panel: Ref<boolean>) => {
     align-items: stretch;
     width: unset;
     height: 30rem;
-    padding: 2rem;
   }
 }
 </style>

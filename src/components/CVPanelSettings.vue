@@ -64,6 +64,8 @@ const opened = defineModel<boolean>({ required: false });
     justify-content: flex-start;
     align-items: stretch;
     gap: 2rem;
+    margin-inline: calc(var(--panel-padding) * -1);
+    padding-inline: var(--panel-padding);
     overflow-y: auto;
   }
 }
