@@ -6,9 +6,9 @@
     <div class="cv-wrapper">
       <CVAside />
       <CVContent />
+      <SettingsOverlay />
       <CVPanelItem v-model="itemPanel.opened" />
       <CVPanelSettings v-model="settingsPanel.opened" />
-      <SettingsOverlay />
     </div>
   </div>
 </template>
