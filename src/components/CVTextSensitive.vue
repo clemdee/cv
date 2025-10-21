@@ -56,6 +56,8 @@ const text = computed(() => {
 
   &.placeholder {
     filter: blur(0.2rem);
+    user-select: none;
+    pointer-events: none;
   }
 }
 </style>
