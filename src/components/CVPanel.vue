@@ -4,6 +4,7 @@
     :class="{
       opened: opened,
     }"
+    :inert="!opened"
     v-on-click-outside="() => opened = false"
   >
     <slot />
