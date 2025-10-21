@@ -8,7 +8,7 @@
 
         <div class="settings-overlay-sub-list">
           <label
-            class="settings-overlay-item locale-item"
+            class="settings-overlay-item locale-item focus-wrapper"
             v-for="availableLocale in availableLocales"
             :key="availableLocale"
           >
@@ -143,19 +143,13 @@ const state = useState();
 
 .locale-item {
   font-size: 1rem;
+  outline-color: var(--colorscheme-content-text);
 
   input[type="radio"] {
     position: absolute;
     inset: 0rem;
     opacity: 0;
     cursor: inherit;
-  }
-
-  &:has(input:focus-visible) {
-    outline: var(--outline);
-    outline-color: var(--colorscheme-content-text);
-    outline-offset: var(--outline-offset);
-    z-index: var(--z-outline);
   }
 
   &:has(input:checked) {

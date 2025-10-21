@@ -11,12 +11,17 @@
           current: picture.filename === currentPictureFilename
         }"
       >
-        <input
-          v-model="currentPictureFilename"
-          type="radio"
-          :value="picture.filename"
-        />
-        <img :src="picture.url" />
+        <div class="image focus-wrapper">
+          <input
+            v-model="currentPictureFilename"
+            type="radio"
+            name="profile-picture"
+            :value="picture.filename"
+          />
+
+          <img :src="picture.url" />
+        </div>
+
         <div class="filename">
           {{ picture.filename }} ({{ picture.size }})
         </div>
@@ -28,13 +33,16 @@
           current: currentPictureFilename === ''
         }"
       >
-        <input
-          v-model="currentPictureFilename"
-          type="radio"
-          value=""
-        />
-        <div class="icon-wrapper">
-          <Icon icon="radix-icons:value-none" />
+        <div class="image focus-wrapper">
+          <input
+            v-model="currentPictureFilename"
+            type="radio"
+            name="profile-picture"
+            value=""
+          />
+          <div class="icon-wrapper">
+            <Icon icon="radix-icons:value-none" />
+          </div>
         </div>
         <div class="filename">
           no picture
@@ -50,7 +58,7 @@
       <label
         v-for="(frame, frameId) in frames"
         :key="frameId"
-        class="frame"
+        class="frame focus-wrapper"
         :class="{
           current: frameId === currentFrameId
         }"
@@ -59,12 +67,13 @@
         <input
           v-model="currentFrameId"
           type="radio"
+          name="profile-frame"
           :value="frameId"
         />
       </label>
 
       <label
-        class="frame none"
+        class="frame none focus-wrapper"
         :class="{
           current: currentFrameId === 'none'
         }"
@@ -72,6 +81,7 @@
         <input
           v-model="currentFrameId"
           type="radio"
+          name="profile-frame"
           value="none"
         />
         <Icon icon="radix-icons:value-none" />
@@ -103,12 +113,12 @@ const currentFrameId = toRef(config.profile, 'frame');
     gap: 1rem;
 
     .picture {
+      --width: 5rem;
       display: flex;
       flex-flow: column;
       justify-content: flex-start;
       align-items: center;
-      aspect-ratio: 1;
-      width: 5rem;
+      width: var(--width);
       cursor: pointer;
 
       &.current {
@@ -121,15 +131,24 @@ const currentFrameId = toRef(config.profile, 'frame');
         }
       }
 
-      input[type="radio"] {
-        display: none;
-      }
+      .image {
+        position: relative;
+        width: var(--width);
+        height: var(--width);
 
-      img {
-        width: 100%;
-        aspect-ratio: 1;
-        object-fit: cover;
-        object-position: center;
+        input[type="radio"] {
+          position: absolute;
+          inset: 0rem;
+          opacity: 0;
+          cursor: inherit;
+        }
+
+        img {
+          width: 100%;
+          aspect-ratio: 1;
+          object-fit: cover;
+          object-position: center;
+        }
       }
 
       .icon-wrapper {
@@ -161,6 +180,7 @@ const currentFrameId = toRef(config.profile, 'frame');
     gap: 1rem;
 
     .frame {
+      position: relative;
       display: grid;
       place-items: center;
       aspect-ratio: 1;
@@ -179,7 +199,10 @@ const currentFrameId = toRef(config.profile, 'frame');
       }
 
       input[type="radio"] {
-        display: none;
+        position: absolute;
+        inset: 0rem;
+        opacity: 0;
+        cursor: inherit;
       }
     }
   }

@@ -12,12 +12,13 @@
         }"
         :style="colorscheme.styles"
       >
-        <input
-          v-model="currentColorscheme"
-          type="radio"
-          :value="name"
-        />
-        <div class="wrapper">
+        <div class="wrapper focus-wrapper">
+          <input
+            v-model="currentColorscheme"
+            name="colorscheme"
+            type="radio"
+            :value="name"
+          />
           <div class="aside">
             <Icon icon="material-symbols-light:text-fields-rounded" />
             <div class="secondary" />
@@ -67,15 +68,18 @@ article.colorscheme {
         }
       }
 
-      input[type="radio"] {
-        display: none;
-      }
-
       .wrapper {
         position: relative;
         width: 5rem;
         aspect-ratio: 1;
         border: 0.1rem solid currentColor;
+
+        input[type="radio"] {
+          position: absolute;
+          inset: 0rem;
+          opacity: 0;
+          cursor: inherit;
+        }
 
         .aside,
         .content {

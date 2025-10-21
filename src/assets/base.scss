@@ -33,10 +33,15 @@
   interpolate-size: allow-keywords;
 }
 
-:focus-visible {
+:focus-visible,
+.focus-wrapper:has(:focus-visible) {
   outline: var(--outline);
   outline-offset: var(--outline-offset);
   z-index: var(--z-outline);
+}
+
+.focus-wrapper :focus-visible {
+  outline-style: none;
 }
 
 html {
