@@ -1,12 +1,13 @@
 <template>
-  <span
+  <CVText
     class="sensitive"
     :class="{
-      placeholder: !hasText,
+      placeholder: isPlaceholder,
     }"
-  >
-    <CVText :text="text" />
-  </span>
+    :text="text"
+    :tag="props.tag"
+    :inert="isPlaceholder"
+  />
 </template>
 
 <script lang="ts" setup>
@@ -15,6 +16,7 @@ import { randomInt } from '~/composables/utils';
 import CVText from '~/components/CVText.vue';
 
 const props = defineProps<{
+  tag?: string,
   text?: string,
   placeholder?: string,
 }>();
@@ -23,19 +25,18 @@ const randomGibberish = () => {
   const length = randomInt(8, 20);
   const codePoints = []
   for (let i = 0; i < length; i++) {
-    // code points chosen so that it somehow looks gibberish
+    // code points so that it somehow looks gibberish
     codePoints.push(randomInt(8000, 1200));
   }
   return String.fromCodePoint(...codePoints);
 }
 
-const hasText = computed(() => {
-  if (!props.text) return false;
-  return props.text?.replace(/\s/g, '').length !== 0;
+const isPlaceholder = computed(() => {
+  return props.text?.trim() === '';
 });
 
 const text = computed(() => {
-  if (hasText.value) {
+  if (!isPlaceholder.value) {
     return props.text;
   }
   return props.placeholder
@@ -46,14 +47,14 @@ const text = computed(() => {
 
 <style lang="scss" scoped>
 .sensitive {
+  --margin: 0.2rem;
   display: inline-flex;
   overflow: hidden;
-  border-radius: 0.25rem;
-  --spacing: 0.2rem;
-  margin: calc(-1 * var(--spacing));
-  padding: var(--spacing);
+  margin: calc(-1 * var(--margin));
+  padding: var(--margin);
+  outline-offset: calc(var(--outline-offset) - var(--margin));
 
-  &.placeholder > * {
+  &.placeholder {
     filter: blur(0.2rem);
   }
 }

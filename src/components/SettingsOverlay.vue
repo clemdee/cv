@@ -150,9 +150,9 @@ const state = useState();
   }
 
   &:has(input:focus-visible) {
-    outline: 0.1rem solid currentColor;
-    outline-offset: 0.2rem;
-    z-index: 999;
+    outline: var(--outline);
+    outline-offset: var(--outline-offset);
+    z-index: var(--z-outline);
   }
 
   &:has(input:checked) {

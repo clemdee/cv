@@ -27,36 +27,40 @@
 
       <div class="item">
         <Icon icon="mdi:envelope" />
-        <a :href="`mailto:${data.profile.email}`">
-          <CVTextSensitive
-            :text="data.profile.email"
-            placeholder="name@domain.com"
-          />
-        </a>
+        <CVTextSensitive
+          tag="a"
+          :text="data.profile.email"
+          :href="`mailto:${data.profile.email}`"
+          placeholder="name@domain.com"
+        />
       </div>
 
       <div class="item">
         <Icon icon="mdi:phone" />
-        <a :href="`tel:${data.profile.phone}`">
-          <CVTextSensitive
-            :text="t('coordinates.phone', phone)"
-            placeholder="+00123456789"
-          />
-        </a>
+        <CVTextSensitive
+          tag="a"
+          :text="t('coordinates.phone', phone)"
+          :href="`tel:${data.profile.phone}`"
+          placeholder="+00123456789"
+        />
       </div>
 
       <div class="item">
         <Icon icon="mdi:linkedin" />
-        <a :href="t('coordinates.linkedin.link')">
-          <CVText :text="t('coordinates.linkedin.name')" />
-        </a>
+        <CVText
+          tag="a"
+          :text="t('coordinates.linkedin.name')"
+          :href="t('coordinates.linkedin.link')"
+        />
       </div>
 
       <div class="item">
         <Icon icon="mdi:github" />
-        <a :href="t('coordinates.github.link')">
-          <CVText :text="t('coordinates.github.name')" />
-        </a>
+        <CVText
+          tag="a"
+          :text="t('coordinates.github.name')"
+          :href="t('coordinates.github.link')"
+        />
       </div>
     </div>
   </article>
