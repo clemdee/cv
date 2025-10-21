@@ -151,6 +151,7 @@ const state = useState();
 
   &:has(input:focus-visible) {
     outline: var(--outline);
+    outline-color: var(--colorscheme-content-text);
     outline-offset: var(--outline-offset);
     z-index: var(--z-outline);
   }
@@ -166,6 +167,7 @@ button {
   &.active {
     background-color: var(--colorscheme-secondary);
     color: var(--colorscheme-secondary-text);
+    outline-color: var(--colorscheme-content-text);
   }
 }
 </style>
