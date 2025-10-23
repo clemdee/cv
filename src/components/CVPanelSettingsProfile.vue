@@ -185,8 +185,7 @@ const currentFrameId = toRef(config.profile, 'frame');
       place-items: center;
       aspect-ratio: 1;
       width: 4rem;
-      border: 0.1rem solid currentColor;
-      color: rgba(from currentColor r g b / 0.3);
+      border: 0.1rem solid rgba(from currentColor r g b / 0.3);
       font-size: 2rem;
       cursor: pointer;
 
