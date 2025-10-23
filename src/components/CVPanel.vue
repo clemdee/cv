@@ -64,6 +64,7 @@ const definePanel = (panel: Ref<boolean>) => {
   inset-block: 0rem;
   inset-inline-end: 0rem;
   translate: 100% 0rem;
+  z-index: var(--z-panel);
 
   display: flex;
   flex-direction: column;

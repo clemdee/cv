@@ -46,6 +46,7 @@ window.visualViewport?.addEventListener("resize", viewportHandler, { passive: tr
   position: fixed;
   right: calc(var(--margin) * var(--scale) + var(--dx));
   bottom: calc(var(--margin) * var(--scale) + var(--dy));
+  z-index: var(--z-overlay);
   display: inline-flex;
   transform-origin: bottom right;
   scale: pow(var(--scale), v-bind('scaleFactor'));
