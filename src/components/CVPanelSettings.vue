@@ -8,12 +8,12 @@
         Settings
       </h2>
 
-      <div
+      <button
         class="close"
         @click="opened = false"
       >
         <Icon icon="material-symbols-light:close" />
-      </div>
+      </button>
     </header>
 
     <section class="content">

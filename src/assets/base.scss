@@ -76,6 +76,13 @@ a {
   }
 }
 
+button {
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  font-size: inherit;
+}
+
 @media (prefers-reduced-motion) {
   *,
   ::before,

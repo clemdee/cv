@@ -13,12 +13,12 @@
         </p>
       </hgroup>
 
-      <div
+      <button
         class="close"
         @click="opened = false"
       >
         <Icon icon="material-symbols-light:close" />
-      </div>
+      </button>
     </header>
 
     <div
