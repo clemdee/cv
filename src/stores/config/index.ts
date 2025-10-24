@@ -2,6 +2,8 @@ import config from './config';
 import { type DataConst, useData } from '~/stores/data';
 import { type RecursivePartial } from '~/composables/utils';
 import { reactive } from 'vue';
+import { pictures } from '~/composables/pictures';
+
 const data = useData();
 
 type MinMax<T> = {
@@ -134,7 +136,7 @@ const defaultConfig = {
     preset: 'light' as keyof typeof colorschemes,
   },
   profile: {
-    filename: 'profile.jpg',
+    filename: pictures[0]?.filename ?? '',
     frame: 'square' as ProfileFrames,
     compressed: false,
   },

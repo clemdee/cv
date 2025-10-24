@@ -7,6 +7,7 @@ export default {
   },
 
   profile: {
+    filename: 'profile-2.jpg',
     frame: 'roundedHalf',
   },
 
