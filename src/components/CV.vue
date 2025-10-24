@@ -6,7 +6,7 @@
     <div class="cv-wrapper">
       <CVAside />
       <CVContent />
-      <SettingsOverlay />
+      <CVOverlaySettings />
       <CVPanelItem v-model="itemPanel.opened" />
       <CVPanelSettings v-model="settingsPanel.opened" />
     </div>
@@ -19,7 +19,7 @@ import CVContent from '~/components/CVContent.vue';
 import CVPanelItem from './CVPanelItem.vue';
 import { useItemPanel, useSettingsPanel } from '~/composables/panels';
 import CVPanelSettings from './CVPanelSettings.vue';
-import SettingsOverlay from '~/components/SettingsOverlay.vue';
+import CVOverlaySettings from '~/components/CVOverlaySettings.vue';
 import { computed, ref } from 'vue';
 import { useConfig, colorschemes } from '~/stores/config';
 
