@@ -111,6 +111,13 @@ export default {
 
   experience: [
     {
+      id: "sabbatical",
+      date: {
+        from: "2024",
+        to: "2025",
+      },
+    },
+    {
       id: "xwiki-cdi",
       date: {
         from: "2021-09",
