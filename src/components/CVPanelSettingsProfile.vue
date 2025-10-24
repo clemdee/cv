@@ -62,10 +62,17 @@
       </label>
 
       <div
-        v-if="config.profile.compressed && currentPicture?.compressed?.size"
+        v-if="config.profile.compressed"
         class="compress-size"
       >
-        {{ currentPicture.size }} → {{ currentPicture.compressed.size }}
+        <span v-if="currentPicture?.compressed?.size">
+          {{ currentPicture.size }} → {{ currentPicture.compressed.size }}
+        </span>
+
+        <Icon
+          v-else
+          icon="codex:loader"
+        />
       </div>
     </div>
   </article>
@@ -193,8 +200,17 @@ const currentFrameId = toRef(config.profile, 'frame');
 
 .compress {
   .compress-size {
-    font-style: italic;
-    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+
+    span {
+      font-style: italic;
+      font-size: 0.9em;
+    }
+
+    svg {
+      font-size: 1.5rem;
+    }
   }
 }
 
