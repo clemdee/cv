@@ -26,7 +26,7 @@
 
   "objective": {
     "title": "Objective",
-    "content": "French engineer in computer science. I love to create. I love to learn. Looking for a job in software engineering."
+    "content": "French engineer in computer science. I love to create. I love to learn. Looking for a job in software engineering in webapp development using Vue."
   },
 
   "languages": {
@@ -204,7 +204,7 @@
           "Cellist at the Orsay semi-professional orchestra since 2022",
           "Bassist in a band performing live on occasion",
           "Computer music production",
-          "Member of the music association committee at my engineering school during my studies"
+          "Former member of the music association committee at my engineering school during my studies"
         ]
       },
       "projects": {
@@ -217,7 +217,7 @@
       },
       "projects-enalion": {
         "title": "Enalion website",
-        "description": "Website for my band Enalion. Uses SSG for faster loading times and easier DX."
+        "description": "Website for my band Enalion."
       },
       "projects-amalgamemusic": {
         "title": "Amalgame website",

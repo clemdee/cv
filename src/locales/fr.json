@@ -27,7 +27,7 @@
 
   "objective": {
     "title": "Objective",
-    "content": "Ingénieur en informatique. J'adore créer. J'adore apprendre. À la recherche d'un travail en ingénierie logiciel."
+    "content": "Ingénieur en informatique. J'adore créer. J'adore apprendre. À la recherche d'un travail en ingénierie logiciel dans le développement d'applications web Vue."
   },
 
   "languages": {
@@ -200,7 +200,7 @@
           "Violoncelliste à l'orchestre semi-professionnel d'Orsay depuis 2022",
           "Bassiste en groupe se produisant en concert selon les occasions",
           "Production musicale sur ordinateur",
-          "Membre du bureau de l'association de musique de mon école d'ingénieur pendant mes études"
+          "Ancien membre du bureau de l'association de musique de mon école d'ingénieur pendant mes études"
         ]
       },
       "projects": {
@@ -213,7 +213,7 @@
       },
       "projects-enalion": {
         "title": "Site web Enalion",
-        "description": "Site web pour mon groupe de musique Enalion. Utilise la SSG pour une meilleure DX en garantissant un temps de chargement rapide."
+        "description": "Site web pour mon groupe de musique Enalion."
       },
       "projects-amalgamemusic": {
         "title": "Site web Amalgame",
