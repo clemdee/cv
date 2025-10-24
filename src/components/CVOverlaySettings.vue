@@ -141,6 +141,10 @@ const state = useState();
   transition: 300ms;
 }
 
+.locale {
+  cursor: default;
+}
+
 .locale-item {
   font-size: 1rem;
   outline-color: var(--colorscheme-content-text);
