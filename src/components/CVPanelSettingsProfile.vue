@@ -49,6 +49,25 @@
         </div>
       </label>
     </div>
+
+    <div class="toggle-wrapper compress">
+      <label>
+        <span>
+          Compress picture
+        </span>
+
+        <InputToggle
+          v-model="config.profile.compressed"
+        />
+      </label>
+
+      <div
+        v-if="config.profile.compressed && currentPicture?.compressed?.size"
+        class="compress-size"
+      >
+        {{ currentPicture.size }} → {{ currentPicture.compressed.size }}
+      </div>
+    </div>
   </article>
 
   <article class="profile-frame">
@@ -92,12 +111,14 @@
 
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue';
-import { toRef } from 'vue';
+import { computed, toRef } from 'vue';
 import { useConfig, profileFrames } from '~/stores/config';
-import { pictures } from '~/composables/pictures';
+import { pictures, resolvePicture } from '~/composables/pictures';
+import InputToggle from './InputToggle.vue';
 
 const config = useConfig();
 const currentPictureFilename = toRef(config.profile, 'filename');
+const currentPicture = computed(() => resolvePicture(currentPictureFilename.value));
 
 const { none, ...frames } = profileFrames;
 const currentFrameId = toRef(config.profile, 'frame');
@@ -170,6 +191,12 @@ const currentFrameId = toRef(config.profile, 'frame');
   }
 }
 
+.compress {
+  .compress-size {
+    font-style: italic;
+    font-size: 0.9em;
+  }
+}
 
 .profile-frame {
   .frame-select {

@@ -71,6 +71,10 @@ const opened = defineModel<boolean>({ required: false });
 }
 
 :deep(article) {
+  --toggle-color-on: var(--colorscheme-secondary);
+  --toggle-color-off: #444;
+  --toggle-height: 1.5rem;
+
   display: flex;
   flex-flow: column;
   gap: 1.5rem;
@@ -79,6 +83,22 @@ const opened = defineModel<boolean>({ required: false });
     padding-bottom: 0.3rem;
     border-bottom: 0.01rem solid rgba(from currentColor r g b / 0.5);
     font-family: "roboto-thin";
+  }
+
+  .toggle-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+
+    label {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.5rem;
+    }
   }
 }
 </style>

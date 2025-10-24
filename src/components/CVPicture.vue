@@ -20,7 +20,15 @@ const config = useConfig();
 
 const filename = computed(() => config.profile.filename);
 const picture = computed(() => resolvePicture(filename.value));
-const url = computed(() => picture.value?.url);
+
+const isCompressed = computed(() => config.profile.compressed);
+
+const url = computed(() => {
+  if (isCompressed.value && picture.value?.compressed?.url) {
+    return picture.value.compressed.url;
+  }
+  return picture.value?.url;
+});
 
 const frameId = computed(() => config.profile.frame);
 const frameStyles = computed(() => profileFrames[frameId.value]);

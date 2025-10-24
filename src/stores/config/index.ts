@@ -136,6 +136,7 @@ const defaultConfig = {
   profile: {
     filename: 'profile.jpg',
     frame: 'square' as ProfileFrames,
+    compressed: false,
   },
   coordinates: {
     showPronouns: true,
@@ -192,6 +193,7 @@ const mergeConfig = (defaultConfig: DefaultConfig, config: Config): DefaultConfi
     profile: {
       filename: config.profile?.filename ?? defaultConfig.profile.filename,
       frame: config.profile?.frame ?? defaultConfig.profile.frame,
+      compressed: config.profile?.compressed ?? defaultConfig.profile.compressed,
     },
     coordinates: {
       showPronouns: config.coordinates?.showPronouns ?? defaultConfig.coordinates.showPronouns

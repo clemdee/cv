@@ -24,23 +24,4 @@ const config = useConfig();
 </script>
 
 <style lang="scss" scoped>
-article.data {
-  --toggle-color-on: var(--colorscheme-secondary);
-  --toggle-color-off: #444;
-  --toggle-height: 1.5rem;
-
-  .toggle-wrapper {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 1rem;
-
-    label {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-  }
-}
 </style>
