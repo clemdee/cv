@@ -67,7 +67,7 @@ onMounted(() => {
   .pager {
     content: '';
     display: block;
-    height: calc(var(--page-height) - var(--last-page-height));
+    height: calc(var(--page-height) - var(--last-page-height) - 1px);
   }
 }
 </style>
