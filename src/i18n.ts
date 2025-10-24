@@ -37,7 +37,7 @@ export const formatDate = (date: string) => {
   return formatter.format(new Date(date));
 };
 
-export const formatDateSpan = (dateSpan: DateSpan) => {
+export const formatDateSpan = (dateSpan: DateSpan | undefined = {}) => {
   const from = dateSpan.from
     ? formatDate(dateSpan.from)
     : '';

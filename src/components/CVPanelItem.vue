@@ -64,15 +64,25 @@
       />
     </div>
 
-    <div
-      v-show="item?.location"
-      class="location"
-    >
-      <Icon icon="mdi:home-city-outline" />
-      <CVText :text="item?.location?.name" />
-      <br/>
-      <Icon icon="mdi:map-marker-outline" />
-      <CVText :text="item?.location?.location" />
+    <div class="metadata">
+      <div
+        v-show="item?.date"
+        class="date"
+      >
+        <Icon icon="mdi:calendar" />
+        <CVText :text="formatDateSpan(item?.date)" />
+      </div>
+
+      <div
+        v-show="item?.location"
+        class="location"
+      >
+        <Icon icon="mdi:home-city-outline" />
+        <CVText :text="item?.location?.name" />
+        <br/>
+        <Icon icon="mdi:map-marker-outline" />
+        <CVText :text="item?.location?.location" />
+      </div>
     </div>
 
     <div
@@ -87,7 +97,7 @@
 import 'leaflet/dist/leaflet.css';
 import Leaflet from 'leaflet';
 import { computed, onMounted, watch } from 'vue';
-import { useI18n } from 'vue-i18n';
+import { t, formatDateSpan } from '~/i18n';
 import { useItemPanel } from '~/composables/panels';
 import { wait } from '~/composables/utils';
 import { Icon } from '@iconify/vue';
@@ -98,7 +108,6 @@ import CVPanel from './CVPanel.vue';
 
 const opened = defineModel<boolean>({ required: false });
 
-const { t } = useI18n();
 const itemPanel = useItemPanel();
 const item = computed(() => itemPanel.item);
 
@@ -187,13 +196,17 @@ Leaflet.Icon.Default.imagePath = "";
     gap: 0.2rem;
   }
 
-  .location {
+  .metadata {
     svg {
       font-size: 0.7rem;
       color: hsl(from var(--colorscheme-content-text) h 0 calc(l * 1.2));
       width: 0.8rem;
       margin-right: 0.3rem;
     }
+  }
+
+  .date {
+    font-style: italic;
   }
 
   .map {
