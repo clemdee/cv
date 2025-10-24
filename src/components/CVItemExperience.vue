@@ -8,9 +8,7 @@
     <div class="experience-content">
       <div class="experience-header">
         <div class="date">
-          <CVText :text="experience.date.from?.toString()" />
-          <span v-if="experience.date.to"> - </span>
-          <CVText :text="experience.date.to?.toString()" />
+          {{ formatDateSpan(props.experience.date) }}
         </div>
 
         <div class="title">
@@ -53,6 +51,7 @@ import { useConfig } from '~/stores/config';
 import CVText from '~/components/CVText.vue';
 import CVBaseItem from '~/components/CVBaseItem.vue';
 import CVSkills from './CVSkills.vue';
+import { formatDateSpan } from '~/i18n';
 
 const config = useConfig();
 

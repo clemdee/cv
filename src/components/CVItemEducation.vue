@@ -18,9 +18,7 @@
         </div>
 
         <div class="date">
-          <CVText :text="props.education.date.from?.toString()" />
-          <span v-if="props.education.date.to"> - </span>
-          <CVText :text="props.education.date.to?.toString()" />
+          {{ formatDateSpan(props.education.date) }}
         </div>
       </div>
 
@@ -48,6 +46,7 @@ import { computed } from 'vue';
 import { useConfig } from '~/stores/config';
 import CVText from '~/components/CVText.vue';
 import CVBaseItem from '~/components/CVBaseItem.vue';
+import { formatDateSpan } from '~/i18n';
 
 const config = useConfig();
 
