@@ -35,8 +35,6 @@ defineProps<{
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.08rem;
-      cursor: pointer;
-      transition: all 250ms;
 
       border-left: 0.5rem solid var(--colorscheme-secondary);
       color: var(--colorscheme-content-title-text);
