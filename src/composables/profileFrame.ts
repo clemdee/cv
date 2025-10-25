@@ -8,4 +8,4 @@ export const frames = {
   none: { borderStyle: 'none' },
 };
 
-export type ProfileFrames = keyof typeof frames;
+export type ProfileFrameId = keyof typeof frames;

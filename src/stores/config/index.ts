@@ -3,7 +3,7 @@ import { type DataConst, useData } from '~/stores/data';
 import { type RecursivePartial } from '~/composables/utils';
 import { reactive } from 'vue';
 import { pictures } from '~/composables/profilePicture';
-import { type ProfileFrames } from '~/composables/profileFrame';
+import { type ProfileFrameId } from '~/composables/profileFrame';
 import { type ColorschemeId } from '~/composables/colorscheme';
 
 const data = useData();
@@ -60,7 +60,7 @@ const defaultConfig = {
   },
   profile: {
     filename: pictures[0]?.filename ?? '',
-    frame: 'square' as ProfileFrames,
+    frame: 'square' as ProfileFrameId,
     compressed: false,
   },
   coordinates: {
