@@ -4,7 +4,7 @@ import { type RecursivePartial } from '~/composables/utils';
 import { reactive } from 'vue';
 import { pictures } from '~/composables/profilePicture';
 import { type ProfileFrames } from '~/composables/profileFrame';
-import { colorschemes } from '~/composables/colorscheme';
+import { type ColorschemeId } from '~/composables/colorscheme';
 
 const data = useData();
 
@@ -56,7 +56,7 @@ type Item<T extends 'experience' | 'education' | 'hobbies'> = ReturnType<typeof 
 
 const defaultConfig = {
   colorscheme: {
-    preset: 'light' as keyof typeof colorschemes,
+    preset: 'light' as ColorschemeId,
   },
   profile: {
     filename: pictures[0]?.filename ?? '',

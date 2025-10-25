@@ -2,12 +2,7 @@
   <article class="colorscheme">
     <h3>Colorscheme</h3>
 
-    <div
-      class="colorscheme-select"
-      :class="{
-        transitioning: transitioning,
-      }"
-    >
+    <div class="colorscheme-select">
       <label
         v-for="(colorscheme, name) in colorschemes"
         :key="name"
@@ -43,29 +38,13 @@
 
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue';
-import { ref, toRef, watch } from 'vue';
+import { toRef } from 'vue';
 import { useConfig } from '~/stores/config';
-import { colorschemes } from '~/composables/colorscheme';
+import { colorschemes, useTransition } from '~/composables/colorscheme';
 
 const config = useConfig();
 const currentColorscheme = toRef(config.colorscheme, 'preset');
-
-const transitioning = ref(false);
-const transitionDurationMS = 250;
-
-let timeoutId: ReturnType<typeof setTimeout>;
-
-watch(currentColorscheme, () => {
-  clearTimeout(timeoutId);
-
-  transitioning.value = true;
-  timeoutId = setTimeout(
-    () => { transitioning.value = false; },
-    transitionDurationMS
-  );
-}, {
-  flush: 'sync',
-});
+useTransition(currentColorscheme);
 </script>
 
 <style lang="scss" scoped>
@@ -153,16 +132,6 @@ article.colorscheme {
         text-align: center;
       }
     }
-  }
-}
-</style>
-
-<style lang="scss">
-html:has(.colorscheme-select.transitioning) {
-  --transition-duration: 150ms;
-
-  * {
-    transition: all linear var(--transition-duration);
   }
 }
 </style>

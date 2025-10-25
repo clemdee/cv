@@ -1,3 +1,5 @@
+import { useStyleTag } from '@vueuse/core';
+import { type Ref, watch } from 'vue';
 
 export const colorschemes = {
   light: {
@@ -65,4 +67,37 @@ export const colorschemes = {
       '--colorscheme-content-title-text': '#111',
     },
   },
+};
+
+export type ColorschemeId = keyof typeof colorschemes;
+
+const transitionDurationMS = 250;
+const style = `
+html {
+  --transition-duration: ${transitionDurationMS}ms;
+
+  * {
+    transition: all linear var(--transition-duration);
+  }
+}
+`;
+
+const {
+  load,
+  unload,
+} = useStyleTag(style);
+
+let timeoutId: ReturnType<typeof setTimeout>;
+export const useTransition = (colorscheme: Ref<string>) => {
+  watch(colorscheme, () => {
+    clearTimeout(timeoutId);
+
+    load();
+    timeoutId = setTimeout(
+      () => { unload(); },
+      transitionDurationMS
+    );
+  }, {
+    flush: 'sync',
+  });
 };
