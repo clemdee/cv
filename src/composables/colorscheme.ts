@@ -86,7 +86,9 @@ html {
 const {
   load,
   unload,
-} = useStyleTag(style);
+} = useStyleTag(style, {
+  manual: true,
+});
 
 let timeoutId: ReturnType<typeof setTimeout>;
 export const useTransition = (colorscheme: Ref<string>) => {
