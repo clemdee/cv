@@ -13,8 +13,9 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { resolvePicture } from '~/composables/pictures';
-import { useConfig, profileFrames } from '~/stores/config';
+import { resolvePicture } from '~/composables/profilePicture';
+import { frames } from '~/composables/profileFrame';
+import { useConfig } from '~/stores/config';
 
 const config = useConfig();
 
@@ -31,7 +32,7 @@ const url = computed(() => {
 });
 
 const frameId = computed(() => config.profile.frame);
-const frameStyles = computed(() => profileFrames[frameId.value]);
+const frameStyles = computed(() => frames[frameId.value]);
 </script>
 
 <style lang="scss" scoped>

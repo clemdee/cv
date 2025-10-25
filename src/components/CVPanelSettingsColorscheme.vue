@@ -44,7 +44,8 @@
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue';
 import { ref, toRef, watch } from 'vue';
-import { useConfig, colorschemes } from '~/stores/config';
+import { useConfig } from '~/stores/config';
+import { colorschemes } from '~/composables/colorscheme';
 
 const config = useConfig();
 const currentColorscheme = toRef(config.colorscheme, 'preset');

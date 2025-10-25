@@ -82,7 +82,7 @@
 
     <div class="frame-select">
       <label
-        v-for="(frame, frameId) in frames"
+        v-for="(frame, frameId) in framesButNone"
         :key="frameId"
         class="frame focus-wrapper"
         :class="{
@@ -119,15 +119,16 @@
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue';
 import { computed, toRef } from 'vue';
-import { useConfig, profileFrames } from '~/stores/config';
-import { pictures, resolvePicture } from '~/composables/pictures';
+import { useConfig } from '~/stores/config';
+import { pictures, resolvePicture } from '~/composables/profilePicture';
+import { frames } from '~/composables/profileFrame';
 import InputToggle from './InputToggle.vue';
 
 const config = useConfig();
 const currentPictureFilename = toRef(config.profile, 'filename');
 const currentPicture = computed(() => resolvePicture(currentPictureFilename.value));
 
-const { none, ...frames } = profileFrames;
+const { none, ...framesButNone } = frames;
 const currentFrameId = toRef(config.profile, 'frame');
 </script>
 

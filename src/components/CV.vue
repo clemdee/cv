@@ -21,7 +21,8 @@ import { useItemPanel, useSettingsPanel } from '~/composables/panels';
 import CVPanelSettings from './CVPanelSettings.vue';
 import CVOverlaySettings from '~/components/CVOverlaySettings.vue';
 import { computed, ref } from 'vue';
-import { useConfig, colorschemes } from '~/stores/config';
+import { colorschemes } from '~/composables/colorscheme';
+import { useConfig } from '~/stores/config';
 
 const config = useConfig();
 const itemPanel = useItemPanel();
