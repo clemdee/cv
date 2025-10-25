@@ -42,6 +42,7 @@ const frameStyles = computed(() => profileFrames[frameId.value]);
   width: 11rem;
   height: 11rem;
   overflow: hidden;
+  transition: all linear 250ms;
 
   img {
     width: 100%;
