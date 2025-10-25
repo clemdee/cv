@@ -1,7 +1,7 @@
 <template>
   <component
     :is="props.tag ?? 'span'"
-    ref="text"
+    ref="textElement"
     class="text"
   >
     {{ animatedText }}
@@ -17,7 +17,7 @@ const props = defineProps<{
   text?: string,
 }>();
 
-const textElement = useTemplateRef<HTMLElement>('text');
+const textElement = useTemplateRef<HTMLElement>('textElement');
 
 const text = computed(() => props.text ?? '');
 const textArray = ref(text.value?.split(''));
