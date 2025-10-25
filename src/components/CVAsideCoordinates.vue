@@ -6,7 +6,7 @@
       <div class="item">
         <Icon icon="mdi:user" />
         <div>
-          <CVText :text="t('coordinates.age', { age }) + ', ' + t('coordinates.nationality')" />
+          <CVText :text="`${t('coordinates.age', { age })}, ${t('coordinates.nationality')}`" />
           <template v-if="showPronouns">
             <br />
             <CVText
@@ -21,7 +21,7 @@
         <Icon icon="mdi:map-marker" />
         <CVTextSensitive
           :text="t('coordinates.address.full', data.profile.address).trim()"
-          :placeholder="`01 name of the street\n01234 region\ncountry`"
+          placeholder="01 name of the street\n01234 region\ncountry"
         />
       </div>
 
@@ -67,16 +67,16 @@
 </template>
 
 <script lang="ts" setup>
-import parsePhoneNumber from 'libphonenumber-js/min';
 import { Icon } from '@iconify/vue';
-import { useI18n } from 'vue-i18n';
-import { useData } from '~/stores/data';
 import { Temporal } from '@js-temporal/polyfill';
+import parsePhoneNumber from 'libphonenumber-js/min';
 import { computed } from 'vue';
-
+import { useI18n } from 'vue-i18n';
 import CVText from '~/components/CVText.vue';
+
 import CVTextSensitive from '~/components/CVTextSensitive.vue';
 import { useConfig } from '~/stores/config';
+import { useData } from '~/stores/data';
 
 const { t } = useI18n();
 const config = useConfig();
@@ -85,7 +85,7 @@ const data = useData();
 const showPronouns = computed(() => {
   if (!config.coordinates?.showPronouns) return false;
   return !!t('coordinates.pronouns');
-})
+});
 
 const phone = computed(() => {
   const phone = parsePhoneNumber(data.profile.phone);
@@ -101,11 +101,10 @@ const age = computed(() => {
   return now.since(birthdate)
     .round({ largestUnit: 'years', relativeTo: birthdate })
     .years;
-  });
+});
 </script>
 
 <style lang="scss" scoped>
-
 .coordinates {
   font-size: 0.80rem;
   line-height: 1.35rem;
@@ -148,5 +147,4 @@ const age = computed(() => {
     color: hsl(from var(--colorscheme-main-text) h 0 calc(l * 0.7));
   }
 }
-
 </style>

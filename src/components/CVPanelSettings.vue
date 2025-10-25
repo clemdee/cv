@@ -30,8 +30,8 @@
 import { Icon } from '@iconify/vue';
 import CVPanel from './CVPanel.vue';
 import CVPanelSettingsColorscheme from './CVPanelSettingsColorscheme.vue';
-import CVPanelSettingsProfile from './CVPanelSettingsProfile.vue';
 import CVPanelSettingsData from './CVPanelSettingsData.vue';
+import CVPanelSettingsProfile from './CVPanelSettingsProfile.vue';
 
 const opened = defineModel<boolean>({ required: false });
 </script>

@@ -1,14 +1,14 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.ts", "src/**/*.vue", "vite-plugin-fallback.ts"],
-  "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "composite": true,
-    "noEmit": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"]
-    }
-  }
+    },
+    "noEmit": true
+  },
+  "include": ["env.d.ts", "src/**/*", "src/**/*.ts", "src/**/*.vue", "vite-plugin-fallback.ts"],
+  "exclude": ["src/**/__tests__/*"]
 }

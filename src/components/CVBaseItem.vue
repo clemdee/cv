@@ -5,6 +5,7 @@
     @leave="updateScrollHeight($el)"
   >
     <article
+      v-show="editing || visible"
       class="cv-base-item"
       :class="{
         editing,
@@ -18,10 +19,8 @@
           itemPanel.set(props.item);
         }
       }"
-      v-show="editing || visible"
     >
       <div class="cv-base-item-wrapper">
-
         <CVAnchor
           v-if="props.anchorId"
           v-show="!editing"
@@ -30,27 +29,31 @@
 
         <input
           v-if="editing"
-          type="checkbox"
-          v-model="visible"
-          @click.stop
           ref="input"
+          v-model="visible"
+          type="checkbox"
+          @click.stop
         />
 
         <div class="cv-base-item-content">
           <slot />
         </div>
-
       </div>
     </article>
   </transition>
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, useTemplateRef } from 'vue';
-import { useItemPanel } from '~/composables/panels';
-import CVAnchor from '~/components/CVAnchor.vue';
 import type { Item } from '~/stores/data';
+import { computed, ref, useTemplateRef } from 'vue';
+import CVAnchor from '~/components/CVAnchor.vue';
+import { useItemPanel } from '~/composables/panels';
 import { useState } from '~/stores/state';
+
+const props = defineProps<{
+  item: Item
+  anchorId: string
+}>();
 
 const state = useState();
 const itemPanel = useItemPanel();
@@ -59,20 +62,14 @@ const visible = defineModel('visible', {
   default: true,
 });
 
-const props = defineProps<{
-  item: Item,
-  anchorId: string,
-}>();
-
 const input = useTemplateRef('input');
 
 const editing = computed(() => state.isEditing);
 
 const scrollHeight = ref('0px');
 const updateScrollHeight = (el: HTMLElement) => {
-  scrollHeight.value = `${ el.scrollHeight }px`;
-}
-
+  scrollHeight.value = `${el.scrollHeight}px`;
+};
 </script>
 
 <style lang="scss" scoped>

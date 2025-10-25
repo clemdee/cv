@@ -1,17 +1,17 @@
 import { asyncComputed } from '@vueuse/core';
+import pictureFilenames from 'virtual:ls?path=/public/profiles';
 import { computed, reactive, ref } from 'vue';
 import { formatStorage } from './utils';
-import pictureFilenames from 'virtual:ls?path=/public/profiles';
 
-type Picture = {
-  url: string,
-  filename: string,
-  blob: Blob | undefined,
-  size: string,
+interface Picture {
+  url: string
+  filename: string
+  blob: Blob | undefined
+  size: string
   compressed?: {
-    url: string,
-    blob: Blob | undefined,
-    size: string,
+    url: string
+    blob: Blob | undefined
+    size: string
   }
 }
 
@@ -27,17 +27,13 @@ export const resolveCompressedPicture = async (pictureUrl: string) => {
   const image = new Image();
   image.src = pictureUrl;
   await new Promise(resolve => image.onload = resolve);
-  const sWidth = image.naturalWidth
-  const sHeight = image.height
+  const sWidth = image.naturalWidth;
+  const sHeight = image.height;
   const sSize = Math.min(sWidth, sHeight);
   const sx = (sWidth - sSize) / 2;
   const sy = (sHeight - sSize) / 2;
 
-  context?.drawImage(
-    image,
-    sx, sy, sSize, sSize,
-    0, 0, dSize, dSize,
-  );
+  context?.drawImage(image, sx, sy, sSize, sSize, 0, 0, dSize, dSize);
 
   const blob = asyncComputed<Blob>(async () => {
     return await canvas.convertToBlob({
@@ -96,5 +92,4 @@ export const pictures = pictureFilenames.map((pictureFilename) => {
 
 export const resolvePicture = (filename: string) => {
   return pictures.find(picture => picture.filename === filename);
-}
-
+};

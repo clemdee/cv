@@ -1,4 +1,3 @@
-
 export const frames = {
   square: { borderRadius: '0rem' },
   roundedHalf: { borderRadius: '1rem 0rem 1rem 0rem' },

@@ -33,11 +33,11 @@
       class="url"
     >
       <a
-        @click.stop
         :href="item?.url"
         target="_blank"
+        @click.stop
       >
-      <CVText :text="item?.url" />
+        <CVText :text="item?.url" />
       </a>
     </div>
 
@@ -79,7 +79,7 @@
       >
         <Icon icon="mdi:home-city-outline" />
         <CVText :text="item?.location?.name" />
-        <br/>
+        <br />
         <Icon icon="mdi:map-marker-outline" />
         <CVText :text="item?.location?.location" />
       </div>
@@ -94,17 +94,16 @@
 </template>
 
 <script lang="ts" setup>
-import 'leaflet/dist/leaflet.css';
+import type { Skill } from '~/stores/data';
+import { Icon } from '@iconify/vue';
 import Leaflet from 'leaflet';
 import { computed, onMounted, watch } from 'vue';
-import { t, formatDateSpan } from '~/i18n';
+import CVText from '~/components/CVText.vue';
 import { useItemPanel } from '~/composables/panels';
 import { wait } from '~/composables/utils';
-import { Icon } from '@iconify/vue';
-import type { Skill } from '~/stores/data';
-import CVText from '~/components/CVText.vue';
-import CVSkill from './CVSkill.vue';
+import { formatDateSpan, t } from '~/i18n';
 import CVPanel from './CVPanel.vue';
+import CVSkill from './CVSkill.vue';
 
 const opened = defineModel<boolean>({ required: false });
 
@@ -117,7 +116,7 @@ const coords = computed<Coord | undefined>(() => {
   return (item.value?.location?.map as Coord) ?? [0, 0];
 });
 
-onMounted( () => {
+onMounted(() => {
   const map = Leaflet.map('map');
   let marker: ReturnType<typeof Leaflet.marker>;
 
@@ -132,21 +131,10 @@ onMounted( () => {
     marker = Leaflet.marker(coords.value).addTo(map);
     Leaflet.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     }).addTo(map);
   });
 });
-</script>
-
-<script lang="ts">
-// Needed for marker to show in prod
-import markerIconUrl from "~/../node_modules/leaflet/dist/images/marker-icon.png";
-import markerIconRetinaUrl from "~/../node_modules/leaflet/dist/images/marker-icon-2x.png";
-import markerShadowUrl from "~/../node_modules/leaflet/dist/images/marker-shadow.png";
-Leaflet.Icon.Default.prototype.options.iconUrl = markerIconUrl;
-Leaflet.Icon.Default.prototype.options.iconRetinaUrl = markerIconRetinaUrl;
-Leaflet.Icon.Default.prototype.options.shadowUrl = markerShadowUrl;
-Leaflet.Icon.Default.imagePath = "";
 </script>
 
 <style lang="scss" scoped>

@@ -1,17 +1,18 @@
-import config from './config';
-import { type DataConst, useData } from '~/stores/data';
-import { type RecursivePartial } from '~/composables/utils';
+import type { ColorschemeId } from '~/composables/colorscheme';
+import type { ProfileFrameId } from '~/composables/profileFrame';
+import type { RecursivePartial } from '~/composables/utils';
+import type { DataConst } from '~/stores/data';
 import { reactive } from 'vue';
 import { pictures } from '~/composables/profilePicture';
-import { type ProfileFrameId } from '~/composables/profileFrame';
-import { type ColorschemeId } from '~/composables/colorscheme';
+import { useData } from '~/stores/data';
+import config from './config';
 
 const data = useData();
 
-type MinMax<T> = {
-  min: T,
-  max: T,
-};
+interface MinMax<T> {
+  min: T
+  max: T
+}
 
 const getMinMax = <T, V>(
   list: T[],
@@ -21,36 +22,36 @@ const getMinMax = <T, V>(
   return {
     min: values.at(0),
     max: values.at(-1),
-  }
-}
+  };
+};
 
 export type ItemId = DataConst['experience' | 'education' | 'hobbies'][number]['id'];
 export type SkillId = DataConst['skills'][number]['id'];
 
-export type CoordinatesConfig = {
-  showPronouns?: boolean,
+export interface CoordinatesConfig {
+  showPronouns?: boolean
 }
 
 const createDefaultItem = <
-  ItemType extends 'experience' | 'education' | 'hobbies'
+  ItemType extends 'experience' | 'education' | 'hobbies',
 >(item: ItemType) => {
   type Item = (typeof data)[ItemType][number];
 
   const date = getMinMax(
     data[item] as Item[],
-    (item => Object.values(item.date ?? {}))
+    item => Object.values(item.date ?? {}),
   );
 
   type ItemId = DataConst[ItemType][number]['id'];
-  const ids = data[item].map((item) => item.id) as ItemId[];
+  const ids = data[item].map(item => item.id) as ItemId[];
 
   return {
-    date: date,
+    date,
     show: {
       id: ids,
-    }
+    },
   };
-}
+};
 
 type Item<T extends 'experience' | 'education' | 'hobbies'> = ReturnType<typeof createDefaultItem<T>>;
 
@@ -72,9 +73,9 @@ const defaultConfig = {
   skills: {
     show: {
       level: { min: 0, max: 1 },
-      id: data.skills.map((skill) => skill.id) as SkillId[],
-    }
-  }
+      id: data.skills.map(skill => skill.id) as SkillId[],
+    },
+  },
 };
 
 export type DefaultConfig = typeof defaultConfig;
@@ -82,20 +83,20 @@ export type Config = RecursivePartial<DefaultConfig>;
 
 const mergeMinMax = <T>(
   defaultMinMax: MinMax<T>,
-  minMax: Partial<MinMax<T>> | undefined
+  minMax: Partial<MinMax<T>> | undefined,
 ): MinMax<T> => {
   return {
     min: minMax?.min ?? defaultMinMax.min,
     max: minMax?.max ?? defaultMinMax.max,
-  }
-}
+  };
+};
 
 const mergeConfigItems = <
-  ItemType extends 'experience' | 'education' | 'hobbies'
+  ItemType extends 'experience' | 'education' | 'hobbies',
 >(
   itemType: ItemType,
   defaultConfig: DefaultConfig,
-  config: Config
+  config: Config,
 ): Item<ItemType> => {
   type ItemId = DataConst[ItemType][number]['id'];
 
@@ -121,7 +122,7 @@ const mergeConfig = (defaultConfig: DefaultConfig, config: Config): DefaultConfi
       compressed: config.profile?.compressed ?? defaultConfig.profile.compressed,
     },
     coordinates: {
-      showPronouns: config.coordinates?.showPronouns ?? defaultConfig.coordinates.showPronouns
+      showPronouns: config.coordinates?.showPronouns ?? defaultConfig.coordinates.showPronouns,
     },
     education: mergeConfigItems('education', defaultConfig, config),
     experience: mergeConfigItems('experience', defaultConfig, config),
@@ -135,7 +136,7 @@ const mergeConfig = (defaultConfig: DefaultConfig, config: Config): DefaultConfi
   };
 };
 
-const merged = mergeConfig(defaultConfig, config as Config)
+const merged = mergeConfig(defaultConfig, config as Config);
 
 export const useConfig = () => {
   return reactive(merged);

@@ -4,15 +4,15 @@
     @mouseenter="runGlintEffect"
   >
     <span
-      class="glint-effect"
       ref="glint"
+      class="glint-effect"
     />
     <slot />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, useTemplateRef } from 'vue';
+import { useTemplateRef } from 'vue';
 
 const glintElement = useTemplateRef('glint');
 
@@ -23,8 +23,8 @@ const runGlintEffect = async () => {
     .find(animation => animation.id === 'glint-animation');
   if (currentAnimation?.playState === 'running') return;
   glintElement.value?.animate([
-    { left: "-0.6rem" },
-    { left: "calc(100% + 0.6rem)" },
+    { left: '-0.6rem' },
+    { left: 'calc(100% + 0.6rem)' },
   ], {
     id: 'glint-animation',
     duration: 400,
@@ -56,5 +56,4 @@ const runGlintEffect = async () => {
     }
   }
 }
-
 </style>

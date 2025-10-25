@@ -8,15 +8,15 @@
 
         <div class="settings-overlay-sub-list">
           <label
-            class="settings-overlay-item locale-item focus-wrapper"
             v-for="availableLocale in availableLocales"
             :key="availableLocale"
+            class="settings-overlay-item locale-item focus-wrapper"
           >
             <input
+              v-model="locale"
               type="radio"
               name="locale"
               :value="availableLocale"
-              v-model="locale"
             />
             <span>{{ availableLocale }}</span>
           </label>

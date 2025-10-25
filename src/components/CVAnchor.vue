@@ -1,12 +1,12 @@
 <template>
   <a
+    :id="id"
     class="anchor"
     :class="{ active }"
-    :id="id"
     :href="`#${id}`"
-    @click.prevent="toggleAnchor"
     tabindex="-1"
     aria-hidden="true"
+    @click.prevent="toggleAnchor"
   >
     <Icon icon="mdi:link-variant" />
   </a>
@@ -14,10 +14,10 @@
 
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue';
-import { ref, computed } from "vue";
+import { computed, ref } from 'vue';
 
 const props = defineProps<{
-  id: string,
+  id: string
 }>();
 
 const hash = ref(location.hash);
@@ -37,7 +37,6 @@ window.addEventListener('hashchange', () => {
 </script>
 
 <style lang="scss" scoped>
-
 .anchor {
   opacity: 0;
   color: #a2a2a2ab;
@@ -53,5 +52,4 @@ window.addEventListener('hashchange', () => {
     display: none;
   }
 }
-
 </style>

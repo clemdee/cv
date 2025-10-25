@@ -17,28 +17,28 @@ export default {
 
   education: {
     date: {
-      min: "2015",
+      min: '2015',
     },
     show: {
       id: [
-        "engineering",
-        "engineeringETS",
+        'engineering',
+        'engineeringETS',
       ],
     },
   },
 
   experience: {
     date: {
-      min: "2015",
+      min: '2015',
     },
     show: {
       id: [
-        "sabbatical",
-        "xwiki-cdi",
-        "eisti-alternance",
-        "eisti-internship-ing2",
-        "eisti-internship-ing1",
-        "eistikathon-1",
+        'sabbatical',
+        'xwiki-cdi',
+        'eisti-alternance',
+        'eisti-internship-ing2',
+        'eisti-internship-ing1',
+        'eistikathon-1',
       ],
     },
   },
@@ -52,7 +52,7 @@ export default {
       level: {
         min: 0.6,
       },
-    }
+    },
   },
 
 } as const satisfies Config;

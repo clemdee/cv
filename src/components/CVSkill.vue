@@ -1,29 +1,29 @@
 <template>
-  <Tippy appendTo="parent">
-      <transition
-        name="collapse"
-        @enter="updateScrollWidth"
-        @leave="updateScrollWidth"
+  <Tippy append-to="parent">
+    <transition
+      name="collapse"
+      @enter="updateScrollWidth"
+      @leave="updateScrollWidth"
+    >
+      <GlintWrapper
+        v-show="editing || isVisible"
+        class="cv-skill-item"
+        :class="{
+          editing,
+          hidden: !isVisible,
+        }"
+        @click="editing && input?.click()"
       >
-        <GlintWrapper
-          class="cv-skill-item"
-          :class="{
-            editing,
-            hidden: !isVisible,
-          }"
-          @click="editing && input?.click()"
-          v-show="editing || isVisible"
-        >
-          <input
-            type="checkbox"
-            v-if="editing"
-            :checked="isVisible"
-            @change="isVisible = input?.checked ?? false"
-            ref="input"
-          />
-          <CVText :text="skillName" />
-        </GlintWrapper>
-      </transition>
+        <input
+          v-if="editing"
+          ref="input"
+          type="checkbox"
+          :checked="isVisible"
+          @change="isVisible = input?.checked ?? false"
+        />
+        <CVText :text="skillName" />
+      </GlintWrapper>
+    </transition>
 
     <template #content>
       {{ skillName }}: {{ skillLevel * 100 }}/100
@@ -32,19 +32,18 @@
 </template>
 
 <script lang="ts" setup>
-import { type Skill } from '~/stores/data';
-import { ref, computed, useTemplateRef } from 'vue';
-import { useConfig } from '~/stores/config';
-
+import type { Skill } from '~/stores/data';
+import { computed, ref, useTemplateRef } from 'vue';
 import { Tippy } from 'vue-tippy';
 import CVText from '~/components/CVText.vue';
 import GlintWrapper from '~/components/GlintWrapper.vue';
-
-const config = useConfig();
+import { useConfig } from '~/stores/config';
 
 const props = defineProps<{
-  skill: Skill,
+  skill: Skill
 }>();
+
+const config = useConfig();
 
 const skillName = computed(() => props.skill.title);
 const skillLevel = computed(() => props.skill.level);
@@ -55,14 +54,13 @@ const editing = ref(false);
 
 const isVisible = computed(() =>
   !config.skills?.show?.id
-  || (config.skills.show.id as unknown as string).includes(props.skill.id)
+  || (config.skills.show.id as unknown as string).includes(props.skill.id),
 );
 
 const scrollWidth = ref('0px');
 const updateScrollWidth = (el: Element) => {
-  scrollWidth.value = `${ el.scrollWidth }px`;
-}
-
+  scrollWidth.value = `${el.scrollWidth}px`;
+};
 </script>
 
 <style lang="scss" scoped>
@@ -82,7 +80,6 @@ const updateScrollWidth = (el: Element) => {
   padding: 0px;
   margin: 0px;
 }
-
 
 .cv-skill-item {
   position: relative;

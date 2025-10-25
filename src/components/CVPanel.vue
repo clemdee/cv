@@ -1,11 +1,11 @@
 <template>
   <aside
+    v-on-click-outside="() => opened = false"
     class="panel"
     :class="{
-      opened: opened,
+      opened,
     }"
     :inert="!opened"
-    v-on-click-outside="() => opened = false"
   >
     <slot />
   </aside>
@@ -14,6 +14,8 @@
 <script lang="ts" setup>
 import { vOnClickOutside } from '@vueuse/components';
 import { onKeyStroke } from '@vueuse/core';
+import { watch } from 'vue';
+import { definePanel } from '~/composables/panels';
 import { wait } from '~/composables/utils';
 
 const opened = defineModel<boolean>({ default: false });
@@ -39,22 +41,6 @@ onKeyStroke('Escape', (event) => {
   event.preventDefault();
   opened.value = false;
 });
-</script>
-
-<script lang="ts">
-import { watch, type Ref } from 'vue';
-const panels = new Set<Ref<boolean>>();
-
-const definePanel = (panel: Ref<boolean>) => {
-  panels.add(panel);
-
-  watch(panel, () => {
-    panels.forEach((_panel) => {
-      if (_panel === panel) return;
-      _panel.value = false;
-    })
-  });
-};
 </script>
 
 <style lang="scss" scoped>

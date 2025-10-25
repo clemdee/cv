@@ -8,7 +8,7 @@
         :key="name"
         class="colorscheme"
         :class="{
-          current: name === currentColorscheme
+          current: name === currentColorscheme,
         }"
         :style="colorscheme.styles"
       >
@@ -39,8 +39,8 @@
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue';
 import { toRef } from 'vue';
-import { useConfig } from '~/stores/config';
 import { colorschemes, useTransition } from '~/composables/colorscheme';
+import { useConfig } from '~/stores/config';
 
 const config = useConfig();
 const currentColorscheme = toRef(config.colorscheme, 'preset');

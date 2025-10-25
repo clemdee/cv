@@ -13,7 +13,7 @@
 import CVAnchor from '~/components/CVAnchor.vue';
 
 defineProps<{
-  anchorId: string,
+  anchorId: string
 }>();
 </script>
 

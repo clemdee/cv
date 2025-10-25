@@ -1,12 +1,12 @@
 import { fileURLToPath, URL } from 'node:url';
-import lsPlugin from './vite-plugin-ls';
-import fallbackPlugin from './vite-plugin-fallback';
-import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import { defineConfig } from 'vite';
+import fallbackPlugin from './vite-plugin-fallback';
+import lsPlugin from './vite-plugin-ls';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/cv/",
+  base: '/cv/',
   plugins: [
     vue(),
     lsPlugin(),
@@ -14,7 +14,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '~': fileURLToPath(new URL('./src', import.meta.url))
-    }
+      '~': fileURLToPath(new URL('./src', import.meta.url)),
+    },
   },
-})
+});

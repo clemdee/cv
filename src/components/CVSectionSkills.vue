@@ -33,12 +33,10 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useData } from '~/stores/data';
-import { useConfig } from '~/stores/config';
-
-import CVText from '~/components/CVText.vue';
 import CVSectionTitle from '~/components/CVSectionTitle.vue';
-import CVSkill from '~/components/CVSkill.vue';
+import CVText from '~/components/CVText.vue';
+import { useConfig } from '~/stores/config';
+import { useData } from '~/stores/data';
 import CVSkills from './CVSkills.vue';
 
 const data = useData();
@@ -49,17 +47,17 @@ const { t } = useI18n();
 const skillsMain = computed(() => data.skills
   .filter(skill => skill.tags?.includes('programming'))
   .filter(skill => skill.tags?.includes('main'))
-  .filter(skill => skill.level > (config.skills?.show?.level?.min ?? 0))
+  .filter(skill => skill.level > (config.skills?.show?.level?.min ?? 0)),
 );
 
 const skillsSecondary = computed(() => data.skills
   .filter(skill => skill.tags?.includes('programming'))
   .filter(skill => !skill.tags?.includes('main'))
-  .filter(skill => skill.level > (config.skills?.show?.level?.min ?? 0))
+  .filter(skill => skill.level > (config.skills?.show?.level?.min ?? 0)),
 );
 
 const skillsOS = computed(() => data.skills
-  .filter(skill => skill.tags?.includes('os'))
+  .filter(skill => skill.tags?.includes('os')),
 );
 </script>
 

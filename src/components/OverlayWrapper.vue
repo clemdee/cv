@@ -25,14 +25,14 @@ const viewportHandler = () => {
   dx.value = document.body.clientWidth - viewport.width - viewport.offsetLeft;
   dy.value = document.body.clientHeight - viewport.height - viewport.offsetTop;
   scale.value = 1 / viewport.scale;
-}
+};
 
 onMounted(() => {
   viewportHandler();
 });
 
-window.visualViewport?.addEventListener("scroll", viewportHandler, { passive: true });
-window.visualViewport?.addEventListener("resize", viewportHandler, { passive: true });
+window.visualViewport?.addEventListener('scroll', viewportHandler, { passive: true });
+window.visualViewport?.addEventListener('resize', viewportHandler, { passive: true });
 </script>
 
 <style lang="scss" scoped>

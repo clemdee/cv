@@ -1,6 +1,19 @@
+import type { Ref } from 'vue';
+import type { Item } from '~/stores/data';
+import { reactive, readonly, ref, watch } from 'vue';
 
-import { type Item } from '~/stores/data';
-import { ref, readonly, reactive, watch } from 'vue';
+const panels = new Set<Ref<boolean>>();
+
+export const definePanel = (panel: Ref<boolean>) => {
+  panels.add(panel);
+
+  watch(panel, () => {
+    panels.forEach((_panel) => {
+      if (_panel === panel) return;
+      _panel.value = false;
+    });
+  });
+};
 
 export const useItemPanel = (() => {
   const item = ref<Item>();
@@ -11,7 +24,8 @@ export const useItemPanel = (() => {
     item.value = newItem;
     if (oldItem?.id === newItem.id) {
       opened.value = false;
-    } else {
+    }
+    else {
       opened.value = true;
     }
   };

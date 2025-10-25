@@ -1,5 +1,6 @@
+import type { Ref } from 'vue';
 import { useStyleTag } from '@vueuse/core';
-import { type Ref, watch } from 'vue';
+import { watch } from 'vue';
 
 export const colorschemes = {
   light: {
@@ -95,7 +96,7 @@ export const useTransition = (colorscheme: Ref<string>) => {
     load();
     timeoutId = setTimeout(
       () => { unload(); },
-      transitionDurationMS
+      transitionDurationMS,
     );
   }, {
     flush: 'sync',

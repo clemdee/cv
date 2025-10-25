@@ -14,10 +14,9 @@
 
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
-import { useData } from '~/stores/data';
-
-import CVText from '~/components/CVText.vue';
 import CVSectionTitle from '~/components/CVSectionTitle.vue';
+import CVText from '~/components/CVText.vue';
+import { useData } from '~/stores/data';
 import CVItemHobby from './CVItemHobby.vue';
 
 const { t } = useI18n();

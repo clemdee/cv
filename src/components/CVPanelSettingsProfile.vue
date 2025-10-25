@@ -8,7 +8,7 @@
         :key="picture.filename"
         class="picture"
         :class="{
-          current: picture.filename === currentPictureFilename
+          current: picture.filename === currentPictureFilename,
         }"
       >
         <div class="image focus-wrapper">
@@ -30,7 +30,7 @@
       <label
         class="picture none"
         :class="{
-          current: currentPictureFilename === ''
+          current: currentPictureFilename === '',
         }"
       >
         <div class="image focus-wrapper">
@@ -86,7 +86,7 @@
         :key="frameId"
         class="frame focus-wrapper"
         :class="{
-          current: frameId === currentFrameId
+          current: frameId === currentFrameId,
         }"
         :style="frame"
       >
@@ -101,7 +101,7 @@
       <label
         class="frame none focus-wrapper"
         :class="{
-          current: currentFrameId === 'none'
+          current: currentFrameId === 'none',
         }"
       >
         <input
@@ -119,9 +119,9 @@
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue';
 import { computed, toRef } from 'vue';
-import { useConfig } from '~/stores/config';
-import { pictures, resolvePicture } from '~/composables/profilePicture';
 import { frames } from '~/composables/profileFrame';
+import { pictures, resolvePicture } from '~/composables/profilePicture';
+import { useConfig } from '~/stores/config';
 import InputToggle from './InputToggle.vue';
 
 const config = useConfig();

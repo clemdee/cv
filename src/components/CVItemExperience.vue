@@ -47,21 +47,21 @@
 <script lang="ts" setup>
 import type { Experience } from '~/stores/data';
 import { computed } from 'vue';
-import { useConfig } from '~/stores/config';
-import CVText from '~/components/CVText.vue';
 import CVBaseItem from '~/components/CVBaseItem.vue';
-import CVSkills from './CVSkills.vue';
+import CVText from '~/components/CVText.vue';
 import { formatDateSpan } from '~/i18n';
+import { useConfig } from '~/stores/config';
+import CVSkills from './CVSkills.vue';
+
+const props = defineProps<{
+  experience: Experience
+}>();
 
 const config = useConfig();
 
-const props = defineProps<{
-  experience: Experience,
-}>();
-
 const isVisible = computed(() =>
   !config.experience?.show?.id
-  || (config.experience.show.id as unknown as string).includes(props.experience.id)
+  || (config.experience.show.id as unknown as string).includes(props.experience.id),
 );
 </script>
 
@@ -93,5 +93,4 @@ const isVisible = computed(() =>
     }
   }
 }
-
 </style>

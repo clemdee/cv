@@ -5,7 +5,7 @@
 
     <CVAsideArticle
       :title="t('objective.title')"
-      anchorId="objective"
+      anchor-id="objective"
     >
       <CVText :text="t('objective.content')" />
     </CVAsideArticle>
@@ -15,11 +15,11 @@
 
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
-import CVText from '~/components/CVText.vue';
-import CVPicture from '~/components/CVPicture.vue';
-import CVAsideCoordinates from '~/components/CVAsideCoordinates.vue';
 import CVAsideArticle from '~/components/CVAsideArticle.vue';
+import CVAsideCoordinates from '~/components/CVAsideCoordinates.vue';
 import CVAsideLanguage from '~/components/CVAsideLanguage.vue';
+import CVPicture from '~/components/CVPicture.vue';
+import CVText from '~/components/CVText.vue';
 
 const { t } = useI18n();
 </script>

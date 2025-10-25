@@ -11,13 +11,12 @@
 </template>
 
 <script lang="ts" setup>
-
-import CVText from '~/components/CVText.vue';
 import CVAnchor from '~/components/CVAnchor.vue';
+import CVText from '~/components/CVText.vue';
 
 defineProps<{
-  anchorId: string,
-  title: string,
+  anchorId: string
+  title: string
 }>();
 </script>
 

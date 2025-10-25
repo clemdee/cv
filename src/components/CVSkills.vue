@@ -12,16 +12,11 @@
 </template>
 
 <script lang="ts" setup>
-import { useData, type Skill } from '~/stores/data';
-import { useConfig } from '~/stores/config';
-
+import type { Skill } from '~/stores/data';
 import CVSkill from '~/components/CVSkill.vue';
 
-const data = useData();
-const config = useConfig();
-
 const props = defineProps<{
-  skills: Skill[],
+  skills: Skill[]
 }>();
 </script>
 

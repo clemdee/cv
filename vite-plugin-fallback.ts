@@ -2,9 +2,9 @@
  * If store data is not found, load sample data
  */
 import type { Plugin } from 'vite';
-
-import { existsSync } from 'fs';
-import { resolve, dirname } from 'path';
+import { existsSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { cwd } from 'node:process';
 
 export default function fallbackPlugin (): Plugin {
   return {
@@ -12,7 +12,7 @@ export default function fallbackPlugin (): Plugin {
     enforce: 'pre',
 
     async resolveId (source, importer) {
-      const filePath = resolve(importer ? dirname(importer) : process.cwd(), source);
+      const filePath = resolve(importer ? dirname(importer) : cwd(), source);
       if (
         filePath.endsWith('src/stores/data/data')
         || filePath.endsWith('src/stores/config/config')

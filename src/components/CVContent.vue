@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, useTemplateRef, onMounted } from 'vue';
+import { onMounted, ref, useTemplateRef } from 'vue';
 import CVHeader from '~/components/CVHeader.vue';
 import CVSectionEducation from '~/components/CVSectionEducation.vue';
 import CVSectionExperience from '~/components/CVSectionExperience.vue';
@@ -46,7 +46,7 @@ onMounted(() => {
   // Workaround for firefox bug
   // https://bugzilla.mozilla.org/show_bug.cgi?id=1832939
   // ResizeObserver doesn't fire when element fills more than one column
-  const isFirefox = navigator.userAgent.search("Firefox") !== -1;
+  const isFirefox = navigator.userAgent.search('Firefox') !== -1;
   if (isFirefox) {
     const innerElements = document.querySelectorAll('.cv-content > *, .cv-base-item');
     innerElements.forEach((element) => {

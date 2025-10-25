@@ -36,11 +36,11 @@
             class="url"
           >
             <a
-              @click.stop
               :href="hobby.url"
               target="_blank"
+              @click.stop
             >
-            <CVText :text="hobby.url" />
+              <CVText :text="hobby.url" />
             </a>
           </div>
 
@@ -68,23 +68,23 @@
 
 <script lang="ts" setup>
 import type { Hobby } from '~/stores/data';
-import { computed } from 'vue';
-import { useConfig } from '~/stores/config';
-import CVText from '~/components/CVText.vue';
-import CVBaseItem from '~/components/CVBaseItem.vue';
 import { asyncComputed } from '@vueuse/core';
 import QRCode from 'qrcode';
+import { computed } from 'vue';
+import CVBaseItem from '~/components/CVBaseItem.vue';
+import CVText from '~/components/CVText.vue';
+import { useConfig } from '~/stores/config';
 import CVSkills from './CVSkills.vue';
+
+const props = defineProps<{
+  hobby: Hobby
+}>();
 
 const config = useConfig();
 
-const props = defineProps<{
-  hobby: Hobby,
-}>();
-
 const isVisible = computed(() =>
   !config.hobbies?.show?.id
-  || (config.hobbies.show.id as unknown as string).includes(props.hobby.id)
+  || (config.hobbies.show.id as unknown as string).includes(props.hobby.id),
 );
 
 const qrcodeUrl = asyncComputed<string | undefined>(async () => {
@@ -93,10 +93,11 @@ const qrcodeUrl = asyncComputed<string | undefined>(async () => {
     return await QRCode.toDataURL(props.hobby.url, {
       margin: 2,
     });
-  } catch (err) {
-    console.error(err)
   }
-}, undefined)
+  catch (err) {
+    console.error(err);
+  }
+}, undefined);
 </script>
 
 <style lang="scss" scoped>
@@ -144,5 +145,4 @@ const qrcodeUrl = asyncComputed<string | undefined>(async () => {
     }
   }
 }
-
 </style>

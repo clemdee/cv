@@ -6,7 +6,6 @@
     :visible="isVisible"
   >
     <div class="education-content">
-
       <div class="education-header">
         <div class="title">
           <Icon
@@ -26,7 +25,7 @@
         <div class="location">
           <Icon icon="mdi:home-city-outline" />
           <CVText :text="props.education.location?.name" />
-          <br/>
+          <br />
           <Icon icon="mdi:map-marker-outline" />
           <CVText :text="props.education.location?.location" />
         </div>
@@ -40,23 +39,23 @@
 </template>
 
 <script lang="ts" setup>
-import { Icon } from '@iconify/vue';
 import type { Education } from '~/stores/data';
+import { Icon } from '@iconify/vue';
 import { computed } from 'vue';
-import { useConfig } from '~/stores/config';
-import CVText from '~/components/CVText.vue';
 import CVBaseItem from '~/components/CVBaseItem.vue';
+import CVText from '~/components/CVText.vue';
 import { formatDateSpan } from '~/i18n';
+import { useConfig } from '~/stores/config';
+
+const props = defineProps<{
+  education: Education
+}>();
 
 const config = useConfig();
 
-const props = defineProps<{
-  education: Education,
-}>();
-
 const isVisible = computed(() =>
   !config.education?.show?.id
-  || (config.education.show.id as unknown as string).includes(props.education.id)
+  || (config.education.show.id as unknown as string).includes(props.education.id),
 );
 </script>
 

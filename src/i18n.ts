@@ -1,9 +1,7 @@
-import { computed } from 'vue';
+import type { DateSpan } from './stores/data';
 import { createI18n } from 'vue-i18n';
-
 import en from '~/locales/en.json';
 import fr from '~/locales/fr.json';
-import type { DateSpan } from './stores/data';
 
 export const i18n = createI18n({
   legacy: false,
@@ -46,4 +44,4 @@ export const formatDateSpan = (dateSpan: DateSpan | undefined = {}) => {
     : '';
   const sep = from && to ? ' - ' : '';
   return `${from}${sep}${to}`;
-}
+};

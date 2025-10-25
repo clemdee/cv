@@ -13,8 +13,8 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { resolvePicture } from '~/composables/profilePicture';
 import { frames } from '~/composables/profileFrame';
+import { resolvePicture } from '~/composables/profilePicture';
 import { useConfig } from '~/stores/config';
 
 const config = useConfig();

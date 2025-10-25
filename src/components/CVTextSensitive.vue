@@ -12,24 +12,24 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { randomInt } from '~/composables/utils';
 import CVText from '~/components/CVText.vue';
+import { randomInt } from '~/composables/utils';
 
 const props = defineProps<{
-  tag?: string,
-  text?: string,
-  placeholder?: string,
+  tag?: string
+  text?: string
+  placeholder?: string
 }>();
 
 const randomGibberish = () => {
   const length = randomInt(8, 20);
-  const codePoints = []
+  const codePoints = [];
   for (let i = 0; i < length; i++) {
     // code points so that it somehow looks gibberish
     codePoints.push(randomInt(8000, 1200));
   }
   return String.fromCodePoint(...codePoints);
-}
+};
 
 const isPlaceholder = computed(() => {
   return props.text?.trim() === '';

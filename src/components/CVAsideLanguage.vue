@@ -1,7 +1,7 @@
 <template>
   <CVAsideArticle
     :title="t('languages.title')"
-    anchorId="languages"
+    anchor-id="languages"
   >
     <ul>
       <li
@@ -15,12 +15,13 @@
 </template>
 
 <script lang="ts" setup>
+import type { Skill } from '~/stores/data';
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useData, languageLevels, type Skill } from '~/stores/data';
 
-import CVText from '~/components/CVText.vue';
 import CVAsideArticle from '~/components/CVAsideArticle.vue';
+import CVText from '~/components/CVText.vue';
+import { languageLevels, useData } from '~/stores/data';
 
 const { t } = useI18n();
 const data = useData();
@@ -32,13 +33,13 @@ const getLanguageLevel = (language: Skill) => {
 };
 
 const getLanguageLevelTitle = (language: Skill) => {
-  return t(`languages.levels.${ getLanguageLevel(language) }`);
-}
+  return t(`languages.levels.${getLanguageLevel(language)}`);
+};
 
 const languages = data.skills.filter(skill => skill.tags?.includes('language'));
 
 const displayedLanguages = computed(() => {
-  return languages.map(language => {
+  return languages.map((language) => {
     const languageLevelTitle = getLanguageLevelTitle(language);
     return `${language.title} (${languageLevelTitle})`;
   });
