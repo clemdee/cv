@@ -9,8 +9,9 @@ My CV, built in Vue, because why not
 ```sh
 pnpm install
 pnpm dev
-# build (without type checking)
-pnpm build-only
+# ---
+pnpm build
+pnpm preview
 ```
 
 ## Usage
