@@ -28,10 +28,6 @@ const getMinMax = <T, V>(
 export type ItemId = DataConst['experience' | 'education' | 'hobbies'][number]['id'];
 export type SkillId = DataConst['skills'][number]['id'];
 
-export interface CoordinatesConfig {
-  showPronouns?: boolean
-}
-
 const createDefaultItem = <
   ItemType extends 'experience' | 'education' | 'hobbies',
 >(item: ItemType) => {
