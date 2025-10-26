@@ -1,12 +1,12 @@
 {
   "title": "Clément Desableau",
-  "subtitle": "À la recherche d'un emploi \n de développeur web Vue",
+  "subtitle": "Développeur web Vue",
 
   "coordinates": {
     "name": "Clément Desableau",
     "pronouns": "(they/them)",
     "age": "{age} ans",
-    "nationality": "nationalité française",
+    "nationality": "français",
     "address": {
       "street": "{number} {street}",
       "city": "{postalCode} {city}",
@@ -25,8 +25,8 @@
   },
 
   "objective": {
-    "title": "Objective",
-    "content": "Ingénieur en informatique. J'adore créer. J'adore apprendre. À la recherche d'un travail en ingénierie logiciel dans le développement d'applications web Vue."
+    "title": "Description",
+    "content": "Ingénieur en informatique. J'adore créer. J'adore apprendre. À la recherche d'un travail en ingénierie logiciel, dans le développement d'applications web Vue."
   },
 
   "languages": {
@@ -85,7 +85,7 @@
       },
       "engineering": {
         "title": "Cycle Ingénieur - Génie Informatique",
-        "description": "Troisième année cycle ingénieur Informatique. Spécialisation Cyber Security pour la dernière année"
+        "description": "Cycle ingénieur Informatique. Spécialisation Cyber Security pour la dernière année"
       },
       "engineeringETS": {
         "title": "Cycle Ingénieur",
@@ -181,7 +181,7 @@
         "title": "Année sabbatique",
         "description": "Prise d'une année sabbatique afin de pouvoir explorer différents projets, dans la musique et la programmation",
         "duties": [
-          "Production de l'EP d'un ami et performance scénique ensemble",
+          "Production de l'album d'un ami et performance scénique ensemble",
           "Composition musicale sur des projets personnels et commandés",
           "Amélioration de mes compétences, apprentissage d'un nouvel instrument",
           "Programmation sur divers projets personnels (voir en fin de CV)"
