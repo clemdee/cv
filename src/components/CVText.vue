@@ -1,11 +1,11 @@
+<!-- eslint-disable vue/no-v-text-v-html-on-component -->
 <template>
   <component
     :is="props.tag ?? 'span'"
     ref="textElement"
     class="text"
-  >
-    {{ animatedText }}
-  </component>
+    v-text="animatedText"
+  />
 </template>
 
 <script lang="ts" setup>
