@@ -4,7 +4,7 @@
 
   "coordinates": {
     "name": "Clément Desableau",
-    "pronouns": "(they/them)",
+    "pronouns": "(il/iel/elle)",
     "age": "{age} ans",
     "nationality": "français",
     "address": {
@@ -169,7 +169,7 @@
       },
       "xwiki-cdi": {
         "title": "Ingénieur R&D à XWikiSAS",
-        "description": "Travail dans l'équipe Client de XWiki, customisant le logiciel afin de répondre aux besoins clients. Création de patchs pour le logiciel principal.",
+        "description": "Travail dans l'équipe Client de XWiki, customisant le logiciel afin de répondre aux besoins clients.",
         "duties": [
           "Développement d'interfaces conformes aux maquettes fournies",
           "Respect de contraintes strictes de temps et de livrables",

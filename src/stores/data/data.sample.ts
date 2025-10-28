@@ -559,7 +559,7 @@ export default {
     },
     {
       id: 'csharp',
-      level: 0.65,
+      level: 0.5,
       tags: [
         'programming',
       ],
