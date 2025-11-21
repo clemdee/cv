@@ -178,14 +178,8 @@
         ]
       },
       "sabbatical": {
-        "title": "Année sabbatique",
-        "description": "Prise d'une année sabbatique afin de pouvoir explorer différents projets, dans la musique et la programmation",
-        "duties": [
-          "Production de l'album d'un ami et performance scénique ensemble",
-          "Composition musicale sur des projets personnels et commandés",
-          "Amélioration de mes compétences, apprentissage d'un nouvel instrument",
-          "Programmation sur divers projets personnels (voir en fin de CV)"
-        ]
+        "title": "Temps sabbatique",
+        "description": "Prise d'un temps sabbatique afin de pouvoir explorer différents projets, dans la musique et la programmation"
       }
     }
   },

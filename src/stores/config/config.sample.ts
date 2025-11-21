@@ -33,6 +33,7 @@ export default {
     },
     show: {
       id: [
+        'sabbatical',
         'xwiki-cdi',
         'eisti-alternance',
         'eisti-internship-ing2',
