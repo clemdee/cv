@@ -21,7 +21,9 @@
         <Icon icon="mdi:map-marker" />
         <CVTextSensitive
           :text="t('coordinates.address.full', data.profile.address).trim()"
-          placeholder="01 name of the street\n01234 region\ncountry"
+          placeholder="01 name of the street
+            01234 region
+            country"
         />
       </div>
 
@@ -143,6 +145,7 @@ const age = computed(() => {
       line-height: 1rem;
 
       svg {
+        flex-shrink: 0;
         width: 1rem;
         margin-top: 0.15rem;
         margin-left: 0.15rem;
