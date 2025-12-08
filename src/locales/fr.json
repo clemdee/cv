@@ -1,6 +1,6 @@
 {
   "title": "Clément Desableau",
-  "subtitle": "Développeur web Vue",
+  "subtitle": "Développeur web VueJS",
 
   "coordinates": {
     "name": "Clément Desableau",
@@ -167,7 +167,7 @@
       },
       "xwiki-cdi": {
         "title": "Ingénieur R&D à XWikiSAS",
-        "description": "Travail dans l'équipe Client de XWiki, customisant le logiciel afin de répondre aux besoins clients.",
+        "description": "Travail dans l'équipe Client de XWiki, personnalisant le logiciel afin de répondre aux besoins clients.",
         "duties": [
           "Développement d'interfaces conformes aux maquettes fournies",
           "Respect de contraintes strictes de temps et de livrables",
