@@ -45,6 +45,16 @@
         />
       </div>
 
+      <div class="cv item">
+        <Icon icon="mdi:external-link" />
+        <CVText
+          tag="a"
+          :text="t('coordinates.cv.name')"
+          :href="data.profile.cv.link"
+          target="_blank"
+        />
+      </div>
+
       <div class="item">
         <Icon icon="mdi:linkedin" />
         <CVText
