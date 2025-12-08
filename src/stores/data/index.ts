@@ -125,7 +125,7 @@ export interface Item {
 }
 
 export interface Data {
-  profile: any
+  profile: DataConst['profile']
   locations: Location[]
   education: Education[]
   experience: Experience[]

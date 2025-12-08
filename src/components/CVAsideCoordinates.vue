@@ -50,7 +50,8 @@
         <CVText
           tag="a"
           :text="t('coordinates.linkedin.name')"
-          :href="t('coordinates.linkedin.link')"
+          :href="data.profile.linkedin.link"
+          target="_blank"
         />
       </div>
 
@@ -59,7 +60,8 @@
         <CVText
           tag="a"
           :text="t('coordinates.github.name')"
-          :href="t('coordinates.github.link')"
+          :href="data.profile.github.link"
+          target="_blank"
         />
       </div>
     </div>

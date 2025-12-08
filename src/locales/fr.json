@@ -15,12 +15,10 @@
     },
     "phone": "{national}",
     "linkedin": {
-      "name": "Clément Desableau",
-      "link": "https://www.linkedin.com/in/cl%C3%A9ment-desableau-92a411170/"
+      "name": "Clément Desableau"
     },
     "github": {
-      "name": "clemdee",
-      "link": "https://github.com/clemdee"
+      "name": "clemdee"
     }
   },
 
