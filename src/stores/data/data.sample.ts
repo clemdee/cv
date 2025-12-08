@@ -18,12 +18,13 @@ export default {
     },
     phone: '',
     email: '',
+    cv: {
+      link: 'https://clemdee.github.io/cv/',
+    },
     linkedin: {
-      name: 'Clément Desableau',
       link: 'https://www.linkedin.com/in/cl%C3%A9ment-desableau-92a411170',
     },
     github: {
-      name: 'ClemDee',
       link: 'https://github.com/ClemDee',
     },
   },
