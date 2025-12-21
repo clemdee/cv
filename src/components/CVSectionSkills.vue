@@ -47,13 +47,13 @@ const { t } = useI18n();
 const skillsMain = computed(() => data.skills
   .filter(skill => skill.tags?.includes('programming'))
   .filter(skill => skill.tags?.includes('main'))
-  .filter(skill => skill.level > (config.skills?.show?.level?.min ?? 0)),
+  .filter(skill => skill.level > (config.skills?.filter?.level?.min ?? 0)),
 );
 
 const skillsSecondary = computed(() => data.skills
   .filter(skill => skill.tags?.includes('programming'))
   .filter(skill => !skill.tags?.includes('main'))
-  .filter(skill => skill.level > (config.skills?.show?.level?.min ?? 0)),
+  .filter(skill => skill.level > (config.skills?.filter?.level?.min ?? 0)),
 );
 
 const skillsOS = computed(() => data.skills

@@ -60,8 +60,8 @@ const props = defineProps<{
 const config = useConfig();
 
 const isVisible = computed(() =>
-  !config.experience?.show?.id
-  || (config.experience.show.id as unknown as string).includes(props.experience.id),
+  !config.experience?.filter?.id
+  || (config.experience.filter.id as unknown as string).includes(props.experience.id),
 );
 </script>
 

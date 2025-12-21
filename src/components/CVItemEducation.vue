@@ -54,8 +54,8 @@ const props = defineProps<{
 const config = useConfig();
 
 const isVisible = computed(() =>
-  !config.education?.show?.id
-  || (config.education.show.id as unknown as string).includes(props.education.id),
+  !config.education?.filter?.id
+  || (config.education.filter.id as unknown as string).includes(props.education.id),
 );
 </script>
 

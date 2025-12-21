@@ -42,8 +42,9 @@ const createDefaultItem = <
   const ids = data[item].map(item => item.id) as ItemId[];
 
   return {
+    show: true,
     date,
-    show: {
+    filter: {
       id: ids,
     },
   };
@@ -67,7 +68,8 @@ const defaultConfig = {
   education: createDefaultItem('education'),
   hobbies: createDefaultItem('hobbies'),
   skills: {
-    show: {
+    show: true,
+    filter: {
       level: { min: 0, max: 1 },
       id: data.skills.map(skill => skill.id) as SkillId[],
     },
@@ -100,9 +102,10 @@ const mergeConfigItems = <
   const item = config[itemType] as RecursivePartial<Item<ItemType>> | undefined;
 
   return {
+    show: item?.show ?? defaultItem.show,
     date: mergeMinMax(defaultItem.date, item?.date),
-    show: {
-      id: (item?.show?.id ?? defaultItem.show.id) as ItemId[],
+    filter: {
+      id: (item?.filter?.id ?? defaultItem.filter.id) as ItemId[],
     },
   };
 };
@@ -124,9 +127,10 @@ const mergeConfig = (defaultConfig: DefaultConfig, config: Config): DefaultConfi
     experience: mergeConfigItems('experience', defaultConfig, config),
     hobbies: mergeConfigItems('hobbies', defaultConfig, config),
     skills: {
-      show: {
-        id: config.skills?.show?.id ?? defaultConfig.skills.show.id,
-        level: mergeMinMax(defaultConfig.skills.show.level, config.skills?.show?.level),
+      show: config.skills?.show ?? defaultConfig.skills.show,
+      filter: {
+        id: config.skills?.filter?.id ?? defaultConfig.skills.filter.id,
+        level: mergeMinMax(defaultConfig.skills.filter.level, config.skills?.filter?.level),
       },
     },
   };

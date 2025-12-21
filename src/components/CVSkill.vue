@@ -53,8 +53,8 @@ const input = useTemplateRef('input');
 const editing = ref(false);
 
 const isVisible = computed(() =>
-  !config.skills?.show?.id
-  || (config.skills.show.id as unknown as string).includes(props.skill.id),
+  !config.skills?.filter?.id
+  || (config.skills.filter.id as unknown as string).includes(props.skill.id),
 );
 
 const scrollWidth = ref('0px');

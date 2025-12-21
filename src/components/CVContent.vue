@@ -4,10 +4,10 @@
     class="cv-content"
   >
     <CVHeader />
-    <CVSectionExperience />
-    <CVSectionSkills />
-    <CVSectionEducation />
-    <CVSectionHobbies />
+    <CVSectionExperience v-if="config.experience.show" />
+    <CVSectionSkills v-if="config.skills.show" />
+    <CVSectionEducation v-if="config.education.show" />
+    <CVSectionHobbies v-if="config.hobbies.show" />
     <div
       ref="pager"
       class="pager"
@@ -22,9 +22,11 @@ import CVSectionEducation from '~/components/CVSectionEducation.vue';
 import CVSectionExperience from '~/components/CVSectionExperience.vue';
 import CVSectionHobbies from '~/components/CVSectionHobbies.vue';
 import CVSectionSkills from '~/components/CVSectionSkills.vue';
+import { useConfig } from '~/stores/config';
 
 const root = useTemplateRef('root');
 const pager = useTemplateRef('pager');
+const config = useConfig();
 
 const lastPageHeight = ref(0);
 

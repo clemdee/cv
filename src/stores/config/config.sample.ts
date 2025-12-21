@@ -19,7 +19,7 @@ export default {
     date: {
       min: '2015',
     },
-    show: {
+    filter: {
       id: [
         'engineering',
         'engineeringETS',
@@ -31,7 +31,7 @@ export default {
     date: {
       min: '2015',
     },
-    show: {
+    filter: {
       id: [
         'sabbatical',
         'xwiki-cdi',
@@ -48,7 +48,7 @@ export default {
   },
 
   skills: {
-    show: {
+    filter: {
       level: {
         min: 0.6,
       },

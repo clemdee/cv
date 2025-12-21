@@ -83,8 +83,8 @@ const props = defineProps<{
 const config = useConfig();
 
 const isVisible = computed(() =>
-  !config.hobbies?.show?.id
-  || (config.hobbies.show.id as unknown as string).includes(props.hobby.id),
+  !config.hobbies?.filter?.id
+  || (config.hobbies.filter.id as unknown as string).includes(props.hobby.id),
 );
 
 const qrcodeUrl = asyncComputed<string | undefined>(async () => {
