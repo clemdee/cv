@@ -18,12 +18,15 @@
 
       <div class="experience-body">
         <div class="details">
-          <div class="description">
+          <div
+            v-if="config.experience.items.show.description"
+            class="description"
+          >
             <CVText :text="experience.description" />
           </div>
 
           <ul
-            v-if="experience.duties.length > 0"
+            v-if="config.experience.items.show.duties && experience.duties.length > 0"
             class="duties"
           >
             <CVText
@@ -35,6 +38,7 @@
           </ul>
 
           <CVSkills
+            v-if="config.experience.items.show.skills"
             class="skills"
             :skills="experience.skills"
           />

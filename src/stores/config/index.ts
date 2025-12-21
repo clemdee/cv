@@ -28,6 +28,35 @@ const getMinMax = <T, V>(
 export type ItemId = DataConst['experience' | 'education' | 'hobbies'][number]['id'];
 export type SkillId = DataConst['skills'][number]['id'];
 
+export interface ItemsShows {
+  description: boolean
+  url: boolean
+  qrcode: boolean
+  skills: boolean
+  duties: boolean
+}
+
+const createDefaultItemShows = (): ItemsShows => ({
+  description: true,
+  url: true,
+  qrcode: true,
+  skills: true,
+  duties: true,
+});
+
+const mergeItemShows = (
+  defaultItemShows: ItemsShows,
+  itemShows: Partial<ItemsShows> | undefined,
+): ItemsShows => {
+  return {
+    description: itemShows?.description ?? defaultItemShows.description,
+    url: itemShows?.url ?? defaultItemShows.url,
+    qrcode: itemShows?.qrcode ?? defaultItemShows.qrcode,
+    skills: itemShows?.skills ?? defaultItemShows.skills,
+    duties: itemShows?.duties ?? defaultItemShows.duties,
+  };
+};
+
 const createDefaultItem = <
   ItemType extends 'experience' | 'education' | 'hobbies',
 >(item: ItemType) => {
@@ -43,6 +72,9 @@ const createDefaultItem = <
 
   return {
     show: true,
+    items: {
+      show: createDefaultItemShows(),
+    },
     date,
     filter: {
       id: ids,
@@ -103,6 +135,9 @@ const mergeConfigItems = <
 
   return {
     show: item?.show ?? defaultItem.show,
+    items: {
+      show: mergeItemShows(defaultItem.items.show, item?.items?.show),
+    },
     date: mergeMinMax(defaultItem.date, item?.date),
     filter: {
       id: (item?.filter?.id ?? defaultItem.filter.id) as ItemId[],

@@ -31,7 +31,10 @@
         </div>
 
         <div class="details">
-          <CVText :text="props.education.description" />
+          <CVText
+            v-if="config.education.items.show.description"
+            :text="props.education.description"
+          />
         </div>
       </div>
     </div>

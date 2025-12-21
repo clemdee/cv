@@ -7,7 +7,7 @@
   >
     <div class="hobby-content">
       <div
-        v-if="qrcodeUrl"
+        v-if="config.hobbies.items.show.qrcode && qrcodeUrl"
         class="hobby-header"
       >
         <div class="qrcode">
@@ -25,14 +25,14 @@
 
         <div class="details">
           <div
-            v-if="hobby.description"
+            v-if="config.hobbies.items.show.description && hobby.description"
             class="description"
           >
             <CVText :text="hobby.description" />
           </div>
 
           <div
-            v-if="hobby.url"
+            v-if="config.hobbies.items.show.url && hobby.url"
             class="url"
           >
             <a
@@ -45,7 +45,7 @@
           </div>
 
           <ul
-            v-if="hobby.duties.length > 0"
+            v-if="config.hobbies.items.show.duties && hobby.duties.length > 0"
             class="duties"
           >
             <CVText
