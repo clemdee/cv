@@ -3,6 +3,7 @@ import type { ProfileFrameId } from '~/composables/profileFrame';
 import type { RecursivePartial } from '~/composables/utils';
 import type { DataConst } from '~/stores/data';
 import { reactive } from 'vue';
+import { mergeDeep } from '~/composables/merge';
 import { pictures } from '~/composables/profilePicture';
 import { useData } from '~/stores/data';
 import config from './config';
@@ -43,19 +44,6 @@ const createDefaultItemShows = (): ItemsShows => ({
   skills: true,
   duties: true,
 });
-
-const mergeItemShows = (
-  defaultItemShows: ItemsShows,
-  itemShows: Partial<ItemsShows> | undefined,
-): ItemsShows => {
-  return {
-    description: itemShows?.description ?? defaultItemShows.description,
-    url: itemShows?.url ?? defaultItemShows.url,
-    qrcode: itemShows?.qrcode ?? defaultItemShows.qrcode,
-    skills: itemShows?.skills ?? defaultItemShows.skills,
-    duties: itemShows?.duties ?? defaultItemShows.duties,
-  };
-};
 
 const createDefaultItem = <
   ItemType extends 'experience' | 'education' | 'hobbies',
@@ -136,7 +124,7 @@ const mergeConfigItems = <
   return {
     show: item?.show ?? defaultItem.show,
     items: {
-      show: mergeItemShows(defaultItem.items.show, item?.items?.show),
+      show: mergeDeep(defaultItem.items.show, item?.items?.show),
     },
     filter: {
       date: mergeMinMax(defaultItem.filter.date, item?.filter?.date),
@@ -147,17 +135,9 @@ const mergeConfigItems = <
 
 const mergeConfig = (defaultConfig: DefaultConfig, config: Config): DefaultConfig => {
   return {
-    colorscheme: {
-      preset: config.colorscheme?.preset ?? defaultConfig.colorscheme.preset,
-    },
-    profile: {
-      filename: config.profile?.filename ?? defaultConfig.profile.filename,
-      frame: config.profile?.frame ?? defaultConfig.profile.frame,
-      compressed: config.profile?.compressed ?? defaultConfig.profile.compressed,
-    },
-    coordinates: {
-      showPronouns: config.coordinates?.showPronouns ?? defaultConfig.coordinates.showPronouns,
-    },
+    colorscheme: mergeDeep(defaultConfig.colorscheme, config.colorscheme),
+    profile: mergeDeep(defaultConfig.profile, config.profile),
+    coordinates: mergeDeep(defaultConfig.coordinates, config.coordinates),
     education: mergeConfigItems('education', defaultConfig, config),
     experience: mergeConfigItems('experience', defaultConfig, config),
     hobbies: mergeConfigItems('hobbies', defaultConfig, config),
