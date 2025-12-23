@@ -63,8 +63,6 @@ const skillsOS = computed(() => data.skills
 
 <style lang="scss" scoped>
 .cv-skills {
-  margin-bottom: 1.5rem;
-
   .item {
     display: flex;
     flex-direction: column;

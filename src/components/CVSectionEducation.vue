@@ -24,7 +24,4 @@ const data = useData();
 </script>
 
 <style lang="scss" scoped>
-.cv-education {
-  margin-bottom: 1.5rem;
-}
 </style>

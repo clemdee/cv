@@ -35,8 +35,8 @@ const resizeObserver = new ResizeObserver(() => {
   if (!pager.value) return;
   pager.value.style.display = 'none';
   const rects = root.value.getClientRects();
-  const height = rects.item(rects.length - 1)?.height;
-  lastPageHeight.value = height ?? 0;
+  const rectHeight = rects.item(rects.length - 1)?.height;
+  lastPageHeight.value = rectHeight ?? 0;
   pager.value.style.display = '';
 });
 
@@ -61,7 +61,6 @@ onMounted(() => {
 <style lang="scss" scoped>
 .cv-content {
   --last-page-height: calc(v-bind('lastPageHeight') * 1px);
-  min-height: var(--page-height);
   padding: 2rem;
   background-color: var(--colorscheme-content-background);
   color: var(--colorscheme-content-text);
@@ -69,7 +68,11 @@ onMounted(() => {
   .pager {
     content: '';
     display: block;
-    height: calc(var(--page-height) - var(--last-page-height) - 1px);
+    height: calc(var(--page-height) - var(--last-page-height));
+  }
+
+  section:not(:last-of-type) {
+    margin-bottom: 1.5rem;
   }
 }
 </style>
