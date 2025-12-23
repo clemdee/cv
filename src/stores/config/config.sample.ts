@@ -16,10 +16,10 @@ export default {
   },
 
   education: {
-    date: {
-      min: '2015',
-    },
     filter: {
+      date: {
+        min: '2015',
+      },
       id: [
         'engineering',
         'engineeringETS',
@@ -28,10 +28,10 @@ export default {
   },
 
   experience: {
-    date: {
-      min: '2015',
-    },
     filter: {
+      date: {
+        min: '2015',
+      },
       id: [
         'sabbatical',
         'xwiki-cdi',

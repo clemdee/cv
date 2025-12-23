@@ -75,8 +75,8 @@ const createDefaultItem = <
     items: {
       show: createDefaultItemShows(),
     },
-    date,
     filter: {
+      date,
       id: ids,
     },
   };
@@ -138,8 +138,8 @@ const mergeConfigItems = <
     items: {
       show: mergeItemShows(defaultItem.items.show, item?.items?.show),
     },
-    date: mergeMinMax(defaultItem.date, item?.date),
     filter: {
+      date: mergeMinMax(defaultItem.filter.date, item?.filter?.date),
       id: (item?.filter?.id ?? defaultItem.filter.id) as ItemId[],
     },
   };
