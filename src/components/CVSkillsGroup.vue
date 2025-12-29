@@ -4,7 +4,7 @@
       v-if="props.skillsGroup.title"
       class="title"
     >
-      <CVText :text="props.skillsGroup.title" />
+      <CVText :text="td(props.skillsGroup.title)" />
     </div>
 
     <CVSkills :skills="skills" />
@@ -18,6 +18,7 @@ import { computed } from 'vue';
 import CVText from '~/components/CVText.vue';
 import { mergeShallow } from '~/composables/merge';
 import { isBetween } from '~/composables/utils';
+import { td } from '~/i18n';
 import { useConfig } from '~/stores/config';
 import { useData } from '~/stores/data';
 import CVSkills from './CVSkills.vue';

@@ -222,12 +222,6 @@
 
   "skills": {
     "title": "Skills",
-    "titles": {
-      "main": "Main Stack",
-      "secondary": "Secondary Stack",
-      "os": "Operating Systems",
-      "softwares": "Softwares"
-    },
     "items": {
       "fr": "French",
       "en": "English",

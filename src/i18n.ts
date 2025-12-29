@@ -21,6 +21,13 @@ type I18nGlobal = (typeof i18n)['global'];
 export const t: I18nGlobal['t'] = i18n.global.t;
 export const tm: I18nGlobal['tm'] = i18n.global.tm;
 
+export type DataText = string | Record<typeof i18n.global.locale.value, string>;
+
+export const td = (text: DataText) => {
+  if (typeof text === 'string') return text;
+  return text[i18n.global.locale.value];
+};
+
 export const formatDate = (date: string) => {
   const [year, month, day] = date.split('-');
   const options: Intl.DateTimeFormatOptions = {};

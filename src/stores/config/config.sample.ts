@@ -56,19 +56,28 @@ export default {
 
     groups: [
       {
-        title: 'Main Stack',
+        title: {
+          en: 'Main Stack',
+          fr: 'Stack Principale',
+        },
         filter: {
           tag: ['programming', 'main'],
         },
       },
       {
-        title: 'Secondary Stack',
+        title: {
+          en: 'Secondary Stack',
+          fr: 'Stack Secondaire',
+        },
         filter: {
           tag: ['programming', '!main'],
         },
       },
       {
-        title: 'Operating Systems',
+        title: {
+          en: 'Operating Systems',
+          fr: 'Systèmes d\'exploitations',
+        },
         filter: {
           tag: ['os'],
         },

@@ -1,6 +1,7 @@
 import type { ColorschemeId } from '~/composables/colorscheme';
 import type { ProfileFrameId } from '~/composables/profileFrame';
 import type { RecursivePartial } from '~/composables/utils';
+import type { DataText } from '~/i18n';
 import type { DataConst } from '~/stores/data';
 import { reactive } from 'vue';
 import { mergeDeep } from '~/composables/merge';
@@ -37,7 +38,7 @@ export interface SkillFilter {
 }
 
 export interface SkillGroup {
-  title?: string
+  title?: DataText
   filter?: SkillFilter
 }
 

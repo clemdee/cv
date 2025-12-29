@@ -218,12 +218,6 @@
 
   "skills": {
     "title": "Compétences",
-    "titles": {
-      "main": "Stack Principale",
-      "secondary": "Stack Secondaire",
-      "os": "Systèmes d'exploitations",
-      "softwares": "Logiciels"
-    },
     "items": {
       "fr": "Français",
       "en": "Anglais",
