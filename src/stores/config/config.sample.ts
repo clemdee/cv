@@ -50,9 +50,30 @@ export default {
   skills: {
     filter: {
       level: {
-        min: 0.6,
+        min: 0.61,
       },
     },
+
+    groups: [
+      {
+        title: 'Main Stack',
+        filter: {
+          tag: ['programming', 'main'],
+        },
+      },
+      {
+        title: 'Secondary Stack',
+        filter: {
+          tag: ['programming', '!main'],
+        },
+      },
+      {
+        title: 'Operating Systems',
+        filter: {
+          tag: ['os'],
+        },
+      },
+    ],
   },
 
 } as const satisfies Config;

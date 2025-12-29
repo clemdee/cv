@@ -28,6 +28,18 @@ const getMinMax = <T, V>(
 
 export type ItemId = DataConst['experience' | 'education' | 'hobbies'][number]['id'];
 export type SkillId = DataConst['skills'][number]['id'];
+export type SkillTag = DataConst['skills'][number]['tags'][number];
+
+export interface SkillFilter {
+  tag?: (SkillTag | `!${SkillTag}`)[]
+  id?: (SkillId | `!${SkillId}`)[]
+  level?: MinMax<number>
+}
+
+export interface SkillGroup {
+  title?: string
+  filter?: SkillFilter
+}
 
 export interface ItemsShows {
   description: boolean
@@ -91,8 +103,14 @@ const defaultConfig = {
     show: true,
     filter: {
       level: { min: 0, max: 1 },
-      id: data.skills.map(skill => skill.id) as SkillId[],
-    },
+      id: [],
+      tag: [],
+    } as SkillFilter,
+    groups: [{
+      filter: {
+        tag: ['!language'],
+      },
+    }] as SkillGroup[],
   },
 };
 
@@ -143,10 +161,8 @@ const mergeConfig = (defaultConfig: DefaultConfig, config: Config): DefaultConfi
     hobbies: mergeConfigItems('hobbies', defaultConfig, config),
     skills: {
       show: config.skills?.show ?? defaultConfig.skills.show,
-      filter: {
-        id: config.skills?.filter?.id ?? defaultConfig.skills.filter.id,
-        level: mergeMinMax(defaultConfig.skills.filter.level, config.skills?.filter?.level),
-      },
+      filter: (config.skills?.filter ?? defaultConfig.skills.filter) as SkillFilter,
+      groups: (config.skills?.groups ?? defaultConfig.skills.groups) as SkillGroup[],
     },
   };
 };

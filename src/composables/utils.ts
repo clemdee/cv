@@ -7,6 +7,14 @@ export type RecursivePartial<T> = {
 
 export const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
+export const clamp = (number: number, min: number, max: number) => {
+  return Math.max(min, Math.min(number, max));
+};
+
+export const isBetween = (number: number, min: number, max: number) => {
+  return number >= min && number <= max;
+};
+
 export const randomInt = (min: number, max: number): number => {
   return Math.floor(Math.random() * (max - min) + min);
 };

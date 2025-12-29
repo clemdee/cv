@@ -20,7 +20,7 @@ type SpreadTwo<L, R> = Id<
 type Spread<A extends readonly [...any]> = A extends [infer L, ...infer R]
   ? SpreadTwo<L, Spread<R>> : unknown;
 
-export const mergeShallow = <A extends object[]>(...a: [...A]) => {
+export const mergeShallow = <A extends (object | undefined)[]>(...a: [...A]) => {
   return Object.assign({}, ...a) as Spread<A>;
 };
 
