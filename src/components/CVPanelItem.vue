@@ -78,7 +78,7 @@
         class="location"
       >
         <Icon icon="mdi:home-city-outline" />
-        <CVText :text="item?.location?.name" />
+        <CVText :text="item?.location?.title" />
         <br />
         <Icon icon="mdi:map-marker-outline" />
         <CVText :text="item?.location?.location" />

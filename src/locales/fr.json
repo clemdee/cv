@@ -41,187 +41,21 @@
   },
 
   "locations": {
-    "items": {
-      "primarySchool": {
-        "name": "École Primaire Ferdinand Buisson",
-        "location": "Montmorency, France"
-      },
-      "juniorHighschool": {
-        "name": "Collège Pierre de Ronsard",
-        "location": "Montmorency, France"
-      },
-      "highschool": {
-        "name": "Lycée Jean-Jacques Rousseau",
-        "location": "Montmorency, France"
-      },
-      "eisti": {
-        "name": "EISTI (École Internationale des Sciences du Traitement de l'Information)",
-        "location": "Cergy, France"
-      },
-      "ets": {
-        "name": "ÉTS (École de Technologie Supérieure)",
-        "location": "Montréal, Canada"
-      }
-    }
   },
 
   "education": {
-    "title": "Formation",
-    "items": {
-      "primarySchool": {
-        "title": "École Primaire",
-        "description": ""
-      },
-      "juniorHighschool": {
-        "title": "Collège",
-        "description": ""
-      },
-      "highschool": {
-        "title": "Lycée",
-        "description": "Baccalauréat Scientifique mention Très Bien, section Européenne"
-      },
-      "prepa": {
-        "title": "Cycle Préparatoire Intégré",
-        "description": "Prépa Intégrée, Équivalence L2 Mathématiques / Informatique"
-      },
-      "engineering": {
-        "title": "Cycle Ingénieur - Génie Informatique",
-        "description": "Cycle ingénieur Informatique. Spécialisation Cyber Security pour la dernière année"
-      },
-      "engineeringETS": {
-        "title": "Cycle Ingénieur",
-        "description": "Semestre à l'étranger"
-      }
-    }
+    "title": "Formation"
   },
 
   "experience": {
-    "title": "Expérience",
-    "items": {
-      "eisti-TIPE": {
-        "title": "Réalisation d'une Intelligence Artificielle pour le jeu de plateau Quoridor",
-        "description": "Prise en main du logiciel Unity et du langage C#"
-      },
-      "eisti-turtle": {
-        "title": "Générateur de L-Systèmes en python",
-        "description": "Utilisation de la librairie python turtle, afin de générer des systèmes Lindenmayer à partir de fichiers de configuration. Il supporte les grammaires paramétriques, contextuelles, et stochastiques."
-      },
-      "eisti-bezier": {
-        "title": "Editeur de courbes de Bézier en python",
-        "description": "Utilisation de la librairie python tkinter, afin de créer une interface graphique permettant à l'utilisateur de dessiner des courbes de Bézier. Le programme supporte également d'autres courbes comme les splines, les b-splines et les nurbs."
-      },
-      "eisti-oh-hell": {
-        "title": "Implémentation du jeu de cartes de l'ascenseur",
-        "description": "Utilisation du langage de programmation Ocaml afin d'implémenter une version TUI du jeu de l'ascenseur"
-      },
-      "eisti-TSP": {
-        "title": "Approche du TSP (Traveling Salesman Problem)",
-        "description": "Implémentation de l'algorithme de Little, en langage Ocaml"
-      },
-      "eisti-LabVIEW": {
-        "title": "Création d'un synthétiseur avec LabVIEW",
-        "description": "Création d'un synthétiseur triple oscillateurs, à l'aide du langage de programmation visuelle LabVIEW. Il comporte également des effets tels que du délai, de la reverb, ou encore de la ring modulation."
-      },
-      "eisti-footbet": {
-        "title": "Développement d'un site de pari pour la coupe du monde de football 2018",
-        "description": "Projet sélectionné par l'école et hébergé sur ses serveurs durant l'évènement"
-      },
-      "eisti-vdsa": {
-        "title": "Développement d'un tableau de bord pour une entreprise",
-        "description": "Projet d'école en langage web répondant aux besoins réels de l'entreprise VDSA"
-      },
-      "eistikathon-1": {
-        "title": "Équipe gagnante de l'EISTIKATHON, hackathon organisé par CAPFI et l'EISTI",
-        "description": "Développement en 24h d'une application d'aide pour personnes en situation de handicap",
-        "duties": [
-          "Rôle de Product Owner de l'équipe",
-          "Travail sous contrainte de temps très stricte"
-        ]
-      },
-      "eisti-internship-ing1": {
-        "title": "Premier stage de programmation à XWikiSAS",
-        "description": "Développement sur le logiciel Open Source CryptPad.",
-        "duties": [
-          "Conception de nouvelles fonctionnalités orientées produit",
-          "Correction de bugs et amélioration de la stabilité",
-          "Amélioration continue de l'ergonomie et de l'UX"
-        ]
-      },
-      "eistikathon-2": {
-        "title": "Participation à la seconde édition de l'EISTIKATHON, hackathon organisé par CAPFI et l'EISTI",
-        "description": "Development pendant 24h d'un application de report d'incidents, permettant de suivre l'avancement de l'intervention"
-      },
-      "eisti-internship-ing2": {
-        "title": "Second stage de programmation à XWikiSAS",
-        "description": "Implémentation d'un composant d'agrégation et de présentation de données en temps réel sur le logiciel Open Source XWiki",
-        "duties": [
-          "Gestion de projet en autonomie complète",
-          "Conception d'APIs frontend et backend",
-          "Conception d'interfaces UI/UX en tenant compte des contraintes techniques"
-        ]
-      },
-      "eisti-alternance": {
-        "title": "Contrat de professionnalisation à XWikiSAS",
-        "description": "Poursuite du développement du composant d'agrégation de données en temps réel du stage précédent. Début du travail dans l'équipe Client"
-      },
-      "google-hash-code-2021": {
-        "title": "Participation au hackathon Google Hash Code de 2021",
-        "description": "Notre équipe \"from random import *\" s'est positionnée 559ème !"
-      },
-      "xwiki-cdi": {
-        "title": "Ingénieur R&D à XWikiSAS",
-        "description": "Travail dans l'équipe Client de XWiki, personnalisant le logiciel afin de répondre aux besoins clients.",
-        "duties": [
-          "Développement d'interfaces conformes aux maquettes fournies",
-          "Respect de contraintes strictes de temps et de livrables",
-          "Travail en équipe Agile et coordination inter-équipes",
-          "Entretien de la documentation technique et fonctionnelle"
-        ]
-      },
-      "sabbatical": {
-        "title": "Temps sabbatique",
-        "description": "Prise d'un temps sabbatique afin de pouvoir explorer différents projets, dans la musique et la programmation"
-      }
-    }
+    "title": "Expérience"
   },
 
   "hobbies": {
-    "title": "Centres d'intérêt",
-    "items": {
-      "music": {
-        "title": "Musique",
-        "duties": [
-          "Violoncelliste à l'orchestre semi-professionnel d'Orsay depuis 2022",
-          "Bassiste en groupe se produisant en concert selon les occasions",
-          "Production musicale sur ordinateur",
-          "Ancien membre du bureau de l'association de musique de mon école d'ingénieur pendant mes études"
-        ]
-      },
-      "projects": {
-        "title": "Programmation - projets personnels",
-        "description": "Je programme beaucoup pendant mon temps libre, ce qui me permet d'expérimenter, d'apprendre et de renforcer mon expertise sur l'écosystème web, et notamment sur Vue.js. Certains projets sont publiques sur mon github."
-      },
-      "projects-cv": {
-        "title": "CV",
-        "description": "Programmation de mon CV en Vue, parce que finalement pourquoi pas"
-      },
-      "projects-enalion": {
-        "title": "Site web Enalion",
-        "description": "Site web pour mon groupe de musique Enalion."
-      },
-      "projects-amalgamemusic": {
-        "title": "Site web Amalgame",
-        "description": "Site web pour mon projet de musique Amalgame"
-      }
-    }
+    "title": "Centres d'intérêt"
   },
 
   "skills": {
-    "title": "Compétences",
-    "items": {
-      "fr": "Français",
-      "en": "Anglais",
-      "es": "Espagnol"
-    }
+    "title": "Compétences"
   }
 }

@@ -24,7 +24,7 @@
       <div class="education-body">
         <div class="location">
           <Icon icon="mdi:home-city-outline" />
-          <CVText :text="props.education.location?.name" />
+          <CVText :text="props.education.location?.title" />
           <br />
           <Icon icon="mdi:map-marker-outline" />
           <CVText :text="props.education.location?.location" />

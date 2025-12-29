@@ -1,5 +1,6 @@
+import type { LocalizedString } from '~/i18n';
 import { reactiveComputed } from '@vueuse/core';
-import { t, tm } from '~/i18n';
+import { t, td } from '~/i18n';
 import dataJSON from './data';
 
 export type Percentage = Partial<number>;
@@ -13,17 +14,23 @@ export interface DateSpan {
 
 export interface JSONLocation {
   id: string
+  title: LocalizedString
+  location: LocalizedString
   map?: [latitude: number, longitude: number]
 }
 
 export interface JSONSkill {
   id: string
+  title: LocalizedString
   level: Percentage
   tags?: string[]
 }
 
 export interface JSONExperience {
   id: string
+  title: LocalizedString
+  description?: LocalizedString
+  duties?: LocalizedString[]
   date: DateSpan
   location?: JSONLocation['id']
   skills?: JSONSkill['id'][]
@@ -32,6 +39,8 @@ export interface JSONExperience {
 
 export interface JSONEducation {
   id: string
+  title: LocalizedString
+  description?: LocalizedString
   date: DateSpan
   location?: JSONLocation['id']
   certifications?: string[]
@@ -39,6 +48,9 @@ export interface JSONEducation {
 
 export interface JSONHobby {
   id: string
+  title: LocalizedString
+  description?: LocalizedString
+  duties?: LocalizedString[]
   date?: DateSpan
   url?: string
   skills?: JSONSkill['id'][]
@@ -59,7 +71,7 @@ export type DataConst = typeof dataJSON;
 
 export interface Location {
   id: string
-  name: string
+  title: string
   location: string
   map?: [latitude: number, longitude: number]
 }
@@ -160,8 +172,8 @@ const getList = <T>(ids: string[] | undefined, getter: (id: string) => T | undef
 
 const resolveLocation = (location: JSONLocation): Location => reactiveComputed<Location>(() => ({
   id: location.id,
-  location: t(`locations.items.${location.id}.location`),
-  name: t(`locations.items.${location.id}.name`),
+  location: td(location.location),
+  title: td(location.title),
   map: location.map,
 }));
 
@@ -198,7 +210,7 @@ const createSkill = (id: string): Skill => reactiveComputed<Skill>(() => ({
 const resolveSkill = (skill: JSONSkill): Skill => reactiveComputed<Skill>(() => ({
   type: 'skill',
   id: skill.id,
-  title: t(`skills.items.${skill.id}`) ?? skill.id,
+  title: td(skill.title) ?? skill.id,
   level: skill.level,
   tags: skill.tags,
 }));
@@ -222,9 +234,9 @@ const getSkills = (ids?: string[]) => getList(ids, getSkill);
 const resolveEducation = (education: JSONEducation): Education => reactiveComputed<Education>(() => ({
   type: 'education',
   id: education.id,
+  title: td(education.title),
+  description: td(education.description),
   date: education.date,
-  description: t(`education.items.${education.id}.description`),
-  title: t(`education.items.${education.id}.title`),
   location: getLocation(education.location),
   certifications: getCertifications(education.certifications),
 }));
@@ -232,10 +244,10 @@ const resolveEducation = (education: JSONEducation): Education => reactiveComput
 const resolveExperience = (experience: JSONExperience): Experience => reactiveComputed<Experience>(() => ({
   type: 'experience',
   id: experience.id,
+  title: td(experience.title),
+  description: td(experience.description),
+  duties: experience.duties?.map(duty => td(duty)) ?? [],
   date: experience.date,
-  description: t(`experience.items.${experience.id}.description`),
-  duties: tm(`experience.items.${experience.id}.duties`) ?? [],
-  title: t(`experience.items.${experience.id}.title`),
   location: getLocation(experience.location),
   certifications: getCertifications(experience.certifications),
   skills: getSkills(experience.skills),
@@ -244,11 +256,11 @@ const resolveExperience = (experience: JSONExperience): Experience => reactiveCo
 const resolveHobby = (hobby: JSONHobby): Hobby => reactiveComputed<Hobby>(() => ({
   type: 'hobbies',
   id: hobby.id,
+  title: td(hobby.title),
+  description: td(hobby.description),
+  duties: hobby.duties?.map(duty => td(duty)) ?? [],
   date: hobby.date,
-  description: t(`hobbies.items.${hobby.id}.description`),
   url: hobby.url,
-  duties: tm(`hobbies.items.${hobby.id}.duties`) ?? [],
-  title: t(`hobbies.items.${hobby.id}.title`),
   skills: getSkills(hobby.skills),
 }));
 
