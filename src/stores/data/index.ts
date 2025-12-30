@@ -1,6 +1,7 @@
 import type { LocalizedString } from '~/i18n';
 import { reactiveComputed } from '@vueuse/core';
-import { t, td } from '~/i18n';
+import { mergeShallow } from '~/composables/merge';
+import { formatPhone, t, td } from '~/i18n';
 import dataJSON from './data';
 
 export type Percentage = Partial<number>;
@@ -11,6 +12,31 @@ export interface DateSpan {
 }
 
 /* JSON Typings */
+
+export interface JSONProfile {
+  name: string
+  pronouns?: LocalizedString
+  nationality?: LocalizedString
+  birthdate?: {
+    year: number
+    month: number
+    day: number
+  }
+  address?: {
+    number?: string
+    street?: string
+    city?: string
+    postalCode?: string
+    country?: string
+  }
+  phone?: string
+  email?: string
+  links?: {
+    title: LocalizedString
+    url: string
+    icon: string
+  }[]
+}
 
 export interface JSONLocation {
   id: string
@@ -57,7 +83,10 @@ export interface JSONHobby {
 }
 
 export interface JSONData {
-  profile: any
+  title: LocalizedString
+  subtitle: LocalizedString
+  objective: LocalizedString
+  profile: JSONProfile
   locations: JSONLocation[]
   education: JSONEducation[]
   experience: JSONExperience[]
@@ -68,6 +97,31 @@ export interface JSONData {
 export type DataConst = typeof dataJSON;
 
 /* Data Typings */
+
+export interface Profile {
+  name: string
+  pronouns?: string
+  nationality?: string
+  birthdate?: {
+    year: number
+    month: number
+    day: number
+  }
+  address: {
+    number?: string
+    street?: string
+    city?: string
+    postalCode?: string
+    country?: string
+  }
+  phone?: string
+  email?: string
+  links: {
+    title: string
+    url: string
+    icon: string
+  }[]
+}
 
 export interface Location {
   id: string
@@ -137,7 +191,10 @@ export interface Item {
 }
 
 export interface Data {
-  profile: DataConst['profile']
+  title: string
+  subtitle: string
+  objective: string
+  profile: Profile
   locations: Location[]
   education: Education[]
   experience: Experience[]
@@ -169,6 +226,21 @@ const getList = <T>(ids: string[] | undefined, getter: (id: string) => T | undef
     .map(id => getter(id))
     .filter(v => v !== undefined) as T[];
 };
+
+const resolveProfile = (profile: JSONProfile): Profile => reactiveComputed<Profile>(() => mergeShallow(
+  profile,
+  {
+    nationality: td(profile.nationality),
+    pronouns: td(profile.pronouns),
+    address: profile.address ?? {},
+    phone: formatPhone(profile.phone),
+    links: profile.links?.map(link => ({
+      title: td(link.title),
+      url: link.url,
+      icon: link.icon,
+    })) ?? [],
+  } satisfies Partial<Profile>,
+));
 
 const resolveLocation = (location: JSONLocation): Location => reactiveComputed<Location>(() => ({
   id: location.id,
@@ -265,7 +337,10 @@ const resolveHobby = (hobby: JSONHobby): Hobby => reactiveComputed<Hobby>(() => 
 }));
 
 const data: Data = reactiveComputed<Data>(() => ({
-  profile: dataJSON.profile,
+  title: td(dataJSON.title),
+  subtitle: td(dataJSON.subtitle),
+  objective: td(dataJSON.objective),
+  profile: resolveProfile(dataJSON.profile),
   locations: dataJSON.locations.map(location => resolveLocation(location)),
   education: dataJSON.education.map(education => resolveEducation(education)),
   experience: dataJSON.experience.map(experience => resolveExperience(experience)),

@@ -1,33 +1,16 @@
 {
-  "title": "Clément Desableau",
-  "subtitle": "Vue web developer",
-
   "coordinates": {
-    "name": "Clément Desableau",
-    "pronouns": "(they/them)",
     "age": "{age} years old",
-    "nationality": "French",
     "address": {
       "street": "{number} {street}",
       "city": "{postalCode} {city}",
       "country": "{country}",
       "full": "@:coordinates.address.street \n @:coordinates.address.city \n @:coordinates.address.country"
-    },
-    "phone": "{international}",
-    "linkedin": {
-      "name": "Clément Desableau"
-    },
-    "github": {
-      "name": "clemdee"
-    },
-    "cv": {
-      "name": "Online CV"
     }
   },
 
   "objective": {
-    "title": "Objective",
-    "content": "French engineer in computer science. I love to create. I love to learn. Looking for a job in software engineering, in webapp development using Vue."
+    "title": "Objective"
   },
 
   "languages": {
@@ -38,9 +21,6 @@
       "intermediary": "intermediary",
       "beginner": "beginner"
     }
-  },
-
-  "locations": {
   },
 
   "education": {

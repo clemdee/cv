@@ -4,10 +4,11 @@
     <CVAsideCoordinates />
 
     <CVAsideArticle
+      v-if="data.objective"
       :title="t('objective.title')"
       anchor-id="objective"
     >
-      <CVText :text="t('objective.content')" />
+      <CVText :text="data.objective" />
     </CVAsideArticle>
     <CVAsideLanguage />
   </div>
@@ -20,8 +21,10 @@ import CVAsideCoordinates from '~/components/CVAsideCoordinates.vue';
 import CVAsideLanguage from '~/components/CVAsideLanguage.vue';
 import CVPicture from '~/components/CVPicture.vue';
 import CVText from '~/components/CVText.vue';
+import { useData } from '~/stores/data';
 
 const { t } = useI18n();
+const data = useData();
 </script>
 
 <style lang="scss" scoped>

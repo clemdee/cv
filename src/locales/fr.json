@@ -1,33 +1,16 @@
 {
-  "title": "Clément Desableau",
-  "subtitle": "Développeur web VueJS",
-
   "coordinates": {
-    "name": "Clément Desableau",
-    "pronouns": "(il/iel/elle)",
     "age": "{age} ans",
-    "nationality": "français",
     "address": {
       "street": "{number} {street}",
       "city": "{postalCode} {city}",
       "country": "{country}",
       "full": "@:coordinates.address.street \n @:coordinates.address.city"
-    },
-    "phone": "{national}",
-    "linkedin": {
-      "name": "Clément Desableau"
-    },
-    "github": {
-      "name": "clemdee"
-    },
-    "cv": {
-      "name": "CV en ligne"
     }
   },
 
   "objective": {
-    "title": "Description",
-    "content": "Ingénieur en informatique. J'adore créer. J'adore apprendre. À la recherche d'un travail en ingénierie logiciel, dans le développement d'applications web Vue."
+    "title": "Description"
   },
 
   "languages": {
@@ -38,9 +21,6 @@
       "intermediary": "intermédiaire",
       "beginner": "débutant"
     }
-  },
-
-  "locations": {
   },
 
   "education": {

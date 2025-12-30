@@ -1,14 +1,32 @@
 import type { JSONData } from '.';
 
 export default {
+  title: 'Clément Desableau',
+  subtitle: {
+    en: 'Vue web developer',
+    fr: 'Développeur web VueJS',
+  },
+
+  objective: {
+    en: 'French engineer in computer science. I love to create. I love to learn. Looking for a job in software engineering, in webapp development using Vue.',
+    fr: 'Ingénieur en informatique. J\'adore créer. J\'adore apprendre. À la recherche d\'un travail en ingénierie logiciel, dans le développement d\'applications web Vue.',
+  },
+
   profile: {
     name: 'Clément Desableau',
+    pronouns: {
+      en: '(they/them)',
+      fr: '(il/iel/elle)',
+    },
+    nationality: {
+      en: 'French',
+      fr: 'français',
+    },
     birthdate: {
       year: 1998,
       month: 5,
       day: 25,
     },
-    nationality: 'fr',
     address: {
       number: '',
       street: '',
@@ -18,15 +36,26 @@ export default {
     },
     phone: '',
     email: '',
-    cv: {
-      link: 'https://clemdee.github.io/cv/',
-    },
-    linkedin: {
-      link: 'https://www.linkedin.com/in/cl%C3%A9ment-desableau-92a411170',
-    },
-    github: {
-      link: 'https://github.com/ClemDee',
-    },
+    links: [
+      {
+        title: {
+          en: 'Online CV',
+          fr: 'CV en ligne',
+        },
+        url: 'https://clemdee.github.io/cv/',
+        icon: 'mdi:external-link',
+      },
+      {
+        title: 'Clément Desableau',
+        url: 'https://www.linkedin.com/in/cl%C3%A9ment-desableau-92a411170',
+        icon: 'mdi:linkedin',
+      },
+      {
+        title: 'clemdee',
+        url: 'https://github.com/clemdee',
+        icon: 'mdi:github',
+      },
+    ],
   },
 
   locations: [

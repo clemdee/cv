@@ -1,23 +1,26 @@
 <template>
   <article class="coordinates">
-    <h2><CVText :text="t('coordinates.name')" /></h2>
+    <h2><CVText :text="data.profile.name" /></h2>
 
     <div class="items">
       <div class="item">
         <Icon icon="mdi:user" />
         <div>
-          <CVText :text="`${t('coordinates.age', { age })}, ${t('coordinates.nationality')}`" />
+          <CVText :text="`${t('coordinates.age', { age })}, ${data.profile.nationality}`" />
           <template v-if="showPronouns">
             <br />
             <CVText
               class="pronouns"
-              :text="t('coordinates.pronouns', '')"
+              :text="data.profile.pronouns"
             />
           </template>
         </div>
       </div>
 
-      <div class="item">
+      <div
+        v-if="data.profile.address"
+        class="item"
+      >
         <Icon icon="mdi:map-marker" />
         <CVTextSensitive
           :text="t('coordinates.address.full', data.profile.address).trim()"
@@ -27,7 +30,10 @@
         />
       </div>
 
-      <div class="item">
+      <div
+        v-if="data.profile.email"
+        class="item"
+      >
         <Icon icon="mdi:envelope" />
         <CVTextSensitive
           tag="a"
@@ -37,42 +43,29 @@
         />
       </div>
 
-      <div class="item">
+      <div
+        v-if="data.profile.phone"
+        class="item"
+      >
         <Icon icon="mdi:phone" />
         <CVTextSensitive
           tag="a"
-          :text="t('coordinates.phone', phone)"
+          :text="data.profile.phone"
           :href="`tel:${data.profile.phone}`"
           placeholder="+00123456789"
         />
       </div>
 
-      <div class="cv item">
-        <Icon icon="mdi:external-link" />
+      <div
+        v-for="link in data.profile.links"
+        :key="link.title"
+        class="item"
+      >
+        <Icon :icon="link.icon" />
         <CVText
           tag="a"
-          :text="t('coordinates.cv.name')"
-          :href="data.profile.cv.link"
-          target="_blank"
-        />
-      </div>
-
-      <div class="item">
-        <Icon icon="mdi:linkedin" />
-        <CVText
-          tag="a"
-          :text="t('coordinates.linkedin.name')"
-          :href="data.profile.linkedin.link"
-          target="_blank"
-        />
-      </div>
-
-      <div class="item">
-        <Icon icon="mdi:github" />
-        <CVText
-          tag="a"
-          :text="t('coordinates.github.name')"
-          :href="data.profile.github.link"
+          :text="link.title"
+          :href="link.url"
           target="_blank"
         />
       </div>
@@ -83,7 +76,6 @@
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue';
 import { Temporal } from '@js-temporal/polyfill';
-import parsePhoneNumber from 'libphonenumber-js/min';
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import CVText from '~/components/CVText.vue';
@@ -98,18 +90,11 @@ const data = useData();
 
 const showPronouns = computed(() => {
   if (!config.coordinates?.showPronouns) return false;
-  return !!t('coordinates.pronouns');
-});
-
-const phone = computed(() => {
-  const phone = parsePhoneNumber(data.profile.phone);
-  return {
-    national: phone?.formatNational() ?? '',
-    international: phone?.formatInternational() ?? '',
-  };
+  return !!data.profile.pronouns;
 });
 
 const age = computed(() => {
+  if (!data.profile.birthdate) return;
   const birthdate = Temporal.PlainDate.from(data.profile.birthdate);
   const now = Temporal.Now.plainDateISO();
   return now.since(birthdate)

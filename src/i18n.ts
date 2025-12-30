@@ -1,4 +1,5 @@
 import type { DateSpan } from './stores/data';
+import { parsePhoneNumber } from 'libphonenumber-js/min';
 import { createI18n } from 'vue-i18n';
 import en from '~/locales/en.json';
 import fr from '~/locales/fr.json';
@@ -52,4 +53,13 @@ export const formatDateSpan = (dateSpan: DateSpan | undefined = {}) => {
     : '';
   const sep = from && to ? ' - ' : '';
   return `${from}${sep}${to}`;
+};
+
+export const formatPhone = (phone: string | undefined) => {
+  if (!phone) return;
+  const parsed = parsePhoneNumber(phone);
+  if (i18n.global.locale.value === 'fr') {
+    return parsed.formatNational();
+  }
+  return parsed.formatInternational();
 };
