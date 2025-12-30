@@ -56,7 +56,7 @@ export const formatDateSpan = (dateSpan: DateSpan | undefined = {}) => {
 };
 
 export const formatPhone = (phone: string | undefined) => {
-  if (!phone) return;
+  if (!phone) return phone;
   const parsed = parsePhoneNumber(phone);
   if (i18n.global.locale.value === 'fr') {
     return parsed.formatNational();

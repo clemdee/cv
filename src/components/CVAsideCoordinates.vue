@@ -31,7 +31,7 @@
       </div>
 
       <div
-        v-if="data.profile.email"
+        v-if="data.profile.email !== undefined"
         class="item"
       >
         <Icon icon="mdi:envelope" />
@@ -44,7 +44,7 @@
       </div>
 
       <div
-        v-if="data.profile.phone"
+        v-if="data.profile.phone !== undefined"
         class="item"
       >
         <Icon icon="mdi:phone" />
