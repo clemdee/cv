@@ -4,7 +4,7 @@ import type { RecursivePartial } from '~/composables/utils';
 import type { LocalizedString } from '~/i18n';
 import type { DataConst } from '~/stores/data';
 import { reactive } from 'vue';
-import { mergeDeep } from '~/composables/merge';
+import { mergeDeep, mergeShallow } from '~/composables/merge';
 import { pictures } from '~/composables/profilePicture';
 import { useData } from '~/stores/data';
 import config from './config';
@@ -102,6 +102,7 @@ const defaultConfig = {
   hobbies: createDefaultItem('hobbies'),
   skills: {
     show: true,
+    position: 'content' as 'content' | 'aside',
     filter: {
       level: { min: 0, max: 1 },
       id: [],
@@ -160,11 +161,7 @@ const mergeConfig = (defaultConfig: DefaultConfig, config: Config): DefaultConfi
     education: mergeConfigItems('education', defaultConfig, config),
     experience: mergeConfigItems('experience', defaultConfig, config),
     hobbies: mergeConfigItems('hobbies', defaultConfig, config),
-    skills: {
-      show: config.skills?.show ?? defaultConfig.skills.show,
-      filter: (config.skills?.filter ?? defaultConfig.skills.filter) as SkillFilter,
-      groups: (config.skills?.groups ?? defaultConfig.skills.groups) as SkillGroup[],
-    },
+    skills: mergeShallow(defaultConfig.skills, config.skills),
   };
 };
 

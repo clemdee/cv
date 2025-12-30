@@ -5,7 +5,7 @@
   >
     <CVHeader />
     <CVSectionExperience v-if="config.experience.show" />
-    <CVSectionSkills v-if="config.skills.show" />
+    <CVSectionSkills v-if="showSkills" />
     <CVSectionEducation v-if="config.education.show" />
     <CVSectionHobbies v-if="config.hobbies.show" />
     <div
@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref, useTemplateRef } from 'vue';
+import { computed, onMounted, ref, useTemplateRef } from 'vue';
 import CVHeader from '~/components/CVHeader.vue';
 import CVSectionEducation from '~/components/CVSectionEducation.vue';
 import CVSectionExperience from '~/components/CVSectionExperience.vue';
@@ -27,6 +27,8 @@ import { useConfig } from '~/stores/config';
 const root = useTemplateRef('root');
 const pager = useTemplateRef('pager');
 const config = useConfig();
+
+const showSkills = computed(() => config.skills.show && config.skills.position === 'content');
 
 const lastPageHeight = ref(0);
 
