@@ -21,8 +21,12 @@ const config = useConfig();
 </script>
 
 <style lang="scss" scoped>
-:deep(.cv-skill-item) {
-  color: var(--colorscheme-content-text);
-  background-color: var(--colorscheme-content-background);
+:deep(.skills-group) {
+  padding-inline: 0rem;
+
+  .cv-skill-item {
+    color: var(--colorscheme-content-text);
+    background-color: var(--colorscheme-content-background);
+  }
 }
 </style>
