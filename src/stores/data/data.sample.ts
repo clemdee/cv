@@ -8,8 +8,8 @@ export default {
   },
 
   objective: {
-    en: 'French engineer in computer science. I love to create. I love to learn. Looking for a job in software engineering, in webapp development using Vue.',
-    fr: 'Ingénieur en informatique. J\'adore créer. J\'adore apprendre. À la recherche d\'un travail en ingénierie logiciel, dans le développement d\'applications web Vue.',
+    en: 'French engineer in computer science. I love to create. I love to learn. Looking for a job in software engineering, in webapp development using Vue, or other languages depending on opportunities.',
+    fr: 'Ingénieur en informatique. J\'adore créer. J\'adore apprendre. À la recherche d\'un travail en ingénierie logiciel, dans le développement d\'applications web Vue, ou autres langages selon opportunités.',
   },
 
   profile: {
@@ -217,12 +217,12 @@ export default {
     {
       id: 'sabbatical',
       title: {
-        en: 'Sabbatical time',
-        fr: 'Temps sabbatique',
+        en: 'Semi-professionalization in music',
+        fr: 'Semi-professionnalisation dans la musique',
       },
       description: {
-        en: 'Taking sabbatical time to explore different projects in music and programming.',
-        fr: 'Prise d\'un temps sabbatique afin de pouvoir explorer différents projets, dans la musique et la programmation',
+        en: 'Working on different music-related projects with the aim of professionalisation.',
+        fr: 'Travail sur different projects autour de la musique dans le but d\'une professionalisation',
       },
       date: {
         from: '2024',
@@ -249,6 +249,52 @@ export default {
         'html',
         'css',
         'javascript',
+        'vue',
+        'java',
+        'ui',
+        'ux',
+        'git',
+      ],
+    },
+
+    {
+      id: 'xwiki-pre-cdi',
+      title: {
+        en: 'Intern & work-student at XWikiSAS',
+        fr: 'Stages & alternance à XWikiSAS',
+      },
+      description: {
+        en: 'Development on the Open Source softwares CryptPad and XWiki.',
+        fr: 'Développement sur les logiciels Open Source CryptPad et XWiki.',
+      },
+      duties: [
+        {
+          en: 'Designing UI/UX interfaces, accounting for technical constraints',
+          fr: 'Conception d\'interfaces UI/UX en tenant compte des contraintes techniques',
+        },
+        {
+          en: 'Designing new product-oriented features',
+          fr: 'Conception de nouvelles fonctionnalités orientées produit',
+        },
+        {
+          en: 'Designing front-end and back-end APIs',
+          fr: 'Conception d\'APIs frontend et backend',
+        },
+        {
+          en: 'Bug fixing and stability improvements',
+          fr: 'Correction de bugs et amélioration de la stabilité',
+        },
+      ],
+      date: {
+        from: '2019-05',
+        to: '2021-08',
+      },
+      location: 'xwiki',
+      skills: [
+        'html',
+        'css',
+        'javascript',
+        'jquery',
         'vue',
         'java',
         'ui',
