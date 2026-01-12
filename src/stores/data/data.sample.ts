@@ -240,6 +240,24 @@ export default {
         en: 'Working in Client Team, customizing software to meet client needs.',
         fr: 'Travail dans l\'équipe Client de XWiki, personnalisant le logiciel afin de répondre aux besoins clients.',
       },
+      duties: [
+        {
+          en: 'Developing interfaces based on provided mockups',
+          fr: 'Développement d\'interfaces conformes aux maquettes fournies',
+        },
+        {
+          en: 'Delivering work under strict time and deliverable constraints',
+          fr: 'Respect de contraintes strictes de temps et de livrables',
+        },
+        {
+          en: 'Collaborating in Agile methodology, coordinating across teams',
+          fr: 'Travail en équipe Agile et coordination inter-équipes',
+        },
+        {
+          en: 'Maintaining technical and functional documentation',
+          fr: 'Entretien de la documentation technique et fonctionnelle',
+        },
+      ],
       date: {
         from: '2021-09',
         to: '2023-12',
@@ -359,6 +377,20 @@ export default {
         en: 'Implementing a real-time data aggregator component on the Open Source software XWiki',
         fr: 'Implémentation d\'un composant d\'agrégation et de présentation de données en temps réel sur le logiciel Open Source XWiki',
       },
+      duties: [
+        {
+          en: 'Leading project with full autonomy',
+          fr: 'Gestion de projet en autonomie complète',
+        },
+        {
+          en: 'Designing front-end and back-end APIs',
+          fr: 'Conception d\'APIs frontend et backend',
+        },
+        {
+          en: 'Designing UI/UX interfaces, accounting for technical constraints',
+          fr: 'Conception d\'interfaces UI/UX en tenant compte des contraintes techniques',
+        },
+      ],
       date: {
         from: '2020-05',
         to: '2020-08',
@@ -409,6 +441,20 @@ export default {
         en: 'Development on the Open Source software CryptPad.',
         fr: 'Développement sur le logiciel Open Source CryptPad.',
       },
+      duties: [
+        {
+          en: 'Designing new product-oriented features',
+          fr: 'Conception de nouvelles fonctionnalités orientées produit',
+        },
+        {
+          en: 'Bug fixing and stability improvements',
+          fr: 'Correction de bugs et amélioration de la stabilité',
+        },
+        {
+          en: 'Enhancing usability and user experience',
+          fr: 'Amélioration continue de l\'ergonomie et de l\'UX',
+        },
+      ],
       date: {
         from: '2019-05',
         to: '2019-08',
@@ -435,6 +481,16 @@ export default {
         en: '24-H hackathon where teams develop an accessibility application to help disabled people',
         fr: 'Développement en 24h d\'une application d\'aide pour personnes en situation de handicap',
       },
+      duties: [
+        {
+          en: 'Product owner of my team',
+          fr: 'Rôle de Product Owner de l\'équipe',
+        },
+        {
+          en: 'Delivering work under very strict time constraints',
+          fr: 'Travail sous contrainte de temps très stricte',
+        },
+      ],
       date: {
         from: '2018-12',
         to: '2018-12',
@@ -623,6 +679,24 @@ export default {
         en: 'Music',
         fr: 'Musique',
       },
+      duties: [
+        {
+          en: 'Cellist at the Orsay semi-professional orchestra since 2022',
+          fr: 'Violoncelliste à l\'orchestre semi-professionnel d\'Orsay depuis 2022',
+        },
+        {
+          en: 'Bassist in a band performing live on occasion',
+          fr: 'Bassiste en groupe se produisant en concert selon les occasions',
+        },
+        {
+          en: 'Computer music production',
+          fr: 'Production musicale sur ordinateur',
+        },
+        {
+          en: 'Former member of the music association committee at my engineering school during my studies',
+          fr: 'Ancien membre du bureau de l\'association de musique de mon école d\'ingénieur pendant mes études',
+        },
+      ],
     },
 
     {
