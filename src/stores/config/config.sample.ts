@@ -7,7 +7,7 @@ export default {
   },
 
   profile: {
-    filename: 'profile-2.jpg',
+    filename: 'profile-3.jpg',
     frame: 'roundedHalf',
   },
 
@@ -33,18 +33,26 @@ export default {
         min: '2015',
       },
       id: [
+        'projects-2026',
         'sabbatical',
         'xwiki-cdi',
         'eisti-alternance',
         'eisti-internship-ing2',
         'eisti-internship-ing1',
-        'eistikathon-1',
       ],
     },
   },
 
   hobbies: {
-
+    filter: {
+      id: [
+        'music',
+        'projects',
+        'projects-cv',
+        'projects-amalgamemusic',
+        'projects-trainvoiceonline',
+      ],
+    },
   },
 
   skills: {

@@ -1,26 +1,26 @@
 import type { JSONData } from '.';
 
 export default {
-  title: 'Clément Desableau',
+  title: 'Clem Desableau',
   subtitle: {
     en: 'Vue web developer',
-    fr: 'Développeur web VueJS',
+    fr: 'Développeuse web VueJS',
   },
 
   objective: {
     en: 'French engineer in computer science. I love to create. I love to learn. Looking for a job in software engineering, in webapp development using Vue, or other languages depending on opportunities.',
-    fr: 'Ingénieur en informatique. J\'adore créer. J\'adore apprendre. À la recherche d\'un travail en ingénierie logiciel, dans le développement d\'applications web Vue, ou autres langages selon opportunités.',
+    fr: 'Ingénieure en informatique. J\'adore créer. J\'adore apprendre. À la recherche d\'un travail en ingénierie logiciel, dans le développement d\'applications web Vue, ou autres langages selon opportunités.',
   },
 
   profile: {
-    name: 'Clément Desableau',
+    name: 'Clem Desableau',
     pronouns: {
-      en: '(they/them)',
-      fr: '(il/iel/elle)',
+      en: '(she/they)',
+      fr: '(elle/iel)',
     },
     nationality: {
       en: 'French',
-      fr: 'français',
+      fr: 'française',
     },
     birthdate: {
       year: 1998,
@@ -46,8 +46,8 @@ export default {
         icon: 'mdi:external-link',
       },
       {
-        title: 'Clément Desableau',
-        url: 'https://www.linkedin.com/in/cl%C3%A9ment-desableau-92a411170',
+        title: 'Clem Desableau',
+        url: 'https://www.linkedin.com/in/clem-desableau-92a411170',
         icon: 'mdi:linkedin',
       },
       {
@@ -215,6 +215,33 @@ export default {
 
   experience: [
     {
+      id: 'projects-2026',
+      title: {
+        en: 'VueJS Webapp development',
+        fr: 'Developpement d\'applications web VueJS',
+      },
+      description: {
+        en: 'Developping several web applications, using Vue framework\nSome of these projects are listed at the end of CV',
+        fr: 'Developpement de plusieurs applications web, utilisant le framework Vue\nCertains de ces projets sont listés en fin de CV',
+      },
+      date: {
+        from: '2024',
+        to: '2026',
+      },
+      skills: [
+        'html',
+        'css',
+        'typescript',
+        'vue',
+        'ui',
+        'ux',
+        'vite',
+        'git',
+        'cicd',
+      ],
+    },
+
+    {
       id: 'sabbatical',
       title: {
         en: 'Semi-professionalization in music',
@@ -222,7 +249,7 @@ export default {
       },
       description: {
         en: 'Working on different music-related projects with the aim of professionalisation.',
-        fr: 'Travail sur different projects autour de la musique dans le but d\'une professionalisation',
+        fr: 'Travail sur différents projets autour de la musique dans le but d\'une professionalisation',
       },
       date: {
         from: '2024',
@@ -233,8 +260,8 @@ export default {
     {
       id: 'xwiki-cdi',
       title: {
-        en: 'R&D Engineer at XWikiSAS',
-        fr: 'Ingénieur R&D à XWikiSAS',
+        en: 'R&D Engineer at XWiki',
+        fr: 'Ingénieure R&D à XWiki',
       },
       description: {
         en: 'Working in Client Team, customizing software to meet client needs.',
@@ -278,8 +305,8 @@ export default {
     {
       id: 'xwiki-pre-cdi',
       title: {
-        en: 'Intern & work-student at XWikiSAS',
-        fr: 'Stages & alternance à XWikiSAS',
+        en: 'Intern & work-student at XWiki',
+        fr: 'Stages & alternance à XWiki',
       },
       description: {
         en: 'Development on the Open Source softwares CryptPad and XWiki.',
@@ -343,8 +370,8 @@ export default {
     {
       id: 'eisti-alternance',
       title: {
-        en: 'Work-student at XWikiSAS',
-        fr: 'Contrat de professionnalisation à XWikiSAS',
+        en: 'Work-student at XWiki',
+        fr: 'Contrat de professionnalisation à XWiki',
       },
       description: {
         en: 'Continuing the development of the real-time data aggregator component from previous internship. Starting to work in Client team.',
@@ -370,8 +397,8 @@ export default {
     {
       id: 'eisti-internship-ing2',
       title: {
-        en: 'Second programmation internship at XWikiSAS',
-        fr: 'Second stage de programmation à XWikiSAS',
+        en: 'Second programmation internship at XWiki',
+        fr: 'Second stage de programmation à XWiki',
       },
       description: {
         en: 'Implementing a real-time data aggregator component on the Open Source software XWiki',
@@ -434,8 +461,8 @@ export default {
     {
       id: 'eisti-internship-ing1',
       title: {
-        en: 'First programmation internship at XWikiSAS',
-        fr: 'Premier stage de programmation à XWikiSAS',
+        en: 'First programmation internship at XWiki',
+        fr: 'Premier stage de programmation à XWiki',
       },
       description: {
         en: 'Development on the Open Source software CryptPad.',
@@ -685,8 +712,8 @@ export default {
           fr: 'Violoncelliste à l\'orchestre semi-professionnel d\'Orsay depuis 2022',
         },
         {
-          en: 'Bassist in a band performing live on occasion',
-          fr: 'Bassiste en groupe se produisant en concert selon les occasions',
+          en: 'Bassist performing live on occasion',
+          fr: 'Bassiste se produisant en concert selon les occasions',
         },
         {
           en: 'Computer music production',
@@ -694,7 +721,7 @@ export default {
         },
         {
           en: 'Former member of the music association committee at my engineering school during my studies',
-          fr: 'Ancien membre du bureau de l\'association de musique de mon école d\'ingénieur pendant mes études',
+          fr: 'Ancienne membre du bureau de l\'association de musique de mon école d\'ingénieur pendant mes études',
         },
       ],
     },
@@ -783,6 +810,35 @@ export default {
         'ui',
         'ux',
         'a11y',
+        'vite',
+        'git',
+        'cicd',
+      ],
+    },
+
+    {
+      id: 'projects-trainvoiceonline',
+      title: {
+        en: 'Train Voice Online',
+        fr: 'Train Voice Online',
+      },
+      description: {
+        en: 'Online web app for vocal training',
+        fr: 'Application web d\'entrainement vocal',
+      },
+      date: {
+        from: '2026',
+      },
+      url: 'https://trainvoice.online',
+      skills: [
+        'html',
+        'css',
+        'typescript',
+        'vue',
+        'ui',
+        'ux',
+        'a11y',
+        'i18n',
         'vite',
         'git',
         'cicd',
@@ -972,7 +1028,7 @@ export default {
     {
       id: 'c',
       title: 'C',
-      level: 0.7,
+      level: 0.65,
       tags: [
         'programming',
       ],
@@ -980,7 +1036,7 @@ export default {
     {
       id: 'cpp',
       title: 'C++',
-      level: 0.75,
+      level: 0.70,
       tags: [
         'programming',
       ],
@@ -1004,7 +1060,7 @@ export default {
     {
       id: 'python',
       title: 'Python',
-      level: 0.85,
+      level: 0.70,
       tags: [
         'programming',
       ],
@@ -1066,6 +1122,15 @@ export default {
       tags: [
         'programming',
         'design',
+        'main',
+      ],
+    },
+    {
+      id: 'i18n',
+      title: 'I18n',
+      level: 0.75,
+      tags: [
+        'programming',
         'main',
       ],
     },
