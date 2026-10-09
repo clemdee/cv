@@ -1,6 +1,10 @@
 # Data sensitive files
-src/stores/data/data.ts
-src/stores/config/config.ts
+src/stores/data/*
+!src/stores/data/index.ts
+!src/stores/data/data.sample.ts
+src/stores/config/*
+!src/stores/config/index.ts
+!src/stores/config/config.sample.ts
 output/*
 
 # Logs
