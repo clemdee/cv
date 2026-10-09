@@ -113,6 +113,18 @@ const updateScrollHeight = (el: HTMLElement) => {
     border-radius: 0.5rem;
     cursor: pointer;
 
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 1.05rem;
+      left: -0.4rem;
+      width: 0.2rem;
+      height: 0.2rem;
+      border-radius: 0.1rem;
+      background-color: var(--colorscheme-secondary);
+    }
+
     &:hover {
       --hover-color: rgb(from var(--colorscheme-content-text) r g b / 0.15);
       box-shadow:
@@ -167,9 +179,19 @@ const updateScrollHeight = (el: HTMLElement) => {
   &.editing {
     cursor: pointer;
 
+    .cv-base-item-wrapper::before {
+      display: none;
+    }
+
     .cv-base-item-content {
       pointer-events: none;
       user-select: none;
+    }
+  }
+
+  &:has(.qrcode) {
+    .cv-base-item-wrapper::before {
+      display: none;
     }
   }
 
