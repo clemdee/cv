@@ -70,7 +70,7 @@
         </span>
 
         <Icon
-          v-else
+          v-else-if="currentPicture"
           icon="codex:loader"
         />
       </div>
