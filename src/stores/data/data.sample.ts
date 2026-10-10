@@ -221,8 +221,8 @@ export default {
         fr: 'Developpement d\'applications web VueJS',
       },
       description: {
-        en: 'Developping several web applications, using Vue framework\nSome of these projects are listed at the end of CV',
-        fr: 'Developpement de plusieurs applications web, utilisant le framework Vue\nCertains de ces projets sont listés en fin de CV',
+        en: 'Developing several web applications, using Vue framework\nSome of these projects are listed at the end of CV',
+        fr: 'Développement de plusieurs applications web, utilisant le framework Vue\nCertains de ces projets sont listés en fin de CV',
       },
       date: {
         from: '2024',
@@ -249,7 +249,7 @@ export default {
       },
       description: {
         en: 'Working on different music-related projects with the aim of professionalisation.',
-        fr: 'Travail sur différents projets autour de la musique dans le but d\'une professionalisation',
+        fr: 'Travail sur différents projets autour de la musique dans le but d\'une professionnalisation',
       },
       date: {
         from: '2024',
@@ -397,7 +397,7 @@ export default {
     {
       id: 'eisti-internship-ing2',
       title: {
-        en: 'Second programmation internship at XWiki',
+        en: 'Second programming internship at XWiki',
         fr: 'Second stage de programmation à XWiki',
       },
       description: {
@@ -442,7 +442,7 @@ export default {
       },
       description: {
         en: 'Development of an application for reporting incidents, and keep track of the intervention',
-        fr: 'Development pendant 24h d\'un application de report d\'incidents, permettant de suivre l\'avancement de l\'intervention',
+        fr: 'Dévelopment pendant 24h d\'une application de report d\'incidents, permettant de suivre l\'avancement de l\'intervention',
       },
       date: {
         from: '2019-12',
@@ -641,7 +641,7 @@ export default {
       id: 'eisti-bezier',
       title: {
         en: 'Bezier curves editor in python',
-        fr: 'Editeur de courbes de Bézier en python',
+        fr: 'Éditeur de courbes de Bézier en python',
       },
       description: {
         en: 'GUI to draw Bezier curves using tkinter',
