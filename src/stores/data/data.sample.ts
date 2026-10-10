@@ -47,7 +47,7 @@ export default {
       },
       {
         title: 'Clem Desableau',
-        url: 'https://www.linkedin.com/in/clem-desableau-92a411170',
+        url: 'https://www.linkedin.com/in/clem-desableau',
         icon: 'mdi:linkedin',
       },
       {
