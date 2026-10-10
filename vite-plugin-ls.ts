@@ -33,7 +33,7 @@ export default function lsPlugin (): Plugin {
     load (id) {
       const path = getLsPath(id);
       if (path) {
-        const absolutePath = join(__dirname, path);
+        const absolutePath = join(import.meta.dirname, path);
         const files = readdirSync(absolutePath);
         return `export default ${JSON.stringify(files)}`;
       }
