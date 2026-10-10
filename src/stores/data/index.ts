@@ -205,7 +205,15 @@ export interface Data {
 export const languageLevels = {
   motherTongue: 1,
   fluent: 0.8,
-  intermediary: 0.5,
+  intermediate: 0.5,
+  beginner: 0,
+};
+
+export const skillLevels = {
+  expert: 0.9,
+  highlyProficient: 0.8,
+  proficient: 0.66,
+  intermediate: 0.36,
   beginner: 0,
 };
 

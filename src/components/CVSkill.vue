@@ -26,7 +26,20 @@
     </transition>
 
     <template #content>
-      {{ skillName }}: {{ skillLevel * 100 }}/100
+      <div class="tippy-content">
+        <div class="skill-name">
+          {{ skillName }}
+        </div>
+        <div class="skill-level">
+          <div
+            class="meter"
+            :style="{
+              '--percentage': `${props.skill.level * 100}%`,
+            }"
+          />
+          <span class="title">{{ skillLevel }}</span>
+        </div>
+      </div>
     </template>
   </Tippy>
 </template>
@@ -34,19 +47,32 @@
 <script lang="ts" setup>
 import type { Skill } from '~/stores/data';
 import { computed, ref, useTemplateRef } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { Tippy } from 'vue-tippy';
 import CVText from '~/components/CVText.vue';
 import GlintWrapper from '~/components/GlintWrapper.vue';
 import { useConfig } from '~/stores/config';
+import { skillLevels } from '~/stores/data';
 
 const props = defineProps<{
   skill: Skill
 }>();
 
+const { t } = useI18n();
 const config = useConfig();
 
+const getSkillLevel = (skill: Skill) => {
+  return Object.entries(skillLevels)
+    .toSorted(([, thresholdA], [, thresholdB]) => thresholdB - thresholdA)
+    .find(([, threshold]) => skill.level >= threshold)?.[0];
+};
+
+const getSkillLevelTitle = (skill: Skill) => {
+  return t(`skills.levels.${getSkillLevel(skill)}`);
+};
+
 const skillName = computed(() => props.skill.title);
-const skillLevel = computed(() => props.skill.level);
+const skillLevel = computed(() => getSkillLevelTitle(props.skill));
 
 const input = useTemplateRef('input');
 
@@ -109,6 +135,45 @@ const updateScrollWidth = (el: Element) => {
 
     &.hidden {
       opacity: 0.5;
+    }
+  }
+}
+</style>
+
+<style lang="scss">
+.tippy-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0.2rem;
+
+  .skill-name {
+    font-weight: bold;
+  }
+
+  .skill-level {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+
+    .meter {
+      display: inline-block;
+      height: 0.5rem;
+      width: 5rem;
+      border-radius: 0.5rem;
+      background-image: linear-gradient(
+        to right,
+        var(--colorscheme-secondary) 0% var(--percentage),
+        currentColor var(--percentage) 100%
+      );
+    }
+
+    .title {
+      font-style: italic;
+      text-transform: capitalize;
     }
   }
 }

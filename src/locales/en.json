@@ -18,7 +18,7 @@
     "levels": {
       "motherTongue": "mother tongue",
       "fluent": "fluent",
-      "intermediary": "intermediary",
+      "intermediate": "intermediate",
       "beginner": "beginner"
     }
   },
@@ -36,6 +36,13 @@
   },
 
   "skills": {
-    "title": "Skills"
+    "title": "Skills",
+    "levels": {
+      "expert": "expert",
+      "highlyProficient": "highly proficient",
+      "proficient": "proficient",
+      "intermediate": "competent",
+      "beginner": "beginner"
+    }
   }
 }
