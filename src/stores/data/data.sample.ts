@@ -218,12 +218,26 @@ export default {
       id: 'projects-2026',
       title: {
         en: 'VueJS Webapp development',
-        fr: 'Developpement d\'applications web VueJS',
+        fr: 'Développement d\'applications web VueJS',
       },
       description: {
-        en: 'Developing several web applications, using Vue framework\nSome of these projects are listed at the end of CV',
-        fr: 'Développement de plusieurs applications web, utilisant le framework Vue\nCertains de ces projets sont listés en fin de CV',
+        en: 'Some of these projects are listed at the end of CV',
+        fr: 'Certains de ces projets sont listés en fin de CV',
       },
+      duties: [
+        {
+          en: 'Developed intuitive interfaces, taking into account users needs and feedback',
+          fr: 'Conception d\'interfaces intuitives, prenant en comptes les besoins et retours utilisateurs',
+        },
+        {
+          en: 'Explored AI applications to increase productivity',
+          fr: 'Exploration de l\'IA et de ses usages sur la productivité',
+        },
+        {
+          en: 'Setup CI/CD for automatic production tests and deployment',
+          fr: 'Mise en place de pipelines CI/CD pour automatiser les tests et déploiement en production',
+        },
+      ],
       date: {
         from: '2024',
         to: '2026',
@@ -248,7 +262,7 @@ export default {
         fr: 'Semi-professionnalisation dans la musique',
       },
       description: {
-        en: 'Working on different music-related projects with the aim of professionalisation.',
+        en: 'Worked on different music-related projects with the aim of professionalisation.',
         fr: 'Travail sur différents projets autour de la musique dans le but d\'une professionnalisation',
       },
       date: {
@@ -264,24 +278,24 @@ export default {
         fr: 'Ingénieure R&D à XWiki',
       },
       description: {
-        en: 'Working in Client Team, customizing software to meet client needs.',
+        en: 'Worked in Client Team, customizing software to meet client needs.',
         fr: 'Travail dans l\'équipe Client de XWiki, personnalisant le logiciel afin de répondre aux besoins clients.',
       },
       duties: [
         {
-          en: 'Developing interfaces based on provided mockups',
+          en: 'Developped interfaces based on provided mockups',
           fr: 'Développement d\'interfaces conformes aux maquettes fournies',
         },
         {
-          en: 'Delivering work under strict time and deliverable constraints',
+          en: 'Devlivered work under strict time and deliverable constraints',
           fr: 'Respect de contraintes strictes de temps et de livrables',
         },
         {
-          en: 'Collaborating in Agile methodology, coordinating across teams',
+          en: 'Collaborated in Agile methodology, coordinating across teams',
           fr: 'Travail en équipe Agile et coordination inter-équipes',
         },
         {
-          en: 'Maintaining technical and functional documentation',
+          en: 'Maintained technical and functional documentation',
           fr: 'Entretien de la documentation technique et fonctionnelle',
         },
       ],
@@ -314,15 +328,15 @@ export default {
       },
       duties: [
         {
-          en: 'Designing UI/UX interfaces, accounting for technical constraints',
+          en: 'Designed UI/UX interfaces, accounting for technical constraints',
           fr: 'Conception d\'interfaces UI/UX en tenant compte des contraintes techniques',
         },
         {
-          en: 'Designing new product-oriented features',
+          en: 'Designed new product-oriented features',
           fr: 'Conception de nouvelles fonctionnalités orientées produit',
         },
         {
-          en: 'Designing front-end and back-end APIs',
+          en: 'Designed front-end and back-end APIs',
           fr: 'Conception d\'APIs frontend et backend',
         },
         {
@@ -374,7 +388,7 @@ export default {
         fr: 'Contrat de professionnalisation à XWiki',
       },
       description: {
-        en: 'Continuing the development of the real-time data aggregator component from previous internship. Starting to work in Client team.',
+        en: 'Continued the development of the real-time data aggregator component from previous internship. Started to work in Client team.',
         fr: 'Poursuite du développement du composant d\'agrégation de données en temps réel du stage précédent. Début du travail dans l\'équipe Client',
       },
       date: {
@@ -401,20 +415,20 @@ export default {
         fr: 'Second stage de programmation à XWiki',
       },
       description: {
-        en: 'Implementing a real-time data aggregator component on the Open Source software XWiki',
+        en: 'Implemented a real-time data aggregator component on the Open Source software XWiki',
         fr: 'Implémentation d\'un composant d\'agrégation et de présentation de données en temps réel sur le logiciel Open Source XWiki',
       },
       duties: [
         {
-          en: 'Leading project with full autonomy',
+          en: 'Leaded project with full autonomy',
           fr: 'Gestion de projet en autonomie complète',
         },
         {
-          en: 'Designing front-end and back-end APIs',
+          en: 'Designed front-end and back-end APIs',
           fr: 'Conception d\'APIs frontend et backend',
         },
         {
-          en: 'Designing UI/UX interfaces, accounting for technical constraints',
+          en: 'Designed UI/UX interfaces, accounting for technical constraints',
           fr: 'Conception d\'interfaces UI/UX en tenant compte des contraintes techniques',
         },
       ],
@@ -470,7 +484,7 @@ export default {
       },
       duties: [
         {
-          en: 'Designing new product-oriented features',
+          en: 'Designed new product-oriented features',
           fr: 'Conception de nouvelles fonctionnalités orientées produit',
         },
         {
@@ -478,7 +492,7 @@ export default {
           fr: 'Correction de bugs et amélioration de la stabilité',
         },
         {
-          en: 'Enhancing usability and user experience',
+          en: 'Enhanced usability and user experience',
           fr: 'Amélioration continue de l\'ergonomie et de l\'UX',
         },
       ],
@@ -514,7 +528,7 @@ export default {
           fr: 'Rôle de Product Owner de l\'équipe',
         },
         {
-          en: 'Delivering work under very strict time constraints',
+          en: 'Delivered work under very strict time constraints',
           fr: 'Travail sous contrainte de temps très stricte',
         },
       ],
