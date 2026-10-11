@@ -217,25 +217,25 @@ export default {
     {
       id: 'projects-2026',
       title: {
-        en: 'VueJS Webapp development',
-        fr: 'Développement d\'applications web VueJS',
+        en: 'Vue.js Webapp development',
+        fr: 'Développement d\'applications web Vue.js',
       },
       description: {
-        en: 'Some of these projects are listed at the end of CV',
-        fr: 'Certains de ces projets sont listés en fin de CV',
+        en: 'Engineered multiple web applications, using Vue.js.\nSome of these projects are listed at the end of CV.',
+        fr: 'Développement de différentes applications web avec Vue.js.\nCertains de ces projets sont listés en fin de CV.',
       },
       duties: [
         {
           en: 'Developed intuitive interfaces, taking into account users needs and feedback',
-          fr: 'Conception d\'interfaces intuitives, prenant en comptes les besoins et retours utilisateurs',
+          fr: 'Conception d\'interfaces prenant en comptes les besoins et retours utilisateurs',
         },
         {
           en: 'Explored AI applications to increase productivity',
-          fr: 'Exploration de l\'IA et de ses usages sur la productivité',
+          fr: 'Exploration de l\'IA et de ses applications sur la productivité',
         },
         {
           en: 'Setup CI/CD for automatic production tests and deployment',
-          fr: 'Mise en place de pipelines CI/CD pour automatiser les tests et déploiement en production',
+          fr: 'Mise en place de CI/CD afin d\'automatiser les tests et déploiements',
         },
       ],
       date: {
